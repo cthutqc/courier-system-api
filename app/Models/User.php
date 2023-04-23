@@ -86,4 +86,9 @@ class User extends Authenticatable
     {
         return $this->transactions()->where(Transaction::TRANSACTION_TYPES[0])->summ('amount');
     }
+
+    public function courier_location():HasOne
+    {
+        return $this->hasOne(CourierLocation::class);
+    }
 }

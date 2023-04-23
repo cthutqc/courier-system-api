@@ -58,4 +58,9 @@ class CustomerController extends Controller
             'success' => 'Customer deleted.',
         ], Response::HTTP_OK);
     }
+
+    public function count()
+    {
+        return User::role('customer')->count();
+    }
 }

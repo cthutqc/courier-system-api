@@ -45,21 +45,23 @@ Route::middleware('auth:sanctum')->group(function () {
 
         Route::prefix('admin')->group(function (){
 
-
             Route::apiResource('orders', \App\Http\Controllers\Api\V1\Admin\OrderController::class);
+
+            Route::put('orders/{order}/accepted', [\App\Http\Controllers\Api\V1\Admin\OrderController::class, 'accepted']);
 
             Route::apiResource('products', \App\Http\Controllers\Api\V1\Admin\ProductController::class);
 
             Route::apiResource('couriers', \App\Http\Controllers\Api\V1\Admin\CourierController::class);
 
+            Route::get('customers/count', [\App\Http\Controllers\Api\V1\Admin\CourierController::class]);
+
             Route::apiResource('customers', \App\Http\Controllers\Api\V1\Admin\CustomerController::class);
 
-            Route::put('orders/{order}/accepted', [\App\Http\Controllers\Api\V1\Admin\OrderController::class, 'accepted']);
+            Route::get('customers/count', [\App\Http\Controllers\Api\V1\Admin\CustomerController::class]);
 
-            Route::put('users/{user}/ambassador', \App\Http\Controllers\Api\V1\Admin\AssignAmbassadorRoleController::class);
+            Route::put('customers/{user}/ambassador', \App\Http\Controllers\Api\V1\Admin\AssignAmbassadorRoleController::class);
 
-            Route::put('users/{user}/ambassador/remove', \App\Http\Controllers\Api\V1\Admin\RemoveAmbassadorRoleController::class);
-
+            Route::put('customers/{user}/ambassador/remove', \App\Http\Controllers\Api\V1\Admin\RemoveAmbassadorRoleController::class);
         });
 
     });

@@ -21,7 +21,8 @@ class CourierResource extends JsonResource
             'phone' => $this->phone,
             'email' => $this->email,
             'active' => $this->active,
-            'courier_information' => (new CourierInformationResource($this->whenLoaded('courier_information'))),
+            'courier_information' => CourierInformationResource::make($this->whenLoaded('courier_information')),
+            'courier_location' => CourierLocationResource::make($this->whenLoaded('courier_location')),
         ];
     }
 }

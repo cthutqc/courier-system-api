@@ -1,17 +1,17 @@
 <?php
 
-namespace Tests\Feature\Amin;
+namespace Tests\Feature\Admin;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class AssignAmbassadorRoleActionTest extends TestCase
+class AssignAmbassadorRoleControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testAssignAmbassadorRoleActionTest()
+    public function testAssignAmbassadorTest()
     {
         $user = User::factory()->create();
 
@@ -21,7 +21,7 @@ class AssignAmbassadorRoleActionTest extends TestCase
             'active' => true,
         ]);
 
-        $response = $this->actingAs($user)->putJson('/api/v1/admin/users/' . $user->id . '/ambassador');
+        $response = $this->actingAs($user)->putJson('/api/v1/admin/customers/' . $user->id . '/ambassador');
 
         $response->assertStatus(201);
     }

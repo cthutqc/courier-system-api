@@ -34,6 +34,8 @@ class CourierController extends Controller
     {
         $user->load('courier_information');
 
+        $user->load('courier_location');
+
         return CourierResource::make($user);
     }
 
@@ -45,6 +47,10 @@ class CourierController extends Controller
         $user->update($request->only('name', 'last_name', 'sure_name', 'email', 'phone'));
 
         $user->courier_information()->update($request->only('address', 'passport_series', 'passport_number', 'passport_issued_by', 'passport_issued_date'));
+
+        return response()->json([
+            'success' => 'Courier updated.',
+        ], Response::HTTP_CREATED);
     }
 
     /**
@@ -57,5 +63,10 @@ class CourierController extends Controller
         return response()->json([
             'success' => 'Courier deleted.',
         ], Response::HTTP_OK);
+    }
+
+    public function count()
+    {
+        return User::role('courier')->count();
     }
 }

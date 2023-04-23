@@ -1,17 +1,17 @@
 <?php
 
-namespace Tests\Feature\Amin;
+namespace Tests\Feature\Admin;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class RemoveAmbassadorRoleActionTest extends TestCase
+class RemoveAmbassadorRoleControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testAssignAmbassadorRoleActionTest()
+    public function testRemoveAmbassadorTest()
     {
         $user = User::factory()->create();
 
@@ -21,7 +21,7 @@ class RemoveAmbassadorRoleActionTest extends TestCase
             'active' => true,
         ]);
 
-        $response = $this->actingAs($user)->putJson('/api/v1/admin/users/' . $user->id . '/ambassador/remove');
+        $response = $this->actingAs($user)->putJson('/api/v1/admin/customers/' . $user->id . '/ambassador/remove');
 
         $response->assertStatus(201);
     }

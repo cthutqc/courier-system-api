@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('courier_information', function (Blueprint $table) {
+        Schema::create('courier_locations', function (Blueprint $table) {
             $table->id();
 
             $table->foreignIdFor(\App\Models\User::class)->nullable()->constrained();
-            $table->integer('passport_series')->nullable();
-            $table->integer('passport_number')->nullable();
-            $table->string('passport_issued_by')->nullable();
-            $table->string('passport_issued_date')->nullable();
-            $table->string('address')->nullable();
+            $table->decimal('latitude', 8, 6)->nullable();
+            $table->decimal('longitude', 8, 6)->nullable();
 
             $table->timestamps();
         });
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('courier_information');
+        Schema::dropIfExists('courier_locations');
     }
 };

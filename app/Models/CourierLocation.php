@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class CourierInformation extends Model
+class CourierLocation extends Model
 {
     use HasFactory;
 
@@ -14,6 +14,6 @@ class CourierInformation extends Model
 
     public function courier():BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->role('courier');
     }
 }
