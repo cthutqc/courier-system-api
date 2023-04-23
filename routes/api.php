@@ -23,37 +23,42 @@ Route::middleware('auth:sanctum')->group(function () {
 
         Route::prefix('customer')->group(function (){
 
-            Route::get('orders', \App\Http\Controllers\Api\V1\Customer\ShowAllOrdersAction::class);
+            Route::get('orders', \App\Http\Controllers\Api\V1\Customer\ShowAllOrdersController::class);
 
-            Route::get('orders/{order}', \App\Http\Controllers\Api\V1\Customer\ShowOrderAction::class);
+            Route::get('orders/{order}', \App\Http\Controllers\Api\V1\Customer\ShowOrderController::class);
 
-            Route::post('orders/create', \App\Http\Controllers\Api\V1\Customer\CreateOrderAction::class);
+            Route::post('orders/create', \App\Http\Controllers\Api\V1\Customer\CreateOrderController::class);
 
         });
 
         Route::prefix('courier')->group(function (){
 
-            Route::get('orders', \App\Http\Controllers\Api\V1\Courier\ShowAllOrdersAction::class);
+            Route::get('orders', \App\Http\Controllers\Api\V1\Courier\ShowAllOrdersController::class);
 
-            Route::get('orders/{order}/start', \App\Http\Controllers\Api\V1\Courier\ShowOrderAction::class);
+            Route::get('orders/{order}/start', \App\Http\Controllers\Api\V1\Courier\ShowOrderController::class);
 
-            Route::put('orders/{order}/start', \App\Http\Controllers\Api\V1\Courier\StartOrderAction::class);
+            Route::put('orders/{order}/start', \App\Http\Controllers\Api\V1\Courier\StartOrderController::class);
 
-            Route::put('orders/{order}/finished', \App\Http\Controllers\Api\V1\Courier\FinishOrderAction::class);
+            Route::put('orders/{order}/finished', \App\Http\Controllers\Api\V1\Courier\FinishOrderController::class);
 
         });
 
         Route::prefix('admin')->group(function (){
 
-            Route::get('orders', \App\Http\Controllers\Api\V1\Admin\ShowAllOrdersAction::class);
 
-            Route::get('orders/{order}', \App\Http\Controllers\Api\V1\Admin\ShowOrderAction::class);
+            Route::apiResource('orders', \App\Http\Controllers\Api\V1\Admin\OrderController::class);
 
-            Route::put('orders/{order}/approved', \App\Http\Controllers\Api\V1\Admin\ApprovedOrderAction::class);
+            Route::apiResource('products', \App\Http\Controllers\Api\V1\Admin\ProductController::class);
 
-            Route::put('users/{user}/ambassador', \App\Http\Controllers\Api\V1\Admin\AssignAmbassadorRoleAction::class);
+            Route::apiResource('couriers', \App\Http\Controllers\Api\V1\Admin\CourierController::class);
 
-            Route::put('users/{user}/ambassador/remove', \App\Http\Controllers\Api\V1\Admin\RemoveAmbassadorRoleAction::class);
+            Route::apiResource('customers', \App\Http\Controllers\Api\V1\Admin\CustomerController::class);
+
+            Route::put('orders/{order}/accepted', [\App\Http\Controllers\Api\V1\Admin\OrderController::class, 'accepted']);
+
+            Route::put('users/{user}/ambassador', \App\Http\Controllers\Api\V1\Admin\AssignAmbassadorRoleController::class);
+
+            Route::put('users/{user}/ambassador/remove', \App\Http\Controllers\Api\V1\Admin\RemoveAmbassadorRoleController::class);
 
         });
 

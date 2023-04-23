@@ -3,22 +3,24 @@
 namespace App\Http\Controllers\Api\V1\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Order;
-use App\Models\OrderStatus;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class ApprovedOrderAction extends Controller
+class RemoveAmbassadorRoleController extends Controller
 {
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Order $order)
+    public function __invoke(User $user)
     {
-        $order->setStatus(OrderStatus::ACCEPTED);
+        if(!$user->hasRole('customer'))
+            abort(403);
+
+        $user->removeRole('ambassador');
 
         return response()->json([
-            'message' => 'Order approved.',
+            'message' => 'Ambassador role remove.',
         ], Response::HTTP_CREATED);
     }
 }

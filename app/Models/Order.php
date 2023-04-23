@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Traits\ChangeOrderStatusTrait;
+use App\Traits\HasStatus;
 use App\Traits\Finishabled;
 use App\Traits\Startabled;
 use Illuminate\Database\Eloquent\Builder;
@@ -10,12 +10,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Order extends Model
 {
-    use HasFactory, ChangeOrderStatusTrait, Finishabled, Startabled;
+    use HasFactory, HasStatus, Finishabled, Startabled, SoftDeletes;
 
     protected $guarded = ['id'];
+
+    protected $dates = ['deleted_at'];
 
     protected $casts = [
         'desired_pick_up_date' => 'datetime',

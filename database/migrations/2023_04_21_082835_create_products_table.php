@@ -17,8 +17,10 @@ return new class extends Migration
             $table->string('name');
             $table->text('text')->nullable();
             $table->integer('price')->default(0);
+            $table->boolean('active')->default(true);
 
             $table->timestamps();
+            $table->softDeletes();
         });
 
         $products = [

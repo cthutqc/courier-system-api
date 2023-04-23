@@ -2,7 +2,7 @@
 
 namespace App\Traits;
 
-trait ChangeOrderStatusTrait
+trait HasStatus
 {
     public function setStatus($status):void
     {

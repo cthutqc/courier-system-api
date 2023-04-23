@@ -72,6 +72,16 @@ class User extends Authenticatable
         return $this->hasMany(Transaction::class);
     }
 
+    public function isCourier():bool
+    {
+        return $this->role('courier');
+    }
+
+    public function isCustomer():bool
+    {
+        return $this->role('customer');
+    }
+
     public function totalReceipts()
     {
         return $this->transactions()->where(Transaction::TRANSACTION_TYPES[0])->summ('amount');

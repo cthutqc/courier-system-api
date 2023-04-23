@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class RemoveAmbassadorRoleAction extends Controller
+class AssignAmbassadorRoleController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -17,10 +17,10 @@ class RemoveAmbassadorRoleAction extends Controller
         if(!$user->hasRole('customer'))
             abort(403);
 
-        $user->removeRole('ambassador');
+        $user->assignRole('ambassador');
 
         return response()->json([
-            'message' => 'Ambassador role remove.',
+            'message' => 'Ambassador role set.',
         ], Response::HTTP_CREATED);
     }
 }

@@ -28,6 +28,7 @@ return new class extends Migration
             $table->dateTime('stop_at')->nullable();
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

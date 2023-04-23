@@ -7,17 +7,17 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class FinishOrderAction extends Controller
+class StartOrderController extends Controller
 {
     /**
      * Handle the incoming request.
      */
     public function __invoke(Order $order)
     {
-        $order->finish();
+        $order->start();
 
         return response()->json([
-            'message' => 'You finished this order.',
+            'message' => 'You pick up order.',
         ], Response::HTTP_CREATED);
     }
 }

@@ -9,7 +9,7 @@ use App\Models\Order;
 use App\Models\OrderStatus;
 use Illuminate\Http\Response;
 
-class CreateOrderAction extends Controller
+class CreateOrderController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -35,7 +35,7 @@ class CreateOrderAction extends Controller
             event(new NewOrderCreated($order));
 
         return response()->json([
-            'message' => 'Your order has been proceed.',
+            'success' => 'Order created.',
         ], Response::HTTP_CREATED);
     }
 }

@@ -7,7 +7,7 @@ use App\Http\Resources\OrderResource;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
-class ShowAllOrdersAction extends Controller
+class ShowAllOrdersController extends Controller
 {
     /**
      * Handle the incoming request.
