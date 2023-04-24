@@ -40,15 +40,6 @@ class FinishedOrderTest extends TestCase
 
         $order->courier()->associate($courier);
 
-        \App\Models\User::all()->each(function ($user){
-            if($user->role('courier') || $user->role('customer'))
-            {
-                Balance::create([
-                    'user_id' => $user->id
-                ]);
-            }
-        });
-
         $order->update([
             'price' => $order->products()->sum('price'),
             'approximate_time' => fake()->time,

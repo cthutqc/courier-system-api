@@ -17,7 +17,7 @@ class FinishOrderController extends Controller
         $order->finish();
 
         return response()->json([
-            'message' => 'You finished this order.',
+            'message' => 'Order finished.',
         ], Response::HTTP_CREATED);
     }
 }

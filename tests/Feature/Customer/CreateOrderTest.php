@@ -19,6 +19,10 @@ class CreateOrderTest extends TestCase
 
         $user->assignRole('customer');
 
+        $user->balance = 150000;
+
+        $user->save();
+
         $response = $this->actingAs($user)->postJson('/api/v1/customer/orders/create', [
             'address_to' => fake()->address(),
             'address_from' => fake()->address(),

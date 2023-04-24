@@ -62,29 +62,9 @@ class User extends Authenticatable
         return $this->hasOne(CourierInformation::class);
     }
 
-    public function balance():HasOne
+    public function totalIncome()
     {
-        return $this->hasOne(Balance::class);
-    }
-
-    public function transactions()
-    {
-        return $this->hasMany(Transaction::class);
-    }
-
-    public function isCourier():bool
-    {
-        return $this->role('courier');
-    }
-
-    public function isCustomer():bool
-    {
-        return $this->role('customer');
-    }
-
-    public function totalReceipts()
-    {
-        return $this->transactions()->where(Transaction::TRANSACTION_TYPES[0])->summ('amount');
+        return $this->orders()->where(PaymentStatus::PAID)->summ('amount');
     }
 
     public function courier_location():HasOne

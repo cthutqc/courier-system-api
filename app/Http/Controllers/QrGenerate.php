@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
+class QrGenerate extends Controller
+{
+    /**
+     * Handle the incoming request.
+     */
+    public function __invoke(Request $request)
+    {
+        return QrCode::size(300)->generate('http://127.0.0.1:8000/');
+    }
+}

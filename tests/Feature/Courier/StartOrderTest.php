@@ -37,15 +37,6 @@ class StartOrderTest extends TestCase
 
         $courier->assignRole('courier');
 
-        \App\Models\User::all()->each(function ($user){
-            if($user->role('courier') || $user->role('customer'))
-            {
-                Balance::create([
-                    'user_id' => $user->id
-                ]);
-            }
-        });
-
         $response = $this->actingAs($courier)->putJson('/api/v1/courier/orders/' . $order->id . '/start', [
             'start_at' => now()
         ]);

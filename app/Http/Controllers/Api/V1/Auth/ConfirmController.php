@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1\Auth;
 use App\Events\AccountConfirmed;
 use App\Http\Controllers\Controller;
 use App\Models\ConfirmCode;
+use App\Notifications\AccountConfirmedNotification;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +41,8 @@ class ConfirmController extends Controller
                 'last_used_at' => now(),
             ]);
 
-            event(new AccountConfirmed($user));
+            if(app()->isProduction())
+                $user->notify(new AccountConfirmedNotification());
 
             return response()->json([
                 'success' => 'Account confirmed',

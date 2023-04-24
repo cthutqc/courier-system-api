@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CustomerOrderStoreRequest;
 use App\Models\Order;
 use App\Models\OrderStatus;
+use App\Models\PaymentStatus;
+use App\Models\Product;
 use Illuminate\Http\Response;
 
 class CreateOrderController extends Controller
@@ -16,6 +18,18 @@ class CreateOrderController extends Controller
      */
     public function __invoke(CustomerOrderStoreRequest $request)
     {
+
+        $total_price = 0;
+
+        foreach($request->products as $product)
+        {
+            $total_price += Product::find($product)->price;
+        }
+
+        if (auth()->user()->balance < $total_price) {
+            throw new \Exception('Insufficient balance.');
+        }
+
         $order = Order::create($request->validated());
 
         $order->customer()->associate(auth()->user());
@@ -27,6 +41,7 @@ class CreateOrderController extends Controller
 
         $order->update([
             'price' => $order->products()->sum('price'),
+            //'payment_status' => PaymentStatus::PENDING,
         ]);
 
         $order->setStatus(OrderStatus::CREATED);

@@ -6,8 +6,8 @@ trait HasStatus
 {
     public function setStatus($status):void
     {
-        $this->update([
-            'status' => $status,
-        ]);
+        $this->status = $status;
+
+        $this->save();
     }
 }

@@ -28,9 +28,6 @@ class EventServiceProvider extends ServiceProvider
         UserRegistered::class => [
             SendUserRegisteredNotification::class
         ],
-        AccountConfirmed::class => [
-            SendAccountConfirmedNotification::class
-        ],
         NewOrderCreated::class => [
             SendNewOrderCreatedNotification::class
         ],

@@ -29,6 +29,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
             Route::post('orders/create', \App\Http\Controllers\Api\V1\Customer\CreateOrderController::class);
 
+            Route::post('recharge-balance', \App\Http\Controllers\Api\V1\Customer\RechargeBalanceController::class);
+
         });
 
         Route::prefix('courier')->group(function (){
@@ -75,3 +77,5 @@ Route::post('auth/login', \App\Http\Controllers\Api\V1\Auth\LoginController::cla
 Route::post('auth/forgot', \App\Http\Controllers\Api\V1\Auth\PassportForgotController::class);
 
 Route::post('auth/reset', \App\Http\Controllers\Api\V1\Auth\PassportResetController::class);
+
+Route::get('qrcode', \App\Http\Controllers\QrGenerate::class);

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('approximate_time')->nullable();
             $table->dateTime('start_at')->nullable();
             $table->dateTime('stop_at')->nullable();
+            $table->string('payment_status')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

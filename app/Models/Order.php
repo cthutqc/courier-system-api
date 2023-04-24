@@ -46,16 +46,6 @@ class Order extends Model
         return $this->belongsTo(OrderStatus::class);
     }
 
-    public function courier_transactions()
-    {
-        return $this->hasMany(Transaction::class);
-    }
-
-    public function receipt()
-    {
-        return $this->courier_transactions()->sum('amount');
-    }
-
     public function scopeFilter(Builder $builder, $request = null):void
     {
         $builder->when($request['active'], function ($q){
