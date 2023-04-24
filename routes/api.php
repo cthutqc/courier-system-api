@@ -21,6 +21,12 @@ Route::middleware('auth:sanctum')->group(function () {
 
         Route::post('auth/logout', \App\Http\Controllers\Api\V1\Auth\LogoutController::class);
 
+        Route::apiResource('conversations', \App\Http\Controllers\Api\V1\ChatController::class);
+
+        Route::post('/conversations/support', [\App\Http\Controllers\Api\V1\SupportController::class, 'store']);
+
+        Route::post('/conversations/{conversation}/send', [\App\Http\Controllers\Api\V1\ChatController::class, 'send']);
+
         Route::prefix('customer')->group(function (){
 
             Route::get('orders', \App\Http\Controllers\Api\V1\Customer\ShowAllOrdersController::class);

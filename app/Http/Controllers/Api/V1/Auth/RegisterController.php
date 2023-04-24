@@ -22,7 +22,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required', 'string', 'min:11', 'max:11', 'unique:users'],
-            'password' => ['required', Password::min(8)->numbers()->uncompromised()],
+            'password' => ['required', Password::min(8)->numbers()],
             'role' => ['required', 'string'],
         ]);
 
@@ -35,7 +35,8 @@ class RegisterController extends Controller
 
         $user->assignRole($request->role);
 
-        event(new UserRegistered($user));
+        if(app()->isProduction())
+            event(new UserRegistered($user));
 
         $device = substr($request->userAgent() ?? '', 0, 255);
 

@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ratings', function (Blueprint $table) {
+        Schema::create('conversations', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('score');
-            $table->text('review')->nullable();
-            $table->foreignIdFor(\App\Models\User::class)->constrained();
-            $table->foreignIdFor(\App\Models\Order::class)->constrained();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('recipient_id');
 
             $table->timestamps();
         });
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ratings');
+        Schema::dropIfExists('conversations');
     }
 };

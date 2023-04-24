@@ -19,6 +19,7 @@ class RateOrderController extends Controller
     {
         Rating::create([
             'score' => $request->score,
+            'review' => $request->review ?: null,
             'order_id' => $order->id,
             'user_id' => $order->courier->id,
         ]);
