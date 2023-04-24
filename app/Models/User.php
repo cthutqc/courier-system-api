@@ -52,9 +52,14 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
-    public function rating():HasMany
+    public function ratings():HasMany
     {
         return $this->hasMany(Rating::class);
+    }
+
+    public function avgRating()
+    {
+        return $this->ratings()->avg('score');
     }
 
     public function courier_information():HasOne

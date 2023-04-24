@@ -1,0 +1,147 @@
+name: Courier
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/courier/orders
+    metadata:
+      groupName: Courier
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle the incoming request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/courier/orders/{order_id}/start'
+    metadata:
+      groupName: Courier
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle the incoming request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      order_id:
+        name: order_id
+        description: 'The ID of the order.'
+        required: true
+        example: 10
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      order_id: 10
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/courier/orders/{order_id}/start'
+    metadata:
+      groupName: Courier
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle the incoming request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      order_id:
+        name: order_id
+        description: 'The ID of the order.'
+        required: true
+        example: 16
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      order_id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/courier/orders/{order_id}/finished'
+    metadata:
+      groupName: Courier
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle the incoming request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      order_id:
+        name: order_id
+        description: 'The ID of the order.'
+        required: true
+        example: 16
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      order_id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

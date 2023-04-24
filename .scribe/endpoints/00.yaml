@@ -1,0 +1,279 @@
+name: Auth
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/auth/confirm
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      code:
+        name: code
+        description: ''
+        required: true
+        example: molestiae
+        type: string
+        custom: []
+    cleanBodyParameters:
+      code: molestiae
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/auth/logout
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle the incoming request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/auth/register
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle the incoming request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: imvvojgdmfzvcleecsy
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address. Must not be greater than 255 characters.'
+        required: true
+        example: stevie22@example.org
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: 'Must be at least 11 characters. Must not be greater than 11 characters.'
+        required: true
+        example: nrwfrizphyd
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: iste
+        type: string
+        custom: []
+      role:
+        name: role
+        description: ''
+        required: true
+        example: ea
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name: imvvojgdmfzvcleecsy
+      email: stevie22@example.org
+      phone: nrwfrizphyd
+      password: iste
+      role: ea
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/auth/login
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle the incoming request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: welch.heidi@example.org
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: eum
+        type: string
+        custom: []
+    cleanBodyParameters:
+      email: welch.heidi@example.org
+      password: eum
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/auth/forgot
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle the incoming request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: nlesch@example.org
+        type: string
+        custom: []
+    cleanBodyParameters:
+      email: nlesch@example.org
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/auth/reset
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle the incoming request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: leonard.halvorson@example.org
+        type: string
+        custom: []
+      token:
+        name: token
+        description: ''
+        required: true
+        example: repudiandae
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: saepe
+        type: string
+        custom: []
+    cleanBodyParameters:
+      email: leonard.halvorson@example.org
+      token: repudiandae
+      password: saepe
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

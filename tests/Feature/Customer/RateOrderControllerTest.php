@@ -1,24 +1,29 @@
 <?php
 
-namespace Courier;
+namespace Tests\Feature\Customer;
 
-use App\Models\Balance;
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class FinishedOrderTest extends TestCase
+class RateOrderControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testFinishedOrderAction()
+    public function testRateOrder()
     {
-        $customer = User::factory()->create();
+        $user = User::factory()->create();
 
-        $customer->update([
-            'balance' => 10000,
-        ]);
+        $user->update(['active' => true]);
+
+        $user->assignRole('customer');
+
+        $user->balance = 150000;
+
+        $user->save();
 
         $order = Order::create([
             'address_to' => fake()->address(),
@@ -28,7 +33,14 @@ class FinishedOrderTest extends TestCase
             'text' => fake()->text,
         ]);
 
-        $order->customer()->associate($customer);
+        $order->customer()->associate($user);
+
+        Product::create([
+            'name' => fake()->firstName,
+            'text' => fake()->text(),
+            'price' => fake()->numberBetween([10000, 15000]),
+            'active' => true,
+        ]);
 
         $order->products()->attach(1);
 
@@ -46,10 +58,12 @@ class FinishedOrderTest extends TestCase
             'start_at' => now()
         ]);
 
-        $response = $this->actingAs($courier)->putJson('/api/v1/courier/orders/' . $order->id . '/finished', [
-            'stop_at' => now()
+        $order->finish();
+
+        $response = $this->actingAs($user)->postJson('/api/v1/customer/orders/' . $order->id . '/rate', [
+            'score' => 5,
         ]);
 
         $response->assertStatus(201);
-}
+    }
 }

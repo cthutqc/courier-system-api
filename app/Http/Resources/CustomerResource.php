@@ -20,7 +20,8 @@ class CustomerResource extends JsonResource
             'sure_name' => $this->sure_name,
             'phone' => $this->phone,
             'email' => $this->email,
-            'active' => $this->active,
+            'active' => $this->when(!auth()->user()->role('courier'), 'active'),
+            'balance' => $this->when(!auth()->user()->role('courier'), 'balance'),
         ];
     }
 }

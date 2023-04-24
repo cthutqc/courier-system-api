@@ -7,7 +7,9 @@ use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
+/**
+ * @group Admin
+ */
 class ProductController extends Controller
 {
     /**

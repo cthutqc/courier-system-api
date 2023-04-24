@@ -31,6 +31,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
             Route::post('recharge-balance', \App\Http\Controllers\Api\V1\Customer\RechargeBalanceController::class);
 
+            Route::post('orders/{order}/rate', \App\Http\Controllers\Api\V1\Customer\RateOrderController::class);
+
         });
 
         Route::prefix('courier')->group(function (){
@@ -55,11 +57,11 @@ Route::middleware('auth:sanctum')->group(function () {
 
             Route::apiResource('couriers', \App\Http\Controllers\Api\V1\Admin\CourierController::class);
 
-            Route::get('customers/count', [\App\Http\Controllers\Api\V1\Admin\CourierController::class]);
+            Route::get('couriers/count', [\App\Http\Controllers\Api\V1\Admin\CourierController::class, 'count']);
 
             Route::apiResource('customers', \App\Http\Controllers\Api\V1\Admin\CustomerController::class);
 
-            Route::get('customers/count', [\App\Http\Controllers\Api\V1\Admin\CustomerController::class]);
+            Route::get('customers/count', [\App\Http\Controllers\Api\V1\Admin\CustomerController::class, 'count']);
 
             Route::put('customers/{user}/ambassador', \App\Http\Controllers\Api\V1\Admin\AssignAmbassadorRoleController::class);
 

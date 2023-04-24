@@ -8,9 +8,12 @@ use App\Http\Resources\CourierResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
+/**
+ * @group Admin
+ */
 class CourierController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */

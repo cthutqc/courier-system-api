@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
 
             $table->integer('score');
-            $table->foreignId('courier_id')->nullable()->references('id')->on('users')->constrained();
-            $table->foreignId('customer_id')->nullable()->references('id')->on('users')->constrained();
+            $table->foreignIdFor(\App\Models\User::class)->constrained();
+            $table->foreignIdFor(\App\Models\Order::class)->constrained();
 
             $table->timestamps();
         });

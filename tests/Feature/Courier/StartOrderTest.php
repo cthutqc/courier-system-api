@@ -28,7 +28,7 @@ class StartOrderTest extends TestCase
         $order->products()->attach(1);
 
         $order->update([
-            'price' => $order->products()->sum('price'),
+            'price' => $order->orderPrice(),
         ]);
 
         $courier = User::factory()->create();

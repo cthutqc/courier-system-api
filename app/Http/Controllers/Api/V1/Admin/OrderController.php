@@ -9,7 +9,9 @@ use App\Models\Order;
 use App\Models\OrderStatus;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
+/**
+ * @group Admin
+ */
 class OrderController extends Controller
 {
     /**

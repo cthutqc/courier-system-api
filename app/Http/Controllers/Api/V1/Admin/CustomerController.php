@@ -8,7 +8,9 @@ use App\Http\Resources\CustomerResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
+/**
+ * @group Admin
+ */
 class CustomerController extends Controller
 {
     /**

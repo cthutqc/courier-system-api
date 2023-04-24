@@ -1,0 +1,854 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/v1/admin/orders:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+  '/api/v1/admin/orders/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                products:
+                  type: object
+                  description: ''
+                  example: []
+                  properties: []
+                address_from:
+                  type: string
+                  description: ''
+                  example: velit
+                address_to:
+                  type: string
+                  description: ''
+                  example: enim
+                desired_pick_up_date:
+                  type: string
+                  description: ''
+                  example: vel
+                desired_delivery_date:
+                  type: string
+                  description: ''
+                  example: illo
+                text:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - products
+                - address_from
+                - address_to
+                - desired_pick_up_date
+                - desired_delivery_date
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the order.'
+        example: 19
+        required: true
+        schema:
+          type: integer
+  '/api/v1/admin/orders/{order_id}/accepted':
+    put:
+      summary: ''
+      operationId: putApiV1AdminOrdersOrder_idAccepted
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: order_id
+        description: 'The ID of the order.'
+        example: 13
+        required: true
+        schema:
+          type: integer
+  /api/v1/admin/products:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: neque
+                price:
+                  type: string
+                  description: ''
+                  example: quod
+              required:
+                - name
+                - price
+      security: []
+  '/api/v1/admin/products/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: nisi
+                price:
+                  type: string
+                  description: ''
+                  example: eligendi
+              required:
+                - name
+                - price
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the product.'
+        example: 9
+        required: true
+        schema:
+          type: integer
+  /api/v1/admin/couriers:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+  '/api/v1/admin/couriers/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: omnis
+                last_name:
+                  type: string
+                  description: ''
+                  example: quidem
+                sure_name:
+                  type: string
+                  description: ''
+                  example: molestiae
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: audie26@example.org
+                phone:
+                  type: string
+                  description: ''
+                  example: neque
+                active:
+                  type: string
+                  description: ''
+                  example: null
+                address:
+                  type: string
+                  description: ''
+                  example: rerum
+                passport_series:
+                  type: string
+                  description: ''
+                  example: et
+                passport_number:
+                  type: string
+                  description: ''
+                  example: et
+                passport_issued_date:
+                  type: string
+                  description: ''
+                  example: dolorem
+                passport_issued_by:
+                  type: string
+                  description: ''
+                  example: sint
+              required:
+                - name
+                - last_name
+                - sure_name
+                - email
+                - phone
+                - address
+                - passport_series
+                - passport_number
+                - passport_issued_date
+                - passport_issued_by
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the courier.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/admin/couriers/count:
+    get:
+      summary: ''
+      operationId: getApiV1AdminCouriersCount
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+  /api/v1/admin/customers:
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+  '/api/v1/admin/customers/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: nostrum
+                last_name:
+                  type: string
+                  description: ''
+                  example: omnis
+                sure_name:
+                  type: string
+                  description: ''
+                  example: qui
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: omurphy@example.com
+                phone:
+                  type: string
+                  description: ''
+                  example: dolores
+                active:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - name
+                - last_name
+                - sure_name
+                - email
+                - phone
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the customer.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/admin/customers/count:
+    get:
+      summary: ''
+      operationId: getApiV1AdminCustomersCount
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+  '/api/v1/admin/customers/{user_id}/ambassador/remove':
+    put:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Admin
+      security: []
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/auth/confirm:
+    post:
+      summary: ''
+      operationId: postApiV1AuthConfirm
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                code:
+                  type: string
+                  description: ''
+                  example: molestiae
+              required:
+                - code
+      security: []
+  /api/v1/auth/logout:
+    post:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      security: []
+  /api/v1/auth/register:
+    post:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: imvvojgdmfzvcleecsy
+                email:
+                  type: string
+                  description: 'Must be a valid email address. Must not be greater than 255 characters.'
+                  example: stevie22@example.org
+                phone:
+                  type: string
+                  description: 'Must be at least 11 characters. Must not be greater than 11 characters.'
+                  example: nrwfrizphyd
+                password:
+                  type: string
+                  description: ''
+                  example: iste
+                role:
+                  type: string
+                  description: ''
+                  example: ea
+              required:
+                - name
+                - email
+                - phone
+                - password
+                - role
+      security: []
+  /api/v1/auth/login:
+    post:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: welch.heidi@example.org
+                password:
+                  type: string
+                  description: ''
+                  example: eum
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/auth/forgot:
+    post:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: nlesch@example.org
+              required:
+                - email
+      security: []
+  /api/v1/auth/reset:
+    post:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: leonard.halvorson@example.org
+                token:
+                  type: string
+                  description: ''
+                  example: repudiandae
+                password:
+                  type: string
+                  description: ''
+                  example: saepe
+              required:
+                - email
+                - token
+                - password
+      security: []
+  /api/v1/courier/orders:
+    get:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Courier
+      security: []
+  '/api/v1/courier/orders/{order_id}/start':
+    get:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Courier
+      security: []
+    put:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Courier
+      security: []
+    parameters:
+      -
+        in: path
+        name: order_id
+        description: 'The ID of the order.'
+        example: 10
+        required: true
+        schema:
+          type: integer
+  '/api/v1/courier/orders/{order_id}/finished':
+    put:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Courier
+      security: []
+    parameters:
+      -
+        in: path
+        name: order_id
+        description: 'The ID of the order.'
+        example: 16
+        required: true
+        schema:
+          type: integer
+  /api/v1/customer/orders:
+    get:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Customer
+      security: []
+  '/api/v1/customer/orders/{order_id}':
+    get:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Customer
+      security: []
+    parameters:
+      -
+        in: path
+        name: order_id
+        description: 'The ID of the order.'
+        example: 5
+        required: true
+        schema:
+          type: integer
+  /api/v1/customer/orders/create:
+    post:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                products:
+                  type: object
+                  description: ''
+                  example: []
+                  properties: []
+                address_from:
+                  type: string
+                  description: ''
+                  example: quas
+                address_to:
+                  type: string
+                  description: ''
+                  example: blanditiis
+                desired_pick_up_date:
+                  type: string
+                  description: ''
+                  example: amet
+                desired_delivery_date:
+                  type: string
+                  description: ''
+                  example: aut
+                text:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - products
+                - address_from
+                - address_to
+                - desired_pick_up_date
+                - desired_delivery_date
+      security: []
+  /api/v1/customer/recharge-balance:
+    post:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Customer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: string
+                  description: ''
+                  example: occaecati
+              required:
+                - amount
+      security: []
+  '/api/v1/customer/orders/{order_id}/rate':
+    post:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Customer
+      security: []
+    parameters:
+      -
+        in: path
+        name: order_id
+        description: 'The ID of the order.'
+        example: 18
+        required: true
+        schema:
+          type: integer
+  '/api/v1/admin/customers/{user_id}/ambassador':
+    put:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Customer
+      security: []
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/qrcode:
+    get:
+      summary: 'Handle the incoming request.'
+      operationId: handleTheIncomingRequest
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+tags:
+  -
+    name: Admin
+    description: ''
+  -
+    name: Auth
+    description: ''
+  -
+    name: Courier
+    description: ''
+  -
+    name: Customer
+    description: ''
+  -
+    name: Endpoints
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []

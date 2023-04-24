@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\OrderResource;
 use App\Models\Order;
 use Illuminate\Http\Request;
-
+/**
+ * @group Customer
+ */
 class ShowAllOrdersController extends Controller
 {
     /**

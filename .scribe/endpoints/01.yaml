@@ -1,0 +1,262 @@
+name: Customer
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/customer/orders
+    metadata:
+      groupName: Customer
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle the incoming request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/customer/orders/{order_id}'
+    metadata:
+      groupName: Customer
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle the incoming request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      order_id:
+        name: order_id
+        description: 'The ID of the order.'
+        required: true
+        example: 5
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      order_id: 5
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/customer/orders/create
+    metadata:
+      groupName: Customer
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle the incoming request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      products:
+        name: products
+        description: ''
+        required: true
+        example: []
+        type: object
+        custom: []
+      address_from:
+        name: address_from
+        description: ''
+        required: true
+        example: quas
+        type: string
+        custom: []
+      address_to:
+        name: address_to
+        description: ''
+        required: true
+        example: blanditiis
+        type: string
+        custom: []
+      desired_pick_up_date:
+        name: desired_pick_up_date
+        description: ''
+        required: true
+        example: amet
+        type: string
+        custom: []
+      desired_delivery_date:
+        name: desired_delivery_date
+        description: ''
+        required: true
+        example: aut
+        type: string
+        custom: []
+      text:
+        name: text
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+    cleanBodyParameters:
+      products: []
+      address_from: quas
+      address_to: blanditiis
+      desired_pick_up_date: amet
+      desired_delivery_date: aut
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/customer/recharge-balance
+    metadata:
+      groupName: Customer
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle the incoming request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      amount:
+        name: amount
+        description: ''
+        required: true
+        example: occaecati
+        type: string
+        custom: []
+    cleanBodyParameters:
+      amount: occaecati
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/customer/orders/{order_id}/rate'
+    metadata:
+      groupName: Customer
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle the incoming request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      order_id:
+        name: order_id
+        description: 'The ID of the order.'
+        required: true
+        example: 18
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      order_id: 18
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/admin/customers/{user_id}/ambassador'
+    metadata:
+      groupName: Customer
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Handle the incoming request.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user_id:
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      user_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

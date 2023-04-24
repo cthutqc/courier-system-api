@@ -20,8 +20,9 @@ class CourierResource extends JsonResource
             'sure_name' => $this->sure_name,
             'phone' => $this->phone,
             'email' => $this->email,
-            'active' => $this->active,
-            'balance' => $this->balance,
+            'active' => $this->when(!auth()->user()->role('customer'), 'active'),
+            'balance' => $this->when(!auth()->user()->role('customer'), 'balance'),
+            'rating' => $this->avgRating(),
             'courier_information' => CourierInformationResource::make($this->whenLoaded('courier_information')),
             'courier_location' => CourierLocationResource::make($this->whenLoaded('courier_location')),
         ];

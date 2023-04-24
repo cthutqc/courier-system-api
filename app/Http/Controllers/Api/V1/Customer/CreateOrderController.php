@@ -10,7 +10,9 @@ use App\Models\OrderStatus;
 use App\Models\PaymentStatus;
 use App\Models\Product;
 use Illuminate\Http\Response;
-
+/**
+ * @group Customer
+ */
 class CreateOrderController extends Controller
 {
     /**
@@ -40,7 +42,7 @@ class CreateOrderController extends Controller
         }
 
         $order->update([
-            'price' => $order->products()->sum('price'),
+            'price' => $order->orderPrice(),
             //'payment_status' => PaymentStatus::PENDING,
         ]);
 

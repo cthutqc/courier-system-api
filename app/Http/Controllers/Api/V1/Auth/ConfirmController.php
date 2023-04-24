@@ -11,12 +11,11 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
-
+/**
+ * @group Auth
+ */
 class ConfirmController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     */
     public function __invoke(Request $request)
     {
         $request->validate([

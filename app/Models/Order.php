@@ -41,6 +41,11 @@ class Order extends Model
         return $this->belongsToMany(Product::class);
     }
 
+    public function orderPrice():int
+    {
+        return $this->products()->sum('price');
+    }
+
     public function order_status():BelongsTo
     {
         return $this->belongsTo(OrderStatus::class);

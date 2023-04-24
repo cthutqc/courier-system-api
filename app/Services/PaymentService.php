@@ -17,7 +17,7 @@ class PaymentService
             auth()->user()->notify(new BalanceRechargedNotification($amount));
     }
 
-    public function process(Order $order)
+    public function process(Order $order):void
     {
         if ($order->customer->balance < $order->price) {
             throw new \Exception('Insufficient balance.');
