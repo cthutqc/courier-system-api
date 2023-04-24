@@ -10,6 +10,16 @@ use Illuminate\Http\Response;
 
 class ChatController extends Controller
 {
+    public function index()
+    {
+        $conversations = Conversation::where('user_id', auth()->user()->id)
+            ->orWhere('recipient_id', auth()->user()->id)
+            ->orderBy('updated_at', 'desc')
+            ->get();
+
+        return response()->json(['conversations' => $conversations]);
+    }
+
     public function show(Conversation $conversation)
     {
         if ($conversation->user_id != auth()->user()->id && $conversation->recipient_id != auth()->user()->id) {
