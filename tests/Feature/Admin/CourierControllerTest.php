@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Admin;
 
-use App\Models\CourierInformation;
+use App\Models\UserPersonalInformation;
 use App\Models\CourierLocation;
 use App\Models\User;
 use Database\Factories\CourierInformationFactory;
@@ -25,7 +25,7 @@ class CourierControllerTest extends TestCase
 
         $courier = User::find(2)->assignRole('courier');
 
-        $courier_information = CourierInformation::factory()->create();
+        $courier_information = UserPersonalInformation::factory()->create();
 
         $courier_information->courier()->associate($courier);
 
@@ -58,7 +58,7 @@ class CourierControllerTest extends TestCase
 
         $courier = User::find(2)->assignRole('courier');
 
-        $courier_information = CourierInformation::factory()->create();
+        $courier_information = UserPersonalInformation::factory()->create();
 
         $courier_information->courier()->associate($courier);
 
@@ -83,7 +83,7 @@ class CourierControllerTest extends TestCase
 
         $courier = User::find(2)->assignRole('courier');
 
-        $courier_information = CourierInformation::factory()->create();
+        $courier_information = UserPersonalInformation::factory()->create();
 
         $courier_information->courier()->associate($courier);
 

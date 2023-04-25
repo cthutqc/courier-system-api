@@ -64,7 +64,7 @@ class User extends Authenticatable
 
     public function courier_information():HasOne
     {
-        return $this->hasOne(CourierInformation::class);
+        return $this->hasOne(UserPersonalInformation::class);
     }
 
     public function totalIncome()

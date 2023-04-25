@@ -19,7 +19,6 @@ return new class extends Migration
             $table->integer('passport_number')->nullable();
             $table->string('passport_issued_by')->nullable();
             $table->string('passport_issued_date')->nullable();
-            $table->string('address')->nullable();
 
             $table->timestamps();
         });
