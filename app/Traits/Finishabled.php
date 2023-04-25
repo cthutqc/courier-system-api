@@ -15,11 +15,11 @@ trait Finishabled
             'stop_at' => now(),
         ]);
 
-        $this->setStatus(OrderStatus::SUCCESS);
-
         $paymentService = new PaymentService();
 
         $paymentService->process($this);
+
+        $this->setStatus(OrderStatus::COMPLETED);
 
     }
 }

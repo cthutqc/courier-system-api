@@ -3,14 +3,13 @@
 namespace App\Http\Controllers\Api\V1\Courier;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CourierControllerStoreRequest;
-use App\Http\Requests\CourierControllerUpdateRequest;
+use App\Http\Requests\CourierUpdateRequest;
 use App\Http\Resources\CourierResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class CourierController extends Controller
+class SettingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +22,7 @@ class CourierController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CourierControllerStoreRequest $request)
+    public function store(Request $request)
     {
         $request->user()->update($request->only('name', 'last_name', 'middle_name'));
 
@@ -31,9 +30,9 @@ class CourierController extends Controller
 
         $request->user()->contact_information()->create($request->only('region', 'city', 'street', 'house', 'flat'));
 
-        $request->user()->addMedia($request->passport_photo_id)->toMediaCollection('passport_id');
+        //$request->user()->addMedia($request->passport_photo_id)->toMediaCollection('passport_id');
 
-        $request->user()->addMedia($request->passport_photo_address)->toMediaCollection('passport_address');
+        // $request->user()->addMedia($request->passport_photo_address)->toMediaCollection('passport_address');
 
         return response()->json([
             'success' => 'Courier profile created.',
@@ -57,7 +56,7 @@ class CourierController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(CourierControllerUpdateRequest $request, User $user)
+    public function update(CourierUpdateRequest $request, User $user)
     {
         $user->update($request->only('name', 'last_name', 'middle_name'));
 
@@ -65,9 +64,15 @@ class CourierController extends Controller
 
         $user->contact_information()->update($request->only('region', 'city', 'street', 'house', 'flat'));
 
-        $request->user()->addMedia($request->passport_photo_id)->toMediaCollection('passport_id');
+        $user->save();
 
-        $request->user()->addMedia($request->passport_photo_address)->toMediaCollection('passport_address');
+        //$request->user()->addMedia($request->passport_photo_id)->toMediaCollection('passport_id');
+
+        // $request->user()->addMedia($request->passport_photo_address)->toMediaCollection('passport_address');
+
+        return response()->json([
+            'success' => 'Courier profile updated.',
+        ], Response::HTTP_CREATED);
     }
 
     /**

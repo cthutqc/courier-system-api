@@ -17,6 +17,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('auth/confirm', \App\Http\Controllers\Api\V1\Auth\ConfirmController::class);
 
+    Route::post('auth/password-change', \App\Http\Controllers\Api\V1\Auth\PasswordChangeController::class);
+
     Route::middleware('user.active')->group(function (){
 
         Route::post('auth/role', \App\Http\Controllers\Api\V1\Auth\RoleController::class);
@@ -45,17 +47,23 @@ Route::middleware('auth:sanctum')->group(function () {
 
         Route::prefix('courier')->group(function (){
 
-            Route::apiResource('profile', \App\Http\Controllers\Api\V1\Courier\CourierController::class);
+            Route::get('/', \App\Http\Controllers\Api\V1\Courier\DashboardController::class);
 
-            Route::get('dashboard', \App\Http\Controllers\Api\V1\Courier\DashboardController::class);
+            Route::post('settings', [\App\Http\Controllers\Api\V1\Courier\SettingController::class, 'store']);
 
-            Route::get('orders', \App\Http\Controllers\Api\V1\Courier\ShowAllOrdersController::class);
+            Route::post('settings/{user}', [\App\Http\Controllers\Api\V1\Courier\SettingController::class, 'update']);
 
-            Route::get('orders/{order}/start', \App\Http\Controllers\Api\V1\Courier\ShowOrderController::class);
+            Route::get('settings/{user}', [\App\Http\Controllers\Api\V1\Courier\SettingController::class, 'show']);
 
-            Route::put('orders/{order}/start', \App\Http\Controllers\Api\V1\Courier\StartOrderController::class);
+            Route::get('ratings', \App\Http\Controllers\Api\V1\Courier\RatingsController::class);
 
-            Route::put('orders/{order}/finished', \App\Http\Controllers\Api\V1\Courier\FinishOrderController::class);
+            Route::get('orders', [\App\Http\Controllers\Api\V1\Courier\OrdersController::class, 'index']);
+
+            Route::get('orders/{order}', [\App\Http\Controllers\Api\V1\Courier\OrdersController::class, 'show']);
+
+            Route::put('orders/{order}/start', [\App\Http\Controllers\Api\V1\Courier\OrdersController::class, 'start']);
+
+            Route::put('orders/{order}/finished', [\App\Http\Controllers\Api\V1\Courier\OrdersController::class, 'finished']);
 
         });
 
@@ -88,8 +96,8 @@ Route::post('auth/register', \App\Http\Controllers\Api\V1\Auth\RegisterControlle
 
 Route::post('auth/login', \App\Http\Controllers\Api\V1\Auth\LoginController::class)->middleware('throttle:10');
 
-Route::post('auth/forgot', \App\Http\Controllers\Api\V1\Auth\PassportForgotController::class);
+Route::post('auth/forgot', \App\Http\Controllers\Api\V1\Auth\PasswordForgotController::class);
 
-Route::post('auth/reset', \App\Http\Controllers\Api\V1\Auth\PassportResetController::class);
+Route::post('auth/reset', \App\Http\Controllers\Api\V1\Auth\PasswordResetController::class);
 
 Route::get('qrcode', \App\Http\Controllers\QrGenerate::class);

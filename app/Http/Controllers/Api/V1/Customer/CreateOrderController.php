@@ -46,7 +46,7 @@ class CreateOrderController extends Controller
             //'payment_status' => PaymentStatus::PENDING,
         ]);
 
-        $order->setStatus(OrderStatus::CREATED);
+        $order->setStatus(OrderStatus::AWAITING_MANAGER_APPROVAL);
 
         if(app()->isProduction())
             event(new NewOrderCreated($order));

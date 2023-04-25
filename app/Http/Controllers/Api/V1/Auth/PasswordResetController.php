@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Password;
 /**
  * @group Auth
  */
-class PassportResetController extends Controller
+class PasswordResetController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -28,7 +28,7 @@ class PassportResetController extends Controller
             $request->only(['token', 'email', 'password']),
             function (User $user, string $password) {
                 $user->forceFill([
-                    'password' => Hash::make($password)
+                    'password' => $password
                 ])->setRememberToken(\Str::random(60));
 
                 $user->save();

@@ -12,4 +12,5 @@ class PaymentStatus extends Model
     const PENDING  = 'pending';
     const PAID  = 'paid';
     const CANCELLED = 'cancelled';
+    const TIPS = 'tips';
 }

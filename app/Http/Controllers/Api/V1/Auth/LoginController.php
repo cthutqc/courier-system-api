@@ -23,13 +23,13 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
-       // $user = User::where('email', $request->email)->first();
+        $user = User::where('email', $request->email)->first();
 
-        if (!$request->user() || !Hash::check($request->password, $request->user()->password)) {
+        if (!$user || !Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
                 'error' => ['Wrong credentials.'],
             ]);
-        } elseif(!$request->user()->active) {
+        } elseif(!$user->active) {
             throw ValidationException::withMessages([
                 'error' => ['Inactive account.'],
             ]);
@@ -40,7 +40,7 @@ class LoginController extends Controller
         $expiresAt = $request->remember ? null : now()->addMinutes(config('session.lifetime'));
 
         return response()->json([
-            'access_token' => $request->user()->createToken($device, expiresAt: $expiresAt)->plainTextToken,
+            'access_token' => $user->createToken($device, expiresAt: $expiresAt)->plainTextToken,
         ], Response::HTTP_CREATED);
     }
 }

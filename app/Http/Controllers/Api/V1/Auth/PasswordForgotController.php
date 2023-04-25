@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Password;
 /**
  * @group Auth
  */
-class PassportForgotController extends Controller
+class PasswordForgotController extends Controller
 {
     /**
      * Handle the incoming request.

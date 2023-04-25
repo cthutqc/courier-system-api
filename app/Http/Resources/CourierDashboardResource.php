@@ -16,12 +16,14 @@ class CourierDashboardResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'name' => $this->name . substr($this->last_name, 0, 1) . '.',
+            'name' => $this->name . ' ' . substr($this->last_name, 0, 1) . '.',
             'total_income' => $this->totalIncome(),
+            'today_income' => $this->todayIncome(),
+            'today_tips' => $this->todayTips(),
             'current_orders_count' => $this->currentOrders(),
             'best_couriers' => CourierRatingResource::collection(User::role('courier')
-                ->withAvg('rating', 'score')
-                ->orderBy('rating_avg_score')
+                ->withAvg('ratings', 'score')
+                ->orderByDesc('ratings_avg_score')
                 ->take(3)
                 ->get()),
         ];

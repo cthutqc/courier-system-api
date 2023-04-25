@@ -8,9 +8,11 @@ trait Startabled
 {
     public function start():void
     {
-        $this->update([
-            'start_at' => now(),
-        ]);
+        $this->courier()->associate(auth()->user());
+
+        $this->start_at = now();
+
+        $this->status = OrderStatus::ON_DELIVERY;
 
         $this->setStatus(OrderStatus::ON_DELIVERY);
     }

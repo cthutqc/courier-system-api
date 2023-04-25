@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ratings', function (Blueprint $table) {
+        Schema::create('payments', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('score');
-            $table->text('review')->nullable();
-            $table->foreignIdFor(\App\Models\User::class)->nullable()->constrained();
-            $table->foreignIdFor(\App\Models\Order::class)->nullable()->constrained();
+            $table->foreignIdFor(\App\Models\User::class)->constrained();
+            $table->foreignIdFor(\App\Models\Order::class)->constrained();
+            $table->integer('amount')->default(0);
+            $table->string('payment_status')->nullable();
 
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ratings');
+        Schema::dropIfExists('payments');
     }
 };

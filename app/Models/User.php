@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -54,6 +55,11 @@ class User extends Authenticatable implements HasMedia
         return $this->hasMany(Order::class);
     }
 
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
+
     public function ratings():HasMany
     {
         return $this->hasMany(Rating::class);
@@ -74,14 +80,35 @@ class User extends Authenticatable implements HasMedia
         return $this->hasOne(ContactInformation::class);
     }
 
-    public function totalIncome():int
+    public function courierOrders():HasMany
     {
-        return $this->orders()->where(PaymentStatus::PAID)->summ('amount');
+        return $this->hasMany(Order::class, 'courier_id');
     }
 
-    public function currentOrder():int
+    public function totalIncome():int
     {
-        return $this->orders()->where(OrderStatus::ON_DELIVERY)->count();
+        return $this->payments()
+            ->sum('amount');
+    }
+
+    public function todayIncome():int
+    {
+        return $this->payments()
+            ->whereDate('created_at', Carbon::today())
+            ->sum('amount');
+    }
+
+    public function todayTips():int
+    {
+        return $this->payments()
+            ->where('payment_status', PaymentStatus::TIPS)
+            ->whereDate('created_at', Carbon::today())
+            ->sum('amount');
+    }
+
+    public function currentOrders():int
+    {
+        return $this->courierOrders()->where('status', OrderStatus::ON_DELIVERY)->count();
     }
 
     public function courier_location():HasOne

@@ -30,7 +30,7 @@ return new class extends Migration
 
         \App\Models\User::create([
             'name' => 'Admin',
-            'email' => 'test@test.test',
+            'email' => 'toserg81@mail.ru',
             'password' => 'password',
             'active' => true,
         ]);

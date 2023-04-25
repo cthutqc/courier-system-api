@@ -19,18 +19,22 @@ class PaymentService
 
     public function process(Order $order):void
     {
-        if ($order->customer->balance < $order->price) {
+        if ($order->customer->balance < $order->orderPrice()) {
             throw new \Exception('Insufficient balance.');
         }
 
-        $order->courier->increment('balance', $order->price);
+        $order->payments()->create([
+            'user_id' => auth()->user()->id,
+            'payment_status' => PaymentStatus::PAID,
+            'amount' => $order->orderPrice()
+        ]);
 
-        $order->customer->decrement('balance', $order->price);
+        $order->courier->increment('balance', $order->orderPrice());
+
+        $order->customer->decrement('balance', $order->orderPrice());
 
        // $commission = $order->total * 0.1; // Assume 10% commission
         //$courier->balance += $commission;
-
-        $order->payment_status = PaymentStatus::PAID;
 
         $order->save();
     }
