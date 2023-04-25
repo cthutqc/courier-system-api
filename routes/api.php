@@ -19,6 +19,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::middleware('user.active')->group(function (){
 
+        Route::post('auth/role', \App\Http\Controllers\Api\V1\Auth\RoleController::class);
+
         Route::post('auth/logout', \App\Http\Controllers\Api\V1\Auth\LogoutController::class);
 
         Route::apiResource('conversations', \App\Http\Controllers\Api\V1\ChatController::class);
@@ -42,6 +44,10 @@ Route::middleware('auth:sanctum')->group(function () {
         });
 
         Route::prefix('courier')->group(function (){
+
+            Route::apiResource('profile', \App\Http\Controllers\Api\V1\Courier\CourierController::class);
+
+            Route::get('dashboard', \App\Http\Controllers\Api\V1\Courier\DashboardController::class);
 
             Route::get('orders', \App\Http\Controllers\Api\V1\Courier\ShowAllOrdersController::class);
 

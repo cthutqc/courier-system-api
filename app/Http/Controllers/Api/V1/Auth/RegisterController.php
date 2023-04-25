@@ -19,23 +19,18 @@ class RegisterController extends Controller
     public function __invoke(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required', 'string', 'min:11', 'max:11', 'unique:users'],
-            'password' => ['required', Password::min(8)->numbers()],
-            'role' => ['required', 'string'],
+            'password' => ['required', 'confirmed', Password::min(8)->numbers()],
         ]);
 
         $user = User::create([
-            'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'password' => $request->password,
         ]);
 
-        $user->assignRole($request->role);
-
-        if(app()->isProduction())
+        //if(app()->isProduction())
             event(new UserRegistered($user));
 
         $device = substr($request->userAgent() ?? '', 0, 255);

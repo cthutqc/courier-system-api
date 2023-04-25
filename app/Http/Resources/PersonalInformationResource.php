@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CourierInformationResource extends JsonResource
+class PersonalInformationResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,7 +15,6 @@ class CourierInformationResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'address' => $this->address,
             'passport_series' => $this->passport_series,
             'passport_number' => $this->passport_number,
             'passport_issued_date' => $this->passport_issued_date,

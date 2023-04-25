@@ -17,7 +17,7 @@ class CustomerResource extends JsonResource
         return [
             'name' => $this->name,
             'last_name' => $this->last_name,
-            'sure_name' => $this->sure_name,
+            'middle_name' => $this->middle_name,
             'phone' => $this->phone,
             'email' => $this->email,
             'active' => $this->when(!auth()->user()->role('courier'), 'active'),

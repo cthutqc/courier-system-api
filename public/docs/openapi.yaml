@@ -264,7 +264,7 @@ paths:
                   type: string
                   description: ''
                   example: quidem
-                sure_name:
+                middle_name:
                   type: string
                   description: ''
                   example: molestiae
@@ -303,7 +303,7 @@ paths:
               required:
                 - name
                 - last_name
-                - sure_name
+                - middle_name
                 - email
                 - phone
                 - address
@@ -392,7 +392,7 @@ paths:
                   type: string
                   description: ''
                   example: omnis
-                sure_name:
+                middle_name:
                   type: string
                   description: ''
                   example: qui
@@ -411,7 +411,7 @@ paths:
               required:
                 - name
                 - last_name
-                - sure_name
+                - middle_name
                 - email
                 - phone
       security: []

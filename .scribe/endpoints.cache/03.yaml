@@ -612,8 +612,8 @@ endpoints:
         example: quidem
         type: string
         custom: []
-      sure_name:
-        name: sure_name
+      middle_name:
+        name: middle_name
         description: ''
         required: true
         example: molestiae
@@ -678,7 +678,7 @@ endpoints:
     cleanBodyParameters:
       name: omnis
       last_name: quidem
-      sure_name: molestiae
+      middle_name: molestiae
       email: audie26@example.org
       phone: neque
       address: rerum
@@ -904,8 +904,8 @@ endpoints:
         example: omnis
         type: string
         custom: []
-      sure_name:
-        name: sure_name
+      middle_name:
+        name: middle_name
         description: ''
         required: true
         example: qui
@@ -935,7 +935,7 @@ endpoints:
     cleanBodyParameters:
       name: nostrum
       last_name: omnis
-      sure_name: qui
+      middle_name: qui
       email: omurphy@example.com
       phone: dolores
     fileParameters: []

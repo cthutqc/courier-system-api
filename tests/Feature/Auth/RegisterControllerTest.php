@@ -13,11 +13,10 @@ class RegisterControllerTest extends TestCase
     public function testUserCanRegister()
     {
         $response = $this->postJson('/api/v1/auth/register', [
-            'name' => fake()->firstName,
             'email' => fake()->unique()->email,
             'phone' => '80000000000',
             'password' => 'password1',
-            'role' => 'customer',
+            'password_confirmation' => 'password1',
         ]);
 
         $response->assertStatus(201);

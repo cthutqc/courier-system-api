@@ -24,11 +24,10 @@ class CourierUpdateRequest extends FormRequest
         return [
             'name' => ['required'],
             'last_name' => ['required'],
-            'sure_name' => ['required'],
+            'middle_name' => ['required'],
             'email' => ['required', 'email'],
             'phone' => ['required'],
             'active' => ['sometimes'],
-            'address' => ['required'],
             'passport_series' => ['required'],
             'passport_number' => ['required'],
             'passport_issued_date' => ['required'],

@@ -2,10 +2,10 @@
 
 namespace Tests\Feature\Admin;
 
-use App\Models\UserPersonalInformation;
+use App\Models\PersonalInformation;
 use App\Models\CourierLocation;
 use App\Models\User;
-use Database\Factories\CourierInformationFactory;
+use Database\Factories\PersonalInformationFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -25,18 +25,17 @@ class CourierControllerTest extends TestCase
 
         $courier = User::find(2)->assignRole('courier');
 
-        $courier_information = UserPersonalInformation::factory()->create();
+        $personal_information = PersonalInformation::factory()->create();
 
-        $courier_information->courier()->associate($courier);
+        $personal_information->user()->associate($courier);
 
         $response = $this->actingAs($user)->putJson('/api/v1/admin/couriers/' . $courier->id, [
             'name' => fake()->firstName,
             'last_name' => fake()->lastName,
-            'sure_name' => fake()->name,
+            'middle_name' => fake()->name,
             'email' => fake()->unique()->email(),
             'phone' => fake()->unique()->phoneNumber,
             'active' => true,
-            'address' => fake()->streetAddress,
             'passport_series' => fake()->randomNumber(4),
             'passport_number' => fake()->randomNumber(6),
             'passport_issued_by' => fake()->title,
@@ -58,9 +57,9 @@ class CourierControllerTest extends TestCase
 
         $courier = User::find(2)->assignRole('courier');
 
-        $courier_information = UserPersonalInformation::factory()->create();
+        $courier_information = PersonalInformation::factory()->create();
 
-        $courier_information->courier()->associate($courier);
+        $courier_information->user()->associate($courier);
 
         $courier_location = CourierLocation::factory()->create();
 
@@ -83,9 +82,9 @@ class CourierControllerTest extends TestCase
 
         $courier = User::find(2)->assignRole('courier');
 
-        $courier_information = UserPersonalInformation::factory()->create();
+        $personal_information = PersonalInformation::factory()->create();
 
-        $courier_information->courier()->associate($courier);
+        $personal_information->user()->associate($courier);
 
         $response = $this->actingAs($user)->delete('/api/v1/admin/couriers/' . $courier->id);
 

@@ -15,7 +15,7 @@ class LogoutController extends Controller
      */
     public function __invoke(Request $request)
     {
-        Auth::user()->currentAccessToken()->delete();
+        $request->user()->currentAccessToken()->delete();
 
         return response()->noContent();
     }

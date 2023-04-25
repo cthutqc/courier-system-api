@@ -33,14 +33,9 @@ class UserRegisteredAdminNotification extends Notification
      */
     public function toMail(object $notifiable): MailMessage
     {
-        if($this->user->hasRole('courier')) {
-            $vacancy = 'курьер';
-        } else {
-            $vacancy = 'пользователь';
-        }
         return (new MailMessage)
-            ->subject('Зарегестрирован новый ' . $vacancy . '.')
-            ->line('В системе зарегестрирован новый ' . $vacancy . ', ' . $this->user->name . '.')
+            ->subject('Зарегестрирован новый пользователь.')
+            ->line('В системе зарегестрирован новый пользователь.')
             ->line('Спасибо.');
     }
 

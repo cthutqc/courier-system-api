@@ -22,17 +22,15 @@ class ConfirmController extends Controller
             'code' => ['required'],
         ]);
 
-        $user = Auth::user();
-
         $code = ConfirmCode::query()
-            ->where('user_id', $user->id)
-            ->where('email', $user->email)
+            ->where('user_id', $request->user()->id)
+            ->where('email', $request->user()->email)
             ->whereNull('last_used_at')
             ->first();
 
         if(Hash::check($request->code, $code->code)) {
 
-            $user->update([
+            $request->user()->update([
                 'active' => true,
             ]);
 
@@ -41,7 +39,7 @@ class ConfirmController extends Controller
             ]);
 
             if(app()->isProduction())
-                $user->notify(new AccountConfirmedNotification());
+                $request->user()->notify(new AccountConfirmedNotification());
 
             return response()->json([
                 'success' => 'Account confirmed',

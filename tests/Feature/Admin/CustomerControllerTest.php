@@ -26,7 +26,7 @@ class CustomerControllerTest extends TestCase
         $response = $this->actingAs($user)->putJson('/api/v1/admin/customers/' . $customer->id, [
             'name' => fake()->firstName,
             'last_name' => fake()->lastName,
-            'sure_name' => fake()->name,
+            'middle_name' => fake()->name,
             'email' => fake()->unique()->email(),
             'phone' => fake()->unique()->phoneNumber,
             'active' => true,

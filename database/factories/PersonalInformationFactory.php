@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\UserPersonalInformation>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\PersonalInformation>
  */
-class CourierInformationFactory extends Factory
+class PersonalInformationFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,6 @@ class CourierInformationFactory extends Factory
     public function definition(): array
     {
         return [
-            'address' => fake()->streetAddress(),
             'passport_series' => fake()->randomNumber(4),
             'passport_number' => fake()->randomNumber(6),
             'passport_issued_by' => fake()->title,

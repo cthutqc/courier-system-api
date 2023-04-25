@@ -24,7 +24,7 @@ class CustomerUpdateRequest extends FormRequest
         return [
             'name' => ['required'],
             'last_name' => ['required'],
-            'sure_name' => ['required'],
+            'middle_name' => ['required'],
             'email' => ['required', 'email'],
             'phone' => ['required'],
             'active' => ['sometimes'],

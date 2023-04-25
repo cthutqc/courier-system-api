@@ -514,7 +514,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"omnis\",\"last_name\":\"quidem\",\"sure_name\":\"molestiae\",\"email\":\"audie26@example.org\",\"phone\":\"neque\",\"address\":\"rerum\",\"passport_series\":\"et\",\"passport_number\":\"et\",\"passport_issued_date\":\"dolorem\",\"passport_issued_by\":\"sint\"}"
+                            "raw": "{\"name\":\"omnis\",\"last_name\":\"quidem\",\"middle_name\":\"molestiae\",\"email\":\"audie26@example.org\",\"phone\":\"neque\",\"address\":\"rerum\",\"passport_series\":\"et\",\"passport_number\":\"et\",\"passport_issued_date\":\"dolorem\",\"passport_issued_by\":\"sint\"}"
                         },
                         "description": "",
                         "auth": {
@@ -709,7 +709,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"nostrum\",\"last_name\":\"omnis\",\"sure_name\":\"qui\",\"email\":\"omurphy@example.com\",\"phone\":\"dolores\"}"
+                            "raw": "{\"name\":\"nostrum\",\"last_name\":\"omnis\",\"middle_name\":\"qui\",\"email\":\"omurphy@example.com\",\"phone\":\"dolores\"}"
                         },
                         "description": "",
                         "auth": {

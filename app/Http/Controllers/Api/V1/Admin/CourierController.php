@@ -35,9 +35,9 @@ class CourierController extends Controller
      */
     public function show(User $user)
     {
-        $user->load('courier_information');
+        $user->load('personal_information');
 
-        $user->load('courier_location');
+        $user->load('contact_information');
 
         return CourierResource::make($user);
     }
@@ -47,9 +47,9 @@ class CourierController extends Controller
      */
     public function update(CourierUpdateRequest $request, User $user)
     {
-        $user->update($request->only('name', 'last_name', 'sure_name', 'email', 'phone'));
+        $user->update($request->only('name', 'last_name', 'middle_name', 'email', 'phone'));
 
-        $user->courier_information()->update($request->only('address', 'passport_series', 'passport_number', 'passport_issued_by', 'passport_issued_date'));
+        $user->personal_information()->update($request->only('passport_series', 'passport_number', 'passport_issued_by', 'passport_issued_date'));
 
         return response()->json([
             'success' => 'Courier updated.',
