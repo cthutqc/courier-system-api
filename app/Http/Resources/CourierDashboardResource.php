@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Courier;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -20,8 +21,8 @@ class CourierDashboardResource extends JsonResource
             'total_income' => $this->totalIncome(),
             'today_income' => $this->todayIncome(),
             'today_tips' => $this->todayTips(),
-            'current_orders_count' => $this->currentOrders(),
-            'best_couriers' => CourierRatingResource::collection(User::role('courier')
+            'current_orders_count' => $this->orders(),
+            'best_couriers' => CourierRatingResource::collection(Courier::query()
                 ->withAvg('ratings', 'score')
                 ->orderByDesc('ratings_avg_score')
                 ->take(3)

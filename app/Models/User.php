@@ -11,13 +11,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
+use Parental\HasChildren;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles, InteractsWithMedia;
+    use HasApiTokens, HasFactory, Notifiable, HasChildren, InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -45,29 +45,20 @@ class User extends Authenticatable implements HasMedia
         'email_verified_at' => 'datetime',
     ];
 
+    protected $childTypes = [
+        'admin' => Admin::class,
+        'courier' => Courier::class,
+        'customer' => Customer::class,
+    ];
+
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);
     }
 
-    public function orders():HasMany
-    {
-        return $this->hasMany(Order::class);
-    }
-
     public function payments()
     {
         return $this->hasMany(Payment::class);
-    }
-
-    public function ratings():HasMany
-    {
-        return $this->hasMany(Rating::class);
-    }
-
-    public function avgRating()
-    {
-        return $this->ratings()->avg('score');
     }
 
     public function personal_information():HasOne
@@ -80,39 +71,18 @@ class User extends Authenticatable implements HasMedia
         return $this->hasOne(ContactInformation::class);
     }
 
-    public function courierOrders():HasMany
+    public function isAdmin(): bool
     {
-        return $this->hasMany(Order::class, 'courier_id');
+        return $this->type === 'admin';
     }
 
-    public function totalIncome():int
+    public function isCourier(): bool
     {
-        return $this->payments()
-            ->sum('amount');
+        return $this->type === 'courier';
     }
 
-    public function todayIncome():int
+    public function isCustomer(): bool
     {
-        return $this->payments()
-            ->whereDate('created_at', Carbon::today())
-            ->sum('amount');
-    }
-
-    public function todayTips():int
-    {
-        return $this->payments()
-            ->where('payment_status', PaymentStatus::TIPS)
-            ->whereDate('created_at', Carbon::today())
-            ->sum('amount');
-    }
-
-    public function currentOrders():int
-    {
-        return $this->courierOrders()->where('status', OrderStatus::ON_DELIVERY)->count();
-    }
-
-    public function courier_location():HasOne
-    {
-        return $this->hasOne(CourierLocation::class);
+        return $this->type === 'customer';
     }
 }

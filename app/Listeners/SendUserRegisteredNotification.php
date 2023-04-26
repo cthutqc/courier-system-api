@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Models\Admin;
 use App\Models\ConfirmCode;
 use App\Models\User;
 use App\Notifications\UserRegisteredAdminNotification;
@@ -22,7 +23,7 @@ class SendUserRegisteredNotification
 
         $event->user->notify(new UserRegisteredNotification($confirmCode));
 
-        User::role('admin')->get()->each(function ($user) use ($event){
+        Admin::all()->each(function ($user) use ($event){
             $user->notify(new UserRegisteredAdminNotification($event->user));
         });
     }

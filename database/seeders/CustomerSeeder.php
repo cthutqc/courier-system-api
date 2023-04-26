@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Customer;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,11 +14,11 @@ class CustomerSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create()->each(function ($user){
+        Customer::factory(10)->create()->each(function ($user){
 
             $user->active = true;
 
-            $user->assignRole('customer');
+            $user->type = 'customer';
 
             $user->update([
                 'name' => fake()->firstName(),

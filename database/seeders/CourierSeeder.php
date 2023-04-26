@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Courier;
 use App\Models\Rating;
-use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Nette\Utils\Random;
@@ -15,13 +15,11 @@ class CourierSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create()->each(function ($user){
+        Courier::factory(10)->create()->each(function ($user){
 
             $user->active = true;
 
-            $user->save();
-
-            $user->assignRole('courier');
+            $user->type = 'courier';
 
             $user->update([
                 'name' => fake()->firstName(),
@@ -35,6 +33,8 @@ class CourierSeeder extends Seeder
             ]);
 
             $user->ratings()->save($rating);
+
+            $user->save();
 
         });
     }

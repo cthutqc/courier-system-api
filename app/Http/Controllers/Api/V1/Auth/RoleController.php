@@ -17,7 +17,9 @@ class RoleController extends Controller
             'role' => ['required']
         ]);
 
-        $request->user()->assignRole($request->role);
+        $request->user()->type = $request->role;
+
+        $request->user()->save();
 
         return response()->json([
             'success' => 'Role is set.'

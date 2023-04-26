@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
 
+            $table->string('type')->nullable();
             $table->string('name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('middle_name')->nullable();
@@ -33,6 +34,7 @@ return new class extends Migration
             'email' => 'toserg81@mail.ru',
             'password' => 'password',
             'active' => true,
+            'type' => 'admin',
         ]);
     }
 

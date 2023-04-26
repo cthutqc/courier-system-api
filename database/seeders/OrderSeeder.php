@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderStatus;
 use App\Models\Product;
@@ -22,7 +23,7 @@ class OrderSeeder extends Seeder
 
            $order->status = OrderStatus::ACCEPTED;
 
-           $order->customer()->associate(User::role('customer')->take(1)->inRandomOrder()->first());
+           $order->customer()->associate(Customer::take(1)->inRandomOrder()->first());
 
            $order->save();
         });
