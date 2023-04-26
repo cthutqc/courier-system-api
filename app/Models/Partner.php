@@ -4,22 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
-use Parental\HasParent;
 
-class Customer extends User
+class Partner extends Model
 {
-    use HasFactory, HasParent;
+    use HasFactory;
 
-    public function orders():HasMany
-    {
-        return $this->hasMany(Order::class, 'courier_id');
-    }
+    protected $guarded = ['id'];
 
-    public function partners():HasMany
+    public function customer():BelongsTo
     {
-        return $this->hasMany(Partner::class, 'user_id');
+        return $this->belongsTo(Customer::class, 'user_id');
     }
 
     public function sender(): MorphOne

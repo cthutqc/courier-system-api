@@ -13,8 +13,8 @@ class PaymentService
     {
         auth()->user()->increment('balance', $amount);
 
-        if(app()->isProduction())
-            auth()->user()->notify(new BalanceRechargedNotification($amount));
+        auth()->user()->notify(new BalanceRechargedNotification($amount));
+
     }
 
     public function process(Order $order):void

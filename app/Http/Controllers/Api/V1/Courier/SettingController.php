@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1\Courier;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CourierUpdateRequest;
 use App\Http\Resources\CourierResource;
+use App\Models\Courier;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -42,29 +43,29 @@ class SettingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show(Courier $courier)
     {
-        $user->load('media');
+        $courier->load('media');
 
-        $user->load('personal_information');
+        $courier->load('personal_information');
 
-        $user->load('contact_information');
+        $courier->load('contact_information');
 
-        return CourierResource::make($user);
+        return CourierResource::make($courier);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(CourierUpdateRequest $request, User $user)
+    public function update(CourierUpdateRequest $request, Courier $courier)
     {
-        $user->update($request->only('name', 'last_name', 'middle_name'));
+        $courier->update($request->only('name', 'last_name', 'middle_name'));
 
-        $user->personal_information()->update($request->only('passport_series', 'passport_number', 'passport_issued_by', 'passport_issued_date'));
+        $courier->personal_information()->update($request->only('passport_series', 'passport_number', 'passport_issued_by', 'passport_issued_date'));
 
-        $user->contact_information()->update($request->only('region', 'city', 'street', 'house', 'flat'));
+        $courier->contact_information()->update($request->only('region', 'city', 'street', 'house', 'flat'));
 
-        $user->save();
+        $courier->save();
 
         //$request->user()->addMedia($request->passport_photo_id)->toMediaCollection('passport_id');
 
@@ -73,13 +74,5 @@ class SettingController extends Controller
         return response()->json([
             'success' => 'Courier profile updated.',
         ], Response::HTTP_CREATED);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(User $user)
-    {
-        //
     }
 }

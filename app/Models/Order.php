@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Order extends Model
@@ -28,6 +29,16 @@ class Order extends Model
         'desired_delivery_date' => 'datetime',
         'approximate_time' => 'string',
     ];
+
+    public function sender(): MorphTo
+    {
+        return $this->morphTo();
+    }
+
+    public function receiver(): MorphTo
+    {
+        return $this->morphTo();
+    }
 
     public function customer():BelongsTo
     {

@@ -14,9 +14,6 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name');
-            $table->string('address_from')->nullable();
-            $table->string('address_to')->nullable();
             $table->text('text')->nullable();
             $table->foreignId('courier_id')->nullable()->references('id')->on('users')->constrained();
             $table->foreignId('customer_id')->nullable()->references('id')->on('users')->constrained();

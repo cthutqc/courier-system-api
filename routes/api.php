@@ -33,15 +33,23 @@ Route::middleware('auth:sanctum')->group(function () {
 
         Route::prefix('customer')->group(function (){
 
-            Route::get('orders', \App\Http\Controllers\Api\V1\Customer\ShowAllOrdersController::class);
+            Route::post('settings', [\App\Http\Controllers\Api\V1\Customer\SettingController::class, 'store']);
 
-            Route::get('orders/{order}', \App\Http\Controllers\Api\V1\Customer\ShowOrderController::class);
+            Route::post('settings/{customer}', [\App\Http\Controllers\Api\V1\Customer\SettingController::class, 'update']);
 
-            Route::post('orders/create', \App\Http\Controllers\Api\V1\Customer\CreateOrderController::class);
+            Route::get('settings/{customer}', [\App\Http\Controllers\Api\V1\Customer\SettingController::class, 'show']);
+
+            Route::apiResource('products', \App\Http\Controllers\Api\V1\Customer\ProductController::class);
+
+            Route::apiResource('partners', \App\Http\Controllers\Api\V1\Customer\PartnerController::class);
+
+            Route::apiResource('orders', \App\Http\Controllers\Api\V1\Customer\OrderController::class);
 
             Route::post('recharge-balance', \App\Http\Controllers\Api\V1\Customer\RechargeBalanceController::class);
 
-            Route::post('orders/{order}/rate', \App\Http\Controllers\Api\V1\Customer\RateOrderController::class);
+            Route::post('orders/{order}/rate', [\App\Http\Controllers\Api\V1\Customer\OrderController::class, 'rate']);
+
+            Route::post('orders/{order}/cancel', [\App\Http\Controllers\Api\V1\Customer\OrderController::class, 'cancel']);
 
         });
 
@@ -51,9 +59,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
             Route::post('settings', [\App\Http\Controllers\Api\V1\Courier\SettingController::class, 'store']);
 
-            Route::post('settings/{user}', [\App\Http\Controllers\Api\V1\Courier\SettingController::class, 'update']);
+            Route::post('settings/{courier}', [\App\Http\Controllers\Api\V1\Courier\SettingController::class, 'update']);
 
-            Route::get('settings/{user}', [\App\Http\Controllers\Api\V1\Courier\SettingController::class, 'show']);
+            Route::get('settings/{courier}', [\App\Http\Controllers\Api\V1\Courier\SettingController::class, 'show']);
 
             Route::get('ratings', \App\Http\Controllers\Api\V1\Courier\RatingsController::class);
 
