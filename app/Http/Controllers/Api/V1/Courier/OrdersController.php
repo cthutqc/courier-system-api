@@ -19,18 +19,18 @@ class OrdersController extends Controller
 
     public function index(Request $request)
     {
-        if($request->list_all)
+        if($request->accepted)
         {
-            $q = Order::query()
-                ->doesnthave('courier');
+            $orders = Order::query()
+                ->doesntHave('courier');
         } else {
-            $q = $request->user()
-                ->courierOrders();
+            $orders = $request->user()
+                ->orders();
         }
 
-        $q->filter($request->all());
+        $orders->filter($request->all());
 
-        return OrderListResource::collection($orders = $q->get());
+        return OrderListResource::collection($orders->get());
     }
 
     public function show(Order $order, Request $request)
@@ -57,14 +57,14 @@ class OrdersController extends Controller
         ], Response::HTTP_CREATED);
     }
 
-    public function finished(Order $order)
+    public function stop(Order $order)
     {
         if($order->status != OrderStatus::ON_DELIVERY)
             return response()->json([
                 'error' => 'You cannot finish this order.',
             ], Response::HTTP_FORBIDDEN);
 
-        $order->finish();
+        $order->stop();
 
         return response()->json([
             'message' => 'Order finished.',

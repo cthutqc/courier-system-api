@@ -22,7 +22,8 @@ class CustomerOrderStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'product' => ['required'],
+            'product_id' => ['required'],
+            'rate_id' => ['required'],
             'desired_pick_up_date' => ['required'],
             'desired_delivery_date' => ['required'],
             'text' => ['sometimes'],
@@ -30,6 +31,7 @@ class CustomerOrderStoreRequest extends FormRequest
             'sender_type' => ['required', 'string'],
             'receiver_id' => ['required'],
             'receiver_type' => ['required', 'string'],
+            'door_to_door' => ['sometimes'],
         ];
     }
 }

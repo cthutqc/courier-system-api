@@ -20,7 +20,7 @@ class CourierOrderControllerShowResource extends JsonResource
             'address_from' => $this->address_from,
             'address_to' => $this->address_to,
             'text' => $this->text,
-            'price' => $this->orderPrice(),
+            'price' => $this->price,
             'status' => $this->status,
             'customer' => CustomerResource::make($this->customer),
             'desired_pick_up_date' => $this->desired_pick_up_date ? $this->desired_pick_up_date->toDateTimeString() : null,

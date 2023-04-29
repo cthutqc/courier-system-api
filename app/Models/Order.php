@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HasStatus;
-use App\Traits\Finishabled;
+use App\Traits\Stopable;
 use App\Traits\Startabled;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Order extends Model
 {
-    use HasFactory, HasStatus, Finishabled, Startabled, SoftDeletes;
+    use HasFactory, HasStatus, Stopable, Startabled, SoftDeletes;
 
     protected $guarded = ['id'];
 
@@ -58,11 +58,6 @@ class Order extends Model
     public function orderName():string
     {
         return $this->product->name ?? 'Заказ';
-    }
-
-    public function orderPrice():int
-    {
-        return $this->product->price;
     }
 
     public function order_status():BelongsTo

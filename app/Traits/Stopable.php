@@ -7,9 +7,9 @@ use App\Models\OrderStatus;
 use App\Models\Transaction;
 use App\Services\PaymentService;
 
-trait Finishabled
+trait Stopable
 {
-    public function finish():void
+    public function stop():void
     {
         $this->update([
             'stop_at' => now(),

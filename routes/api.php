@@ -51,6 +51,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
             Route::post('orders/{order}/cancel', [\App\Http\Controllers\Api\V1\Customer\OrderController::class, 'cancel']);
 
+            Route::get('category_products', \App\Http\Controllers\Api\V1\Customer\CategoryProductController::class);
+
         });
 
         Route::prefix('courier')->group(function (){
@@ -71,7 +73,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
             Route::put('orders/{order}/start', [\App\Http\Controllers\Api\V1\Courier\OrdersController::class, 'start']);
 
-            Route::put('orders/{order}/finished', [\App\Http\Controllers\Api\V1\Courier\OrdersController::class, 'finished']);
+            Route::put('orders/{order}/stop', [\App\Http\Controllers\Api\V1\Courier\OrdersController::class, 'stop']);
 
         });
 

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
 
+            $table->integer('price')->default(0);
             $table->text('text')->nullable();
             $table->foreignId('courier_id')->nullable()->references('id')->on('users')->constrained();
             $table->foreignId('customer_id')->nullable()->references('id')->on('users')->constrained();
@@ -24,6 +25,7 @@ return new class extends Migration
             $table->string('approximate_time')->nullable();
             $table->dateTime('start_at')->nullable();
             $table->dateTime('stop_at')->nullable();
+            $table->boolean('door_to_door')->default(false);
 
             $table->timestamps();
             $table->softDeletes();

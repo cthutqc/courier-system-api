@@ -34,6 +34,7 @@ class SettingController extends Controller
         // $request->user()->addMedia($request->passport_photo_address)->toMediaCollection('passport_address');
 
         return response()->json([
+            'customer' => Customer::with('contact_information')->where('id', $request->user()->id)->first(),
             'success' => 'Customer profile created.',
         ], Response::HTTP_CREATED);
     }

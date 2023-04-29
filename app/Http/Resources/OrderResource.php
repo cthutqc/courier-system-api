@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Rate;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -17,12 +18,13 @@ class OrderResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->orderName(),
-            'address_from' => $this->address_from,
-            'address_to' => $this->address_to,
+            'sender' => $this->sender,
+            'receiver' => $this->receiver,
             'text' => $this->text,
             'product' => $this->product,
-            'price' => $this->orderPrice(),
+            'price' => $this->price,
             'status' => $this->status,
+            'rate' => Rate::find($this->rate_id),
             'courier' => $this->courier ? CourierResource::make($this->courier->load('courier_location')) : null,
             'customer' => CustomerResource::make($this->customer),
             'desired_pick_up_date' => $this->desired_pick_up_date ? $this->desired_pick_up_date->toDateTimeString() : null,

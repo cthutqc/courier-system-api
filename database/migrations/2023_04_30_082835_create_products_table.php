@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->string('name');
             $table->text('text')->nullable();
-            $table->integer('price')->default(0);
+            $table->foreignIdFor(\App\Models\Category::class)->nullable()->constrained();
             $table->boolean('active')->default(true);
 
             $table->timestamps();
@@ -31,11 +31,21 @@ return new class extends Migration
 
         foreach ($products as $product) {
 
-            \App\Models\Product::create([
+            $newProduct = \App\Models\Product::create([
                 'name' => $product,
                 'text' => fake()->text(),
-                'price' => rand(100, 1500),
+                'category_id' => 1,
             ]);
+
+            \App\Models\Rate::all()->each(function ($rate) use ($newProduct){
+
+                \App\Models\ProductPrice::create([
+                    'product_id' => $newProduct->id,
+                    'rate_id' => $rate->id,
+                    'amount' => rand(120, 1500),
+                ]);
+
+            });
 
         }
     }

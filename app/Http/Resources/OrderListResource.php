@@ -17,10 +17,10 @@ class OrderListResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->orderName(),
-            'address_to' => $this->address_to,
-            'address_from' => $this->address_from,
-            'price' => $this->orderPrice(),
+            'product' => $this->product,
+            'sender' => $this->sender,
+            'receiver' => $this->receiver,
+            'price' => $this->price,
             'desired_delivery_date' => $this->desired_delivery_date,
             'remaining_time' => now()->diffInMinutes($this->desired_delivery_date, false),
             'stop_at' => $this->stop_at ? $this->stop_at->toFormattedDateString() : null,
