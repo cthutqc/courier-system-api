@@ -9,17 +9,22 @@ use Illuminate\Http\Response;
 /**
  * @group Customer
  */
-class AssignAmbassadorRoleController extends Controller
+class AssignAmbassadorController extends Controller
 {
     /**
      * Handle the incoming request.
      */
-    public function __invoke(User $user)
+    public function __invoke(Request $request, User $user)
     {
-        if(!$user->hasRole('customer'))
-            abort(403);
+        $request->validate([
+           'text' => ['required']
+        ]);
 
-        $user->assignRole('ambassador');
+        $user->is_ambassador = true;
+
+        $user->ambassador = $request->text;
+
+        $user->save();
 
         return response()->json([
             'message' => 'Ambassador role set.',

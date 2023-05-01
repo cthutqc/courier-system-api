@@ -93,9 +93,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
             Route::get('customers/count', [\App\Http\Controllers\Api\V1\Admin\CustomerController::class, 'count']);
 
-            Route::put('customers/{user}/ambassador', \App\Http\Controllers\Api\V1\Admin\AssignAmbassadorRoleController::class);
+            Route::put('customers/{user}/ambassador', \App\Http\Controllers\Api\V1\Admin\AssignAmbassadorController::class);
 
-            Route::put('customers/{user}/ambassador/remove', \App\Http\Controllers\Api\V1\Admin\RemoveAmbassadorRoleController::class);
+            Route::put('customers/{user}/ambassador/remove', \App\Http\Controllers\Api\V1\Admin\RemoveAmbassadorController::class);
         });
 
     });

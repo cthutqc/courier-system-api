@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('active')->default(false);
             $table->integer('balance')->default(0);
+            $table->boolean('is_ambassador')->default(false);
+            $table->text('ambassador')->nullable();
             $table->rememberToken();
 
             $table->timestamps();

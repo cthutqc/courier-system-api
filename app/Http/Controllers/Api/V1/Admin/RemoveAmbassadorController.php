@@ -9,17 +9,22 @@ use Illuminate\Http\Response;
 /**
  * @group Admin
  */
-class RemoveAmbassadorRoleController extends Controller
+class RemoveAmbassadorController extends Controller
 {
     /**
      * Handle the incoming request.
      */
-    public function __invoke(User $user)
+    public function __invoke(Request $request, User $user)
     {
-        if(!$user->hasRole('customer'))
-            abort(403);
+        $request->validate([
+            'text' => ['required']
+        ]);
 
-        $user->removeRole('ambassador');
+        $user->is_ambassador = false;
+
+        $user->ambassador = $request->text;
+
+        $user->save();
 
         return response()->json([
             'message' => 'Ambassador role remove.',
