@@ -10,7 +10,7 @@ use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class SettingController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.

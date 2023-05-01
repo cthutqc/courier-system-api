@@ -73,9 +73,9 @@ class FullOrderProcessTest extends TestCase
 
         $order = Order::find($response['order']['id']);
 
-        echo 'Отправитель: ' . $order->sender->name . ' ' . $order->sender->last_name . ' адрес ' . $order->sender->street . PHP_EOL;
+        echo 'Отправитель: ' . $order->sender->name . ' ' . $order->sender->last_name . ' адрес ' . $order->sender->address() . PHP_EOL;
 
-        echo 'Получатель: ' . $order->receiver->name . ' ' . $order->receiver->last_name . ' адрес ' .  $order->receiver->street . PHP_EOL;
+        echo 'Получатель: ' . $order->receiver->name . ' ' . $order->receiver->last_name . ' адрес ' .  $order->receiver->address() . PHP_EOL;
 
         echo 'Заказ #'. $order->id .' отправлен на проверку админом в : ' . $order->created_at . PHP_EOL;
 

@@ -8,6 +8,7 @@ use App\Http\Resources\OrderListResource;
 use App\Http\Resources\OrderResource;
 use App\Models\Order;
 use App\Models\OrderStatus;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -30,7 +31,10 @@ class OrdersController extends Controller
 
         $orders->filter($request->all());
 
-        return OrderListResource::collection($orders->get());
+        return response()->json([
+            OrderListResource::collection($orders->get()),
+            Product::all(),
+        ]);
     }
 
     public function show(Order $order, Request $request)

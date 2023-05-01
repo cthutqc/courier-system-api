@@ -27,4 +27,9 @@ class Partner extends Model
     {
         return $this->morphOne(Order::class, 'receiver');
     }
+
+    public function address():string
+    {
+        return $this->attributes['street'] . ', ' . $this->attributes['house'];
+    }
 }

@@ -84,4 +84,9 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->hasMany(Transaction::class);
     }
+
+    public function address():string
+    {
+        return $this->contact_information->address();
+    }
 }

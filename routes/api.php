@@ -33,11 +33,11 @@ Route::middleware('auth:sanctum')->group(function () {
 
         Route::prefix('customer')->middleware(\App\Http\Middleware\IsCustomer::class)->group(function (){
 
-            Route::post('settings', [\App\Http\Controllers\Api\V1\Customer\SettingController::class, 'store']);
+            Route::post('settings', [\App\Http\Controllers\Api\V1\Customer\CustomerController::class, 'store']);
 
-            Route::post('settings/{customer}', [\App\Http\Controllers\Api\V1\Customer\SettingController::class, 'update']);
+            Route::post('settings/{customer}', [\App\Http\Controllers\Api\V1\Customer\CustomerController::class, 'update']);
 
-            Route::get('settings/{customer}', [\App\Http\Controllers\Api\V1\Customer\SettingController::class, 'show']);
+            Route::get('settings/{customer}', [\App\Http\Controllers\Api\V1\Customer\CustomerController::class, 'show']);
 
             Route::apiResource('products', \App\Http\Controllers\Api\V1\Customer\ProductController::class);
 
@@ -59,11 +59,11 @@ Route::middleware('auth:sanctum')->group(function () {
 
             Route::get('/', \App\Http\Controllers\Api\V1\Courier\DashboardController::class);
 
-            Route::post('settings', [\App\Http\Controllers\Api\V1\Courier\SettingController::class, 'store']);
+            Route::post('settings', [\App\Http\Controllers\Api\V1\Courier\CourierController::class, 'store']);
 
-            Route::post('settings/{courier}', [\App\Http\Controllers\Api\V1\Courier\SettingController::class, 'update']);
+            Route::post('settings/{courier}', [\App\Http\Controllers\Api\V1\Courier\CourierController::class, 'update']);
 
-            Route::get('settings/{courier}', [\App\Http\Controllers\Api\V1\Courier\SettingController::class, 'show']);
+            Route::get('settings/{courier}', [\App\Http\Controllers\Api\V1\Courier\CourierController::class, 'show']);
 
             Route::get('ratings', \App\Http\Controllers\Api\V1\Courier\RatingsController::class);
 

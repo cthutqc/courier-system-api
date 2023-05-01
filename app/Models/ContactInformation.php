@@ -16,4 +16,9 @@ class ContactInformation extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function address():string
+    {
+        return $this->attributes['street'] . ', ' . $this->attributes['house'];
+    }
 }

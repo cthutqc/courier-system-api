@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1\Customer;
 use App\Events\NewOrderCreated;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CustomerOrderStoreRequest;
+use App\Http\Resources\OrderListResource;
 use App\Http\Resources\OrderResource;
 use App\Models\Order;
 use App\Models\OrderStatus;
@@ -22,7 +23,7 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
-        return OrderResource::collection(Order::query()
+        return OrderListResource::collection(Order::query()
             ->where('customer_id', auth()->user()->id)
             ->filter($request)
             ->get());
@@ -80,25 +81,27 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        if($request->sender_type == 'partner')
-            $sender = 'App\Models\Partner';
-        else
-            $sender = 'App\Models\Customer';
-
-        if($request->receiver_type == 'partner')
-            $receiver = 'App\Models\Partner';
-        else
-            $receiver = 'App\Models\Customer';
+        $request->validate([
+            'desired_pick_up_date' => ['required'],
+            'desired_delivery_date' => ['required'],
+            'sender_id' => ['required'],
+            'sender_type' => ['required'],
+            'receiver_id' => ['required'],
+            'receiver_type' => ['required'],
+            'text' => ['sometimes'],
+        ]);
 
         $order->update([
             'desired_pick_up_date' => $request->desired_pick_up_date,
             'desired_delivery_date' => $request->desired_delivery_date,
             'text' => $request->text,
-            'sender_id' => $request->sender_id,
-            'sender_type' => $sender,
-            'receiver_id' => $request->receiver_id,
-            'receiver_type' => $receiver,
         ]);
+
+        $order->sender()->associate($request->sender_type === 'partner' ? Partner::find($request->sender_id) : auth()->user());
+
+        $order->receiver()->associate($request->receiver_type === 'partner' ? Partner::find($request->receiver_id) : auth()->user());
+
+        $order->save();
 
         return response()->json([
             'success' => 'Order updated.',
