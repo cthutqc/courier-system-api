@@ -19,20 +19,23 @@ class Courier extends User
 
     public function totalIncome():int
     {
-        return $this->payments()->sum('amount');
+        return $this->payments()
+            ->where('type', Transaction::INCREMENT)
+            ->sum('amount');
     }
 
     public function todayIncome():int
     {
         return $this->payments()
+            ->where('type', Transaction::INCREMENT)
             ->whereDate('created_at', Carbon::today())
             ->sum('amount');
     }
 
     public function todayTips():int
     {
-        return $this->payments()
-            ->where('payment_status', PaymentStatus::TIPS)
+        return $this->transactions()
+            ->where('type', Transaction::TIPS)
             ->whereDate('created_at', Carbon::today())
             ->sum('amount');
     }

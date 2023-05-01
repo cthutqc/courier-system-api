@@ -65,11 +65,6 @@ class Order extends Model
         return $this->belongsTo(OrderStatus::class);
     }
 
-    public function payments():HasMany
-    {
-        return $this->hasMany(Payment::class);
-    }
-
     public function scopeFilter(Builder $builder, $request = null):void
     {
 

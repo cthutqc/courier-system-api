@@ -73,6 +73,10 @@ class FullOrderProcessTest extends TestCase
 
         $order = Order::find($response['order']['id']);
 
+        echo 'Отправитель: ' . $order->sender->name . ' ' . $order->sender->last_name . ' адрес ' . $order->sender->street . PHP_EOL;
+
+        echo 'Получатель: ' . $order->receiver->name . ' ' . $order->receiver->last_name . ' адрес ' .  $order->receiver->street . PHP_EOL;
+
         echo 'Заказ #'. $order->id .' отправлен на проверку админом в : ' . $order->created_at . PHP_EOL;
 
         $admin = User::find(1);
@@ -85,7 +89,7 @@ class FullOrderProcessTest extends TestCase
 
         $order->setStatus(OrderStatus::ACCEPTED);
 
-        echo 'Заказ #'. $order->id .' одобрен админом в : ' . $order->updated_at . PHP_EOL;
+        echo 'Заказ #'. $order->id .' одобрен админом в ' . $order->updated_at . PHP_EOL;
 
         $courier = Courier::factory()->create();
 
@@ -111,13 +115,13 @@ class FullOrderProcessTest extends TestCase
 
         $order = Order::find(1);
 
-        echo 'Баланс заказчика до доставки: ' . Customer::find($customer->id)->balance . PHP_EOL;
+        echo 'Баланс заказчика до доставки ' . Customer::find($customer->id)->balance . PHP_EOL;
 
-        echo 'Баланс курьера до доставки: ' . Courier::find($courier->id)->balance . PHP_EOL;
+        echo 'Баланс курьера до доставки ' . Courier::find($courier->id)->balance . PHP_EOL;
 
-        echo 'Стоимость доставки: ' . $order->price . PHP_EOL;
+        echo 'Стоимость доставки ' . $order->price . PHP_EOL;
 
-        echo 'Заказ #'. $order->id .' начали доставлять в : ' . $order->start_at . PHP_EOL;
+        echo 'Заказ #'. $order->id .' начали доставлять в ' . $order->start_at . PHP_EOL;
 
         sleep(20);
 
@@ -125,11 +129,11 @@ class FullOrderProcessTest extends TestCase
 
         $order = Order::find(1);
 
-        echo 'Заказ #'. $order->id .' закончили доставлять в : ' . $order->stop_at . PHP_EOL;
+        echo 'Заказ #'. $order->id .' закончили доставлять в ' . $order->stop_at . PHP_EOL;
 
-        echo 'Баланс заказчика после доставки: ' . Customer::find($customer->id)->balance . PHP_EOL;
+        echo 'Баланс заказчика после доставки ' . Customer::find($customer->id)->balance . PHP_EOL;
 
-        echo 'Баланс курьера после доставки: ' . Courier::find($courier->id)->balance . PHP_EOL;
+        echo 'Баланс курьера после доставки ' . Courier::find($courier->id)->balance . PHP_EOL;
 
         dd();
     }

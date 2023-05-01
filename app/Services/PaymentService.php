@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Order;
 use App\Models\PaymentStatus;
+use App\Models\Transaction;
 use App\Models\User;
 use App\Notifications\BalanceRechargedNotification;
 
@@ -13,7 +14,14 @@ class PaymentService
     {
         auth()->user()->increment('balance', $amount);
 
-        auth()->user()->notify(new BalanceRechargedNotification($amount));
+        Transaction::create([
+            'user_id' => auth()->user()->id,
+            'amount' => $amount,
+            'type' => Transaction::RECHARGE,
+        ]);
+
+        if(app()->isProduction())
+            auth()->user()->notify(new BalanceRechargedNotification($amount));
 
     }
 
@@ -23,15 +31,21 @@ class PaymentService
             throw new \Exception('Insufficient balance.');
         }
 
-        $order->payments()->create([
-            'user_id' => auth()->user()->id,
-            'payment_status' => PaymentStatus::PAID,
-            'amount' => $order->price
-        ]);
-
         $order->courier->increment('balance', $order->price);
 
+        Transaction::create([
+            'user_id' => $order->courier->id,
+            'amount' => $order->price,
+            'type' =>  Transaction::INCREMENT,
+        ]);
+
         $order->customer->decrement('balance', $order->price);
+
+        Transaction::create([
+            'user_id' => $order->customer->id,
+            'amount' => $order->price,
+            'type' =>  Transaction::DECREMENT,
+        ]);
 
        // $commission = $order->total * 0.1; // Assume 10% commission
         //$courier->balance += $commission;

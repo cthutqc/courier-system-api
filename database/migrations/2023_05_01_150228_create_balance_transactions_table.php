@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignIdFor(\App\Models\User::class)->constrained();
+            $table->foreignIdFor(\App\Models\Order::class)->nullable()->constrained();
             $table->integer('amount');
-            $table->foreignId('order_id')->nullable()->constrained();
-            $table->foreignId('user_id')->nullable()->constrained();
-            $table->enum('type', ['Receipts', 'Penalty', 'Pending', 'Withdrawal'])->default('Receipts');
+            $table->string('type');
 
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('courier_transactions');
+        Schema::dropIfExists('balance_transactions');
     }
 };

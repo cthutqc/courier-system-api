@@ -14,7 +14,6 @@ class CategoryProductController extends Controller
      */
     public function __invoke(Request $request)
     {
-
         $products = Product::where('category_id', $request->category_id)->get();
 
         return ProductResource::collection($products);

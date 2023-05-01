@@ -16,7 +16,6 @@ return new class extends Migration
 
             $table->string('name');
             $table->integer('delivery_time')->nullable();
-//            $table->string('code')->nullable();
 
             $table->timestamps();
         });
