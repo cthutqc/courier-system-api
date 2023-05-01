@@ -11,12 +11,12 @@ class Transaction extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
-jytfik
+
     const RECHARGE = 'recharge';
     const INCREMENT = 'increment';
     const DECREMENT = 'decrement';
     const TIPS = 'tips';
-    const PENALTY = 'penalty';
+    const FINE = 'fine';
 
     public function user():BelongsTo
     {

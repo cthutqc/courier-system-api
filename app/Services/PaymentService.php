@@ -14,11 +14,7 @@ class PaymentService
     {
         auth()->user()->increment('balance', $amount);
 
-        Transaction::create([
-            'user_id' => auth()->user()->id,
-            'amount' => $amount,
-            'type' => Transaction::RECHARGE,
-        ]);
+        $this->transfer(auth()->user()->id, $amount, Transaction::RECHARGE);
 
         if(app()->isProduction())
             auth()->user()->notify(new BalanceRechargedNotification($amount));
@@ -31,25 +27,48 @@ class PaymentService
             throw new \Exception('Insufficient balance.');
         }
 
-        $order->courier->increment('balance', $order->price);
+        $amount = $order->price;
 
-        Transaction::create([
-            'user_id' => $order->courier->id,
-            'amount' => $order->price,
-            'type' =>  Transaction::INCREMENT,
-        ]);
+        $this->increase($order->courier, $amount, $order);
 
-        $order->customer->decrement('balance', $order->price);
+        $this->decrease($order->customer, $amount, $order);
 
-        Transaction::create([
-            'user_id' => $order->customer->id,
-            'amount' => $order->price,
-            'type' =>  Transaction::DECREMENT,
-        ]);
+        $this->fine($order);
 
-       // $commission = $order->total * 0.1; // Assume 10% commission
+        // $commission = $order->total * 0.1; // Assume 10% commission
         //$courier->balance += $commission;
+    }
 
-        $order->save();
+    private function fine($order):void
+    {
+        if($order->desired_delivery_date < now()) {
+
+            $this->transfer($order->courier->id, -100, Transaction::FINE, $order);
+
+            $this->transfer($order->customer->id, 100, Transaction::FINE, $order);
+
+        }
+    }
+
+    private function increase($model, $amount, $data = []): void
+    {
+        $model->increment('balance', $amount);
+        $this->transfer($model->id, $amount, Transaction::INCREMENT, $data);
+    }
+
+    private function decrease($model, $amount, $data = []): void
+    {
+        $model->decrement('balance', $amount);
+        $this->transfer($model->id, $amount, Transaction::DECREMENT, $data);
+    }
+
+    public function transfer($accountId, $amount, $type, $data = []): void
+    {
+        Transaction::create([
+            'user_id' => $accountId,
+            'amount' => $amount,
+            'type' =>  $type,
+            'data' => $data->toJson()
+        ]);
     }
 }

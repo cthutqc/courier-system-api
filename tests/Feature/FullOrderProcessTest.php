@@ -81,7 +81,6 @@ class FullOrderProcessTest extends TestCase
 
         $admin = User::find(1);
 
-        sleep(10);
 
         $this->actingAs($admin)->putJson('api/v1/admin/orders/' . $order->id . '/accepted');
 
@@ -122,8 +121,6 @@ class FullOrderProcessTest extends TestCase
         echo 'Стоимость доставки ' . $order->price . PHP_EOL;
 
         echo 'Заказ #'. $order->id .' начали доставлять в ' . $order->start_at . PHP_EOL;
-
-        sleep(20);
 
         $this->actingAs($courier)->putJson('api/v1/courier/orders/' . $order->id . '/stop');
 

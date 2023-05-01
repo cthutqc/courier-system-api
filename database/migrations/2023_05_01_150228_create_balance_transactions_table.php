@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
 
             $table->foreignIdFor(\App\Models\User::class)->constrained();
-            $table->foreignIdFor(\App\Models\Order::class)->nullable()->constrained();
             $table->integer('amount');
-            $table->string('type');
+            $table->string('type')->nullable();
+            $table->json('data')->nullable();
 
             $table->timestamps();
         });
