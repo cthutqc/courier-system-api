@@ -5,44 +5,39 @@ namespace App\Http\Controllers\Api\V1\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CustomerUpdateRequest;
 use App\Http\Resources\CustomerResource;
+use App\Models\Customer;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 /**
- * @group Admin
+ * @group Админ
+ *
+ * @subgroup Заказчики
  */
 class CustomerController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Список заказчиков.
      */
     public function index()
     {
-        return CustomerResource::collection(User::role('customer')->get());
+        return CustomerResource::collection(Customer::all());
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Информация о заказчике.
      */
-    public function store(Request $request)
+    public function show(Customer $customer)
     {
-        //
+        return CustomerResource::make($customer);
     }
 
     /**
-     * Display the specified resource.
+     * Обновление информации о заказчике.
      */
-    public function show(User $user)
+    public function update(CustomerUpdateRequest $request, Customer $customer)
     {
-        return CustomerResource::make($user);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(CustomerUpdateRequest $request, User $user)
-    {
-        $user->update($request->validated());
+        $customer->update($request->validated());
 
         return response()->json([
             'success' => 'Customer updated.',
@@ -50,19 +45,14 @@ class CustomerController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Удаление заказчика.
      */
-    public function destroy(User $user)
+    public function destroy(Customer $customer)
     {
-        $user->delete();
+        $customer->delete();
 
         return response()->json([
             'success' => 'Customer deleted.',
         ], Response::HTTP_OK);
-    }
-
-    public function count()
-    {
-        return User::role('customer')->count();
     }
 }

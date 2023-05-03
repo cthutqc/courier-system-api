@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->foreignIdFor(\App\Models\Rate::class)->after('product_id')->nullable()->constrained();
+            $table->foreignIdFor(\App\Models\Rate::class)->after('customer_id')->nullable()->constrained();
         });
     }
 

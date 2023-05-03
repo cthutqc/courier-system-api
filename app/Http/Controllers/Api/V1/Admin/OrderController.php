@@ -10,12 +10,14 @@ use App\Models\OrderStatus;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 /**
- * @group Admin
+ * @group Админ
+ *
+ * @subgroup Работа с заказами
  */
 class OrderController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Вывод всех заказов.
      */
     public function index()
     {
@@ -23,15 +25,7 @@ class OrderController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
+     * Вывод одного заказа.
      */
     public function show(Order $order)
     {
@@ -39,7 +33,7 @@ class OrderController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Обновление данных заказа.
      */
     public function update(AdminOrderUpdateRequest $request, Order $order)
     {
@@ -51,7 +45,7 @@ class OrderController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Удаление заказа.
      */
     public function destroy(Order $order)
     {
@@ -62,6 +56,9 @@ class OrderController extends Controller
         ], Response::HTTP_OK);
     }
 
+    /**
+     * Одобрение заказа.
+     */
     public function accepted(Order $order)
     {
         $order->setStatus(OrderStatus::ACCEPTED);

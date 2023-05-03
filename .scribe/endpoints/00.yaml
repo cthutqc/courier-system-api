@@ -1,4 +1,4 @@
-name: Auth
+name: Аутентификация
 description: ''
 endpoints:
   -
@@ -6,11 +6,11 @@ endpoints:
       - POST
     uri: api/v1/auth/confirm
     metadata:
-      groupName: Auth
+      groupName: Аутентификация
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Подтверждение кода.'
       description: ''
       authenticated: false
       custom: []
@@ -26,11 +26,95 @@ endpoints:
         name: code
         description: ''
         required: true
-        example: molestiae
+        example: non
         type: string
         custom: []
     cleanBodyParameters:
-      code: molestiae
+      code: non
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/auth/password-change
+    metadata:
+      groupName: Аутентификация
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Смена пароля.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      old_password:
+        name: old_password
+        description: ''
+        required: true
+        example: quasi
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: vitae
+        type: string
+        custom: []
+    cleanBodyParameters:
+      old_password: quasi
+      password: vitae
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/auth/role
+    metadata:
+      groupName: Аутентификация
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Выбор роли - заказчик/курьер.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      role:
+        name: role
+        description: ''
+        required: true
+        example: ipsum
+        type: string
+        custom: []
+    cleanBodyParameters:
+      role: ipsum
     fileParameters: []
     responses: []
     responseFields: []
@@ -44,11 +128,11 @@ endpoints:
       - POST
     uri: api/v1/auth/logout
     metadata:
-      groupName: Auth
+      groupName: Аутентификация
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Handle the incoming request.'
+      title: Выход.
       description: ''
       authenticated: false
       custom: []
@@ -74,11 +158,11 @@ endpoints:
       - POST
     uri: api/v1/auth/register
     metadata:
-      groupName: Auth
+      groupName: Аутентификация
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Handle the incoming request.'
+      title: Регистрация.
       description: ''
       authenticated: false
       custom: []
@@ -90,47 +174,31 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: imvvojgdmfzvcleecsy
-        type: string
-        custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: stevie22@example.org
+        example: cturcotte@example.com
         type: string
         custom: []
       phone:
         name: phone
         description: 'Must be at least 11 characters. Must not be greater than 11 characters.'
         required: true
-        example: nrwfrizphyd
+        example: su
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: iste
-        type: string
-        custom: []
-      role:
-        name: role
-        description: ''
-        required: true
-        example: ea
+        example: quis
         type: string
         custom: []
     cleanBodyParameters:
-      name: imvvojgdmfzvcleecsy
-      email: stevie22@example.org
-      phone: nrwfrizphyd
-      password: iste
-      role: ea
+      email: cturcotte@example.com
+      phone: su
+      password: quis
     fileParameters: []
     responses: []
     responseFields: []
@@ -144,11 +212,11 @@ endpoints:
       - POST
     uri: api/v1/auth/login
     metadata:
-      groupName: Auth
+      groupName: Аутентификация
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Handle the incoming request.'
+      title: Логин.
       description: ''
       authenticated: false
       custom: []
@@ -164,19 +232,19 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: welch.heidi@example.org
+        example: webster.monahan@example.net
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: eum
+        example: et
         type: string
         custom: []
     cleanBodyParameters:
-      email: welch.heidi@example.org
-      password: eum
+      email: webster.monahan@example.net
+      password: et
     fileParameters: []
     responses: []
     responseFields: []
@@ -190,11 +258,11 @@ endpoints:
       - POST
     uri: api/v1/auth/forgot
     metadata:
-      groupName: Auth
+      groupName: Аутентификация
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Handle the incoming request.'
+      title: 'Напоминание пароля.'
       description: ''
       authenticated: false
       custom: []
@@ -210,11 +278,11 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: nlesch@example.org
+        example: roberto82@example.org
         type: string
         custom: []
     cleanBodyParameters:
-      email: nlesch@example.org
+      email: roberto82@example.org
     fileParameters: []
     responses: []
     responseFields: []
@@ -228,11 +296,11 @@ endpoints:
       - POST
     uri: api/v1/auth/reset
     metadata:
-      groupName: Auth
+      groupName: Аутентификация
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Handle the incoming request.'
+      title: 'Сброс пароля.'
       description: ''
       authenticated: false
       custom: []
@@ -248,27 +316,27 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: leonard.halvorson@example.org
+        example: arianna55@example.net
         type: string
         custom: []
       token:
         name: token
         description: ''
         required: true
-        example: repudiandae
+        example: dolorem
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: saepe
+        example: consequatur
         type: string
         custom: []
     cleanBodyParameters:
-      email: leonard.halvorson@example.org
-      token: repudiandae
-      password: saepe
+      email: arianna55@example.net
+      token: dolorem
+      password: consequatur
     fileParameters: []
     responses: []
     responseFields: []

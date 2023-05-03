@@ -50,9 +50,6 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::post('orders/{order}/rate', [\App\Http\Controllers\Api\V1\Customer\OrderController::class, 'rate']);
 
             Route::post('orders/{order}/cancel', [\App\Http\Controllers\Api\V1\Customer\OrderController::class, 'cancel']);
-
-            Route::get('category_products', \App\Http\Controllers\Api\V1\Customer\CategoryProductController::class);
-
         });
 
         Route::prefix('courier')->middleware(\App\Http\Middleware\IsCourier::class)->group(function (){
@@ -84,6 +81,8 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::put('orders/{order}/accepted', [\App\Http\Controllers\Api\V1\Admin\OrderController::class, 'accepted']);
 
             Route::apiResource('products', \App\Http\Controllers\Api\V1\Admin\ProductController::class);
+
+            Route::apiResource('categories', \App\Http\Controllers\Api\V1\Admin\CategoryController::class);
 
             Route::apiResource('couriers', \App\Http\Controllers\Api\V1\Admin\CourierController::class);
 

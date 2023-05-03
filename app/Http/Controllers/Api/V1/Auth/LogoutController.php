@@ -6,12 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 /**
- * @group Auth
+ * @group Аутентификация
  */
 class LogoutController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * Выход.
      */
     public function __invoke(Request $request)
     {

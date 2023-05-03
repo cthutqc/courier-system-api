@@ -8,12 +8,14 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 /**
- * @group Customer
+ * @group Заказчик
+ *
+ * @subgroup Финансы
  */
 class RechargeBalanceController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * Пополнение баланса.
      */
     public function __invoke(Request $request)
     {

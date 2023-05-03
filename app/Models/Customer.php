@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
+use Bavix\Wallet\Traits\CanPay;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Parental\HasParent;
 
-class Customer extends User
+class Customer extends User implements \Bavix\Wallet\Interfaces\Customer
 {
-    use HasFactory, HasParent;
+    use HasFactory, HasParent, CanPay;
 
     public function orders():HasMany
     {

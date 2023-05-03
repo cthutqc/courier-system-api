@@ -5,801 +5,30 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "http:\/\/localhost"
+            "value": "http:\/\/127.0.0.1:8000"
         }
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "77b90aff-90d2-4420-8cd7-de59985ee84d",
+        "_postman_id": "c5225237-6353-47b0-9a94-a361b0b85f3c",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
         {
-            "name": "Admin",
+            "name": "Endpoints",
             "description": "",
             "item": [
                 {
-                    "name": "Display a listing of the resource.",
+                    "name": "\u0413\u0435\u043d\u0435\u0440\u0430\u0446\u0438\u044f qr \u043a\u043e\u0434\u0430.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/orders",
+                            "path": "api\/v1\/qrcode",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/orders"
+                            "raw": "{{baseUrl}}\/api\/v1\/qrcode"
                         },
                         "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Store a newly created resource in storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/orders",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/orders"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Display the specified resource.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/orders\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/orders\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "19",
-                                    "description": "The ID of the order."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Update the specified resource in storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/orders\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/orders\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "2",
-                                    "description": "The ID of the order."
-                                }
-                            ]
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"products\":[],\"address_from\":\"velit\",\"address_to\":\"enim\",\"desired_pick_up_date\":\"vel\",\"desired_delivery_date\":\"illo\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Remove the specified resource from storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/orders\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/orders\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "3",
-                                    "description": "The ID of the order."
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "PUT api\/v1\/admin\/orders\/{order_id}\/accepted",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/orders\/:order_id\/accepted",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/orders\/:order_id\/accepted",
-                            "variable": [
-                                {
-                                    "id": "order_id",
-                                    "key": "order_id",
-                                    "value": "13",
-                                    "description": "The ID of the order."
-                                }
-                            ]
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Display a listing of the resource.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/products",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/products"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Store a newly created resource in storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/products",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/products"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"name\":\"neque\",\"price\":\"quod\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Display the specified resource.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/products\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/products\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "9",
-                                    "description": "The ID of the product."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Update the specified resource in storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/products\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/products\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "20",
-                                    "description": "The ID of the product."
-                                }
-                            ]
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"name\":\"nisi\",\"price\":\"eligendi\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Remove the specified resource from storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/products\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/products\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "16",
-                                    "description": "The ID of the product."
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Display a listing of the resource.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/couriers",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/couriers"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Store a newly created resource in storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/couriers",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/couriers"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Display the specified resource.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/couriers\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/couriers\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the courier."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Update the specified resource in storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/couriers\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/couriers\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the courier."
-                                }
-                            ]
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"name\":\"omnis\",\"last_name\":\"quidem\",\"middle_name\":\"molestiae\",\"email\":\"audie26@example.org\",\"phone\":\"neque\",\"address\":\"rerum\",\"passport_series\":\"et\",\"passport_number\":\"et\",\"passport_issued_date\":\"dolorem\",\"passport_issued_by\":\"sint\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Remove the specified resource from storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/couriers\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/couriers\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the courier."
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "GET api\/v1\/admin\/couriers\/count",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/couriers\/count",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/couriers\/count"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Display a listing of the resource.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/customers",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/customers"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Store a newly created resource in storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/customers",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/customers"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Display the specified resource.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/customers\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/customers\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the customer."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Update the specified resource in storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/customers\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/customers\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the customer."
-                                }
-                            ]
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"name\":\"nostrum\",\"last_name\":\"omnis\",\"middle_name\":\"qui\",\"email\":\"omurphy@example.com\",\"phone\":\"dolores\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Remove the specified resource from storage.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/customers\/:id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/customers\/:id",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "1",
-                                    "description": "The ID of the customer."
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "GET api\/v1\/admin\/customers\/count",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/customers\/count",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/customers\/count"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Handle the incoming request.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/customers\/:user_id\/ambassador\/remove",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/customers\/:user_id\/ambassador\/remove",
-                            "variable": [
-                                {
-                                    "id": "user_id",
-                                    "key": "user_id",
-                                    "value": "1",
-                                    "description": "The ID of the user."
-                                }
-                            ]
-                        },
-                        "method": "PUT",
                         "header": [
                             {
                                 "key": "Content-Type",
@@ -821,11 +50,918 @@
             ]
         },
         {
-            "name": "Auth",
+            "name": "\u0410\u0434\u043c\u0438\u043d",
             "description": "",
             "item": [
                 {
-                    "name": "POST api\/v1\/auth\/confirm",
+                    "name": "\u0420\u0430\u0431\u043e\u0442\u0430 \u0441 \u0437\u0430\u043a\u0430\u0437\u0430\u043c\u0438",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "\u0412\u044b\u0432\u043e\u0434 \u0432\u0441\u0435\u0445 \u0437\u0430\u043a\u0430\u0437\u043e\u0432.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/orders",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/orders"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u0412\u044b\u0432\u043e\u0434 \u043e\u0434\u043d\u043e\u0433\u043e \u0437\u0430\u043a\u0430\u0437\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/orders\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/orders\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "11",
+                                            "description": "The ID of the order."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u041e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0435 \u0434\u0430\u043d\u043d\u044b\u0445 \u0437\u0430\u043a\u0430\u0437\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/orders\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/orders\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "18",
+                                            "description": "The ID of the order."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"products\":[],\"address_from\":\"quasi\",\"address_to\":\"perferendis\",\"desired_pick_up_date\":\"ut\",\"desired_delivery_date\":\"quisquam\"}"
+                                },
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435 \u0437\u0430\u043a\u0430\u0437\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/orders\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/orders\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "20",
+                                            "description": "The ID of the order."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u041e\u0434\u043e\u0431\u0440\u0435\u043d\u0438\u0435 \u0437\u0430\u043a\u0430\u0437\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/orders\/:order_id\/accepted",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/orders\/:order_id\/accepted",
+                                    "variable": [
+                                        {
+                                            "id": "order_id",
+                                            "key": "order_id",
+                                            "value": "7",
+                                            "description": "The ID of the order."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "\u0422\u043e\u0432\u0430\u0440\u044b",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "\u0421\u043f\u0438\u0441\u043e\u043a \u0437\u0430\u043a\u0430\u0437\u043e\u0432.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/products",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/products"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0442\u043e\u0432\u0430\u0440\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/products",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/products"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"name\":\"commodi\",\"price\":\"excepturi\",\"category_id\":\"nostrum\"}"
+                                },
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u0442\u043e\u0432\u0430\u0440\u0435.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/products\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/products\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "1",
+                                            "description": "The ID of the product."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u041e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0435 \u0434\u0430\u043d\u043d\u044b\u0445 \u0442\u043e\u0432\u0430\u0440\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/products\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/products\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "1",
+                                            "description": "The ID of the product."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"name\":\"nihil\",\"price\":\"ut\",\"category_id\":\"accusantium\"}"
+                                },
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u0423\u0434\u0435\u043b\u0430\u043d\u0438\u0435 \u0442\u043e\u0432\u0430\u0440\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/products\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/products\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "1",
+                                            "description": "The ID of the product."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "\u041a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438 \u0442\u043e\u0432\u0430\u0440\u043e\u0432",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "\u0421\u043f\u0438\u0441\u043e\u043a \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0439.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/categories",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/categories"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/categories",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/categories"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Display the specified resource.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/categories\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/categories\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "12",
+                                            "description": "The ID of the category."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u041e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0435 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0438 \u043e \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/categories\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/categories\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "19",
+                                            "description": "The ID of the category."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435 \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/categories\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/categories\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "11",
+                                            "description": "The ID of the category."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "\u041a\u0443\u0440\u044c\u0435\u0440\u044b",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "\u0421\u043f\u0438\u0441\u043e\u043a \u043a\u0443\u0440\u044c\u0435\u0440\u043e\u0432.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/couriers",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/couriers"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u043a\u0443\u0440\u044c\u0435\u0440\u0435.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/couriers\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/couriers\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "5",
+                                            "description": "The ID of the courier."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u041e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0435 \u0434\u0430\u043d\u043d\u044b\u0445 \u043a\u0443\u0440\u044c\u0435\u0440\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/couriers\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/couriers\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "18",
+                                            "description": "The ID of the courier."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"name\":\"dolor\",\"last_name\":\"qui\",\"middle_name\":\"rem\",\"email\":\"dangelo96@example.org\",\"phone\":\"quasi\",\"passport_series\":\"autem\",\"passport_number\":\"velit\",\"passport_issued_date\":\"repudiandae\",\"passport_issued_by\":\"exercitationem\"}"
+                                },
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435 \u043a\u0443\u0440\u044c\u0435\u0440\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/couriers\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/couriers\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "12",
+                                            "description": "The ID of the courier."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "\u0417\u0430\u043a\u0430\u0437\u0447\u0438\u043a\u0438",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "\u0421\u043f\u0438\u0441\u043e\u043a \u0437\u0430\u043a\u0430\u0437\u0447\u0438\u043a\u043e\u0432.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/customers",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/customers"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u0437\u0430\u043a\u0430\u0437\u0447\u0438\u043a\u0435.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/customers\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/customers\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "2",
+                                            "description": "The ID of the customer."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u041e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0435 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0438 \u043e \u0437\u0430\u043a\u0430\u0437\u0447\u0438\u043a\u0435.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/customers\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/customers\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "2",
+                                            "description": "The ID of the customer."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"name\":\"ut\",\"last_name\":\"expedita\",\"middle_name\":\"consequatur\",\"email\":\"wintheiser.lauryn@example.org\",\"phone\":\"delectus\"}"
+                                },
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435 \u0437\u0430\u043a\u0430\u0437\u0447\u0438\u043a\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/customers\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/customers\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "2",
+                                            "description": "The ID of the customer."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "\u0410\u043c\u0431\u0430\u0441\u0441\u0430\u0434\u043e\u0440",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "\u0414\u043e\u0431\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0440\u043e\u043b\u0438 \u0430\u043c\u0431\u0430\u0441\u0441\u0430\u0434\u043e\u0440\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/customers\/:user_id\/ambassador",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/customers\/:user_id\/ambassador",
+                                    "variable": [
+                                        {
+                                            "id": "user_id",
+                                            "key": "user_id",
+                                            "value": "2",
+                                            "description": "The ID of the user."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"text\":\"labore\"}"
+                                },
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435 \u0440\u043e\u0434\u0438 \u0430\u043c\u0431\u0430\u0441\u0441\u0430\u0434\u043e\u0440.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/admin\/customers\/:user_id\/ambassador\/remove",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/admin\/customers\/:user_id\/ambassador\/remove",
+                                    "variable": [
+                                        {
+                                            "id": "user_id",
+                                            "key": "user_id",
+                                            "value": "2",
+                                            "description": "The ID of the user."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"text\":\"reiciendis\"}"
+                                },
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "\u0410\u0443\u0442\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0446\u0438\u044f",
+            "description": "",
+            "item": [
+                {
+                    "name": "\u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043d\u0438\u0435 \u043a\u043e\u0434\u0430.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -846,7 +982,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"code\":\"molestiae\"}"
+                            "raw": "{\"code\":\"non\"}"
                         },
                         "description": "",
                         "auth": {
@@ -856,7 +992,69 @@
                     "response": []
                 },
                 {
-                    "name": "Handle the incoming request.",
+                    "name": "\u0421\u043c\u0435\u043d\u0430 \u043f\u0430\u0440\u043e\u043b\u044f.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/auth\/password-change",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/auth\/password-change"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"old_password\":\"quasi\",\"password\":\"vitae\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "\u0412\u044b\u0431\u043e\u0440 \u0440\u043e\u043b\u0438 - \u0437\u0430\u043a\u0430\u0437\u0447\u0438\u043a\/\u043a\u0443\u0440\u044c\u0435\u0440.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/auth\/role",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/auth\/role"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"role\":\"ipsum\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "\u0412\u044b\u0445\u043e\u0434.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -884,7 +1082,7 @@
                     "response": []
                 },
                 {
-                    "name": "Handle the incoming request.",
+                    "name": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044f.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -905,7 +1103,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"imvvojgdmfzvcleecsy\",\"email\":\"stevie22@example.org\",\"phone\":\"nrwfrizphyd\",\"password\":\"iste\",\"role\":\"ea\"}"
+                            "raw": "{\"email\":\"cturcotte@example.com\",\"phone\":\"su\",\"password\":\"quis\"}"
                         },
                         "description": "",
                         "auth": {
@@ -915,7 +1113,7 @@
                     "response": []
                 },
                 {
-                    "name": "Handle the incoming request.",
+                    "name": "\u041b\u043e\u0433\u0438\u043d.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -936,7 +1134,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"welch.heidi@example.org\",\"password\":\"eum\"}"
+                            "raw": "{\"email\":\"webster.monahan@example.net\",\"password\":\"et\"}"
                         },
                         "description": "",
                         "auth": {
@@ -946,7 +1144,7 @@
                     "response": []
                 },
                 {
-                    "name": "Handle the incoming request.",
+                    "name": "\u041d\u0430\u043f\u043e\u043c\u0438\u043d\u0430\u043d\u0438\u0435 \u043f\u0430\u0440\u043e\u043b\u044f.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -967,7 +1165,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"nlesch@example.org\"}"
+                            "raw": "{\"email\":\"roberto82@example.org\"}"
                         },
                         "description": "",
                         "auth": {
@@ -977,7 +1175,7 @@
                     "response": []
                 },
                 {
-                    "name": "Handle the incoming request.",
+                    "name": "\u0421\u0431\u0440\u043e\u0441 \u043f\u0430\u0440\u043e\u043b\u044f.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -998,7 +1196,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"leonard.halvorson@example.org\",\"token\":\"repudiandae\",\"password\":\"saepe\"}"
+                            "raw": "{\"email\":\"arianna55@example.net\",\"token\":\"dolorem\",\"password\":\"consequatur\"}"
                         },
                         "description": "",
                         "auth": {
@@ -1010,159 +1208,773 @@
             ]
         },
         {
-            "name": "Courier",
+            "name": "\u0417\u0430\u043a\u0430\u0437\u0447\u0438\u043a",
             "description": "",
             "item": [
                 {
-                    "name": "Handle the incoming request.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/courier\/orders",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/courier\/orders"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
+                    "name": "\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "\u0417\u0430\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u0435 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0438 \u043e \u0437\u0430\u043a\u0430\u0437\u0447\u0438\u043a\u0435.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customer\/settings",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/customer\/settings"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"name\":\"porro\",\"last_name\":\"et\",\"middle_name\":\"dolorum\",\"region\":\"amet\",\"city\":\"eum\",\"street\":\"molestias\",\"house\":\"impedit\",\"flat\":\"odit\"}"
+                                },
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
                             },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
+                            "response": []
+                        },
+                        {
+                            "name": "\u041e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0435 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0438 \u043e \u0437\u0430\u043a\u0430\u0437\u0447\u0438\u043a\u0435.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customer\/settings\/:customer_id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/customer\/settings\/:customer_id",
+                                    "variable": [
+                                        {
+                                            "id": "customer_id",
+                                            "key": "customer_id",
+                                            "value": "2",
+                                            "description": "The ID of the customer."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"name\":\"omnis\",\"last_name\":\"non\",\"middle_name\":\"rerum\",\"region\":\"repellendus\",\"city\":\"illum\",\"street\":\"voluptatibus\",\"house\":\"ad\",\"flat\":\"voluptatem\"}"
+                                },
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u0437\u0430\u043a\u0430\u0437\u0447\u0438\u043a\u0435.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customer\/settings\/:customer_id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/customer\/settings\/:customer_id",
+                                    "variable": [
+                                        {
+                                            "id": "customer_id",
+                                            "key": "customer_id",
+                                            "value": "2",
+                                            "description": "The ID of the customer."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
                         }
-                    },
-                    "response": []
+                    ]
                 },
                 {
-                    "name": "Handle the incoming request.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/courier\/orders\/:order_id\/start",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/courier\/orders\/:order_id\/start",
-                            "variable": [
-                                {
-                                    "id": "order_id",
-                                    "key": "order_id",
-                                    "value": "10",
-                                    "description": "The ID of the order."
+                    "name": "\u0422\u043e\u0432\u0430\u0440\u044b",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "\u0421\u043f\u0438\u0441\u043e\u043a \u0442\u043e\u0432\u0430\u0440\u043e\u0432 \u0441 \u0444\u0438\u043b\u044c\u0442\u0440\u043e\u043c \u043f\u043e \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u044f\u043c.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customer\/products",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/customer\/products"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
                                 }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
                             },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
+                            "response": []
+                        },
+                        {
+                            "name": "\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u0442\u043e\u0432\u0430\u0440\u0435.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customer\/products\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/customer\/products\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "1",
+                                            "description": "The ID of the product."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
                         }
-                    },
-                    "response": []
+                    ]
                 },
                 {
-                    "name": "Handle the incoming request.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/courier\/orders\/:order_id\/start",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/courier\/orders\/:order_id\/start",
-                            "variable": [
-                                {
-                                    "id": "order_id",
-                                    "key": "order_id",
-                                    "value": "16",
-                                    "description": "The ID of the order."
+                    "name": "\u041a\u043e\u043d\u0442\u0440\u0430\u0433\u0435\u043d\u0442\u044b",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "\u0421\u043f\u0438\u0441\u043e\u043a \u043a\u043e\u043d\u0442\u0440\u0430\u0433\u0435\u043d\u0442\u043e\u0432.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customer\/partners",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/customer\/partners"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
                                 }
-                            ]
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
                             },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
+                            "response": []
+                        },
+                        {
+                            "name": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u043d\u043e\u0432\u043e\u0433\u043e \u043a\u043e\u043d\u0442\u0440\u0430\u0433\u0435\u043d\u0442\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customer\/partners",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/customer\/partners"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"name\":\"eos\",\"last_name\":\"odio\",\"middle_name\":\"minima\",\"phone\":\"et\",\"region\":\"mollitia\",\"city\":\"exercitationem\",\"street\":\"eligendi\",\"house\":\"quas\",\"flat\":\"ut\"}"
+                                },
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u043a\u043e\u043d\u0442\u0440\u0430\u0433\u0435\u043d\u0442\u0435.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customer\/partners\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/customer\/partners\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "17",
+                                            "description": "The ID of the partner."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u041e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0435 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0438 \u043e \u043a\u043e\u043d\u0442\u0440\u0430\u0433\u0435\u043d\u0442\u0435.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customer\/partners\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/customer\/partners\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "16",
+                                            "description": "The ID of the partner."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"name\":\"vero\",\"last_name\":\"in\",\"middle_name\":\"harum\",\"phone\":\"voluptate\",\"region\":\"veniam\",\"city\":\"accusantium\",\"street\":\"ex\",\"house\":\"veniam\",\"flat\":\"sed\"}"
+                                },
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u0423\u0434\u0435\u043b\u0430\u043d\u0438\u0435 \u043a\u043e\u043d\u0442\u0440\u0430\u0433\u0435\u043d\u0442\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customer\/partners\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/customer\/partners\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "7",
+                                            "description": "The ID of the partner."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
                         }
-                    },
-                    "response": []
+                    ]
                 },
                 {
-                    "name": "Handle the incoming request.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/courier\/orders\/:order_id\/finished",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/courier\/orders\/:order_id\/finished",
-                            "variable": [
-                                {
-                                    "id": "order_id",
-                                    "key": "order_id",
-                                    "value": "16",
-                                    "description": "The ID of the order."
+                    "name": "\u0417\u0430\u043a\u0430\u0437\u044b",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "\u0421\u043f\u0438\u0441\u043e\u043a \u0437\u0430\u043a\u0430\u0437\u043e\u0432 \u0441 \u0444\u0438\u043b\u044c\u0442\u0440\u043e\u043c.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customer\/orders",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/customer\/orders"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
                                 }
-                            ]
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
                             },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
+                            "response": []
+                        },
+                        {
+                            "name": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0437\u0430\u043a\u0430\u0437\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customer\/orders",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/customer\/orders"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"product_id\":\"vel\",\"rate_id\":\"maxime\",\"desired_pick_up_date\":\"impedit\",\"desired_delivery_date\":\"animi\",\"sender_id\":\"illo\",\"sender_type\":\"iste\",\"receiver_id\":\"qui\",\"receiver_type\":\"facilis\"}"
+                                },
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u0437\u0430\u043a\u0430\u0437\u0435.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customer\/orders\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/customer\/orders\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "6",
+                                            "description": "The ID of the order."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u041e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0435 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0438 \u043e \u0437\u0430\u043a\u0430\u0437\u0435.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customer\/orders\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/customer\/orders\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "3",
+                                            "description": "The ID of the order."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"desired_pick_up_date\":\"a\",\"desired_delivery_date\":\"illum\",\"sender_id\":\"eum\",\"sender_type\":\"ipsam\",\"receiver_id\":\"et\",\"receiver_type\":\"cumque\"}"
+                                },
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u041e\u0446\u0435\u043d\u043a\u0430 \u0434\u043e\u0441\u0442\u0430\u0432\u043a\u0438.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customer\/orders\/:order_id\/rate",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/customer\/orders\/:order_id\/rate",
+                                    "variable": [
+                                        {
+                                            "id": "order_id",
+                                            "key": "order_id",
+                                            "value": "3",
+                                            "description": "The ID of the order."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u041e\u0442\u043c\u0435\u043d\u0430 \u0437\u0430\u043a\u0430\u0437\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customer\/orders\/:order_id\/cancel",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/customer\/orders\/:order_id\/cancel",
+                                    "variable": [
+                                        {
+                                            "id": "order_id",
+                                            "key": "order_id",
+                                            "value": "5",
+                                            "description": "The ID of the order."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
                         }
-                    },
-                    "response": []
+                    ]
+                },
+                {
+                    "name": "\u0424\u0438\u043d\u0430\u043d\u0441\u044b",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "\u041f\u043e\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u0435 \u0431\u0430\u043b\u0430\u043d\u0441\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/customer\/recharge-balance",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/customer\/recharge-balance"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"amount\":\"accusantium\"}"
+                                },
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
                 }
             ]
         },
         {
-            "name": "Customer",
+            "name": "\u041a\u0443\u0440\u044c\u0435\u0440",
             "description": "",
             "item": [
                 {
-                    "name": "Handle the incoming request.",
+                    "name": "\u0414\u0430\u0448\u0431\u043e\u0440\u0434",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "\u0413\u043b\u0430\u0432\u043d\u044b\u0439 \u044d\u043a\u0440\u0430\u043d \u043a\u0443\u0440\u044c\u0435\u0440\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/courier",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/courier"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u043b\u0438\u0447\u043d\u044b\u0445 \u0434\u0430\u043d\u043d\u044b\u0445 \u043a\u0443\u0440\u044c\u0435\u0440\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/courier\/settings",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/courier\/settings"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u041e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0435 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0438 \u043e \u043a\u0443\u0440\u044c\u0435\u0440\u0435.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/courier\/settings\/:courier_id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/courier\/settings\/:courier_id",
+                                    "variable": [
+                                        {
+                                            "id": "courier_id",
+                                            "key": "courier_id",
+                                            "value": "16",
+                                            "description": "The ID of the courier."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"name\":\"corporis\",\"last_name\":\"odit\",\"middle_name\":\"exercitationem\",\"email\":\"donnelly.raoul@example.net\",\"phone\":\"excepturi\",\"passport_series\":\"quae\",\"passport_number\":\"autem\",\"passport_issued_date\":\"voluptatem\",\"passport_issued_by\":\"et\"}"
+                                },
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u043a\u0443\u0440\u044c\u0435\u0440\u0435.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/courier\/settings\/:courier_id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/courier\/settings\/:courier_id",
+                                    "variable": [
+                                        {
+                                            "id": "courier_id",
+                                            "key": "courier_id",
+                                            "value": "15",
+                                            "description": "The ID of the courier."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "\u0421\u043f\u0438\u0441\u043e\u043a \u043a\u0443\u0440\u044c\u0435\u0440\u043e\u0432 \u0441 \u0440\u0435\u0439\u0442\u0438\u043d\u0433\u043e\u043c.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/customer\/orders",
+                            "path": "api\/v1\/courier\/ratings",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/customer\/orders"
+                            "raw": "{{baseUrl}}\/api\/v1\/courier\/ratings"
                         },
                         "method": "GET",
                         "header": [
@@ -1184,208 +1996,326 @@
                     "response": []
                 },
                 {
-                    "name": "Handle the incoming request.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/customer\/orders\/:order_id",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/customer\/orders\/:order_id",
-                            "variable": [
-                                {
-                                    "id": "order_id",
-                                    "key": "order_id",
-                                    "value": "5",
-                                    "description": "The ID of the order."
+                    "name": "\u0420\u0430\u0431\u043e\u0442\u0430 \u0441 \u0437\u0430\u043a\u0430\u0437\u0430\u043c\u0438.",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "\u0421\u043f\u0438\u0441\u043e\u043a \u0438 \u0444\u0438\u043b\u044c\u0442\u0440\u0430\u0446\u0438\u044f \u0437\u0430\u043a\u0430\u0437\u043e\u0432.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/courier\/orders",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/courier\/orders"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
                                 }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
                             },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Handle the incoming request.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/customer\/orders\/create",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/customer\/orders\/create"
+                            "response": []
                         },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"products\":[],\"address_from\":\"quas\",\"address_to\":\"blanditiis\",\"desired_pick_up_date\":\"amet\",\"desired_delivery_date\":\"aut\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Handle the incoming request.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/customer\/recharge-balance",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/customer\/recharge-balance"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"amount\":\"occaecati\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Handle the incoming request.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/customer\/orders\/:order_id\/rate",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/customer\/orders\/:order_id\/rate",
-                            "variable": [
-                                {
-                                    "id": "order_id",
-                                    "key": "order_id",
-                                    "value": "18",
-                                    "description": "The ID of the order."
+                        {
+                            "name": "\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u0437\u0430\u043a\u0430\u0437\u0435.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/courier\/orders\/:order_id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/courier\/orders\/:order_id",
+                                    "variable": [
+                                        {
+                                            "id": "order_id",
+                                            "key": "order_id",
+                                            "value": "18",
+                                            "description": "The ID of the order."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
                                 }
-                            ]
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
                             },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Handle the incoming request.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/admin\/customers\/:user_id\/ambassador",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/admin\/customers\/:user_id\/ambassador",
-                            "variable": [
-                                {
-                                    "id": "user_id",
-                                    "key": "user_id",
-                                    "value": "1",
-                                    "description": "The ID of the user."
+                            "response": []
+                        },
+                        {
+                            "name": "\u0417\u0430\u043a\u0430\u0437 \u043f\u0440\u0438\u043d\u044f\u0442 \u043a \u0438\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044e.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/courier\/orders\/:order_id\/start",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/courier\/orders\/:order_id\/start",
+                                    "variable": [
+                                        {
+                                            "id": "order_id",
+                                            "key": "order_id",
+                                            "value": "14",
+                                            "description": "The ID of the order."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
                                 }
-                            ]
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
                             },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
+                            "response": []
+                        },
+                        {
+                            "name": "\u0417\u0430\u043a\u0430\u0437 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/courier\/orders\/:order_id\/stop",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/courier\/orders\/:order_id\/stop",
+                                    "variable": [
+                                        {
+                                            "id": "order_id",
+                                            "key": "order_id",
+                                            "value": "3",
+                                            "description": "The ID of the order."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
                         }
-                    },
-                    "response": []
+                    ]
                 }
             ]
         },
         {
-            "name": "Endpoints",
+            "name": "\u0427\u0430\u0442",
             "description": "",
             "item": [
                 {
-                    "name": "Handle the incoming request.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/qrcode",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/qrcode"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
+                    "name": "\u0417\u0430\u043a\u0430\u0437",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "\u0421\u043f\u0438\u0441\u043e\u043a \u0447\u0430\u0442\u043e\u0432.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/conversations",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/conversations"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
                             },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
+                            "response": []
+                        },
+                        {
+                            "name": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0447\u0430\u0442\u0430.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/conversations",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/conversations"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"recipient_id\":\"dolor\"}"
+                                },
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u0427\u0430\u0442.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/conversations\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/conversations\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "1",
+                                            "description": "The ID of the conversation."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "\u041e\u0442\u043f\u0440\u0430\u0432\u043a\u0430 \u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u044f.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/conversations\/:conversation_id\/send",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/conversations\/:conversation_id\/send",
+                                    "variable": [
+                                        {
+                                            "id": "conversation_id",
+                                            "key": "conversation_id",
+                                            "value": "14",
+                                            "description": "The ID of the conversation."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"message\":\"voluptas\"}"
+                                },
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
                         }
-                    },
-                    "response": []
+                    ]
+                },
+                {
+                    "name": "\u041f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0430",
+                    "description": "",
+                    "item": [
+                        {
+                            "name": "Store a newly created resource in storage.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/conversations\/support",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/conversations\/support"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
                 }
             ]
         }

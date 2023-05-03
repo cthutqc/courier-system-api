@@ -6,46 +6,29 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
-
+/**
+ * @group Заказчик
+ *
+ * @subgroup Товары
+ */
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Список товаров с фильтром по категориям.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Product::all();
+        return Product::query()
+            ->when($request->category_id, function ($q) use($request){
+                $q->where('category_id', $request->category_id);
+            })->get();
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
+     * Информация о товаре.
      */
     public function show(Product $product)
     {
         return $product;
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Product $product)
-    {
-
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Product $product)
-    {
-        //
     }
 }

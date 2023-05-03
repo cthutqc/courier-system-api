@@ -9,19 +9,15 @@ use App\Http\Resources\CustomerResource;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
+/**
+ * @group Заказчик
+ *
+ * @subgroup Настройки
+ */
 class CustomerController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Заполнение информации о заказчике.
      */
     public function store(CustomerSettingStoreRequest $request)
     {
@@ -40,7 +36,7 @@ class CustomerController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Информация о заказчике.
      */
     public function show(Customer $customer)
     {
@@ -52,7 +48,7 @@ class CustomerController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Обновление информации о заказчике.
      */
     public function update(CustomerSettingStoreRequest $request, Customer $customer)
     {

@@ -8,7 +8,11 @@ use App\Models\Conversation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
+/**
+ * @group Чат
+ *
+ * @subgroup Поддержка
+ */
 class SupportController extends ChatController
 {
     /**

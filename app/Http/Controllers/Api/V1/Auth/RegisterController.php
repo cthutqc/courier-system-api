@@ -9,12 +9,12 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Validation\Rules\Password;
 /**
- * @group Auth
+ * @group Аутентификация
  */
 class RegisterController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * Регистрация.
      */
     public function __invoke(Request $request)
     {

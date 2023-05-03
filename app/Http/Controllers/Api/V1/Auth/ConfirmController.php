@@ -12,10 +12,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 /**
- * @group Auth
+ * @group Аутентификация
  */
 class ConfirmController extends Controller
 {
+    /**
+     * Подтверждение кода.
+     */
     public function __invoke(Request $request)
     {
         $request->validate([

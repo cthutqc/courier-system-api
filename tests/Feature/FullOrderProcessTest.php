@@ -114,9 +114,9 @@ class FullOrderProcessTest extends TestCase
 
         $order = Order::find(1);
 
-        echo 'Баланс заказчика до доставки ' . Customer::find($customer->id)->balance . PHP_EOL;
+        echo 'Баланс заказчика до доставки ' . $customer->balance . PHP_EOL;
 
-        echo 'Баланс курьера до доставки ' . Courier::find($courier->id)->balance . PHP_EOL;
+        echo 'Баланс курьера до доставки ' . $courier->balance . PHP_EOL;
 
         echo 'Стоимость доставки ' . $order->price . PHP_EOL;
 
@@ -128,9 +128,9 @@ class FullOrderProcessTest extends TestCase
 
         echo 'Заказ #'. $order->id .' закончили доставлять в ' . $order->stop_at . PHP_EOL;
 
-        echo 'Баланс заказчика после доставки ' . Customer::find($customer->id)->balance . PHP_EOL;
+        echo 'Баланс заказчика после доставки ' . $customer->balance . PHP_EOL;
 
-        echo 'Баланс курьера после доставки ' . Courier::find($courier->id)->balance . PHP_EOL;
+        echo 'Баланс курьера после доставки ' . $courier->balance . PHP_EOL;
 
         dd();
     }

@@ -6,11 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PartnerRequest;
 use App\Models\Partner;
 use Illuminate\Http\Request;
-
+/**
+ * @group Заказчик
+ *
+ * @subgroup Контрагенты
+ */
 class PartnerController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Список контрагентов.
      */
     public function index()
     {
@@ -18,7 +22,7 @@ class PartnerController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Создание нового контрагента.
      */
     public function store(PartnerRequest $request)
     {
@@ -34,7 +38,7 @@ class PartnerController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Информация о контрагенте.
      */
     public function show(Partner $partner)
     {
@@ -42,7 +46,7 @@ class PartnerController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Обновление информации о контрагенте.
      */
     public function update(PartnerRequest $request, Partner $partner)
     {
@@ -54,7 +58,7 @@ class PartnerController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Удаление контрагента.
      */
     public function destroy(Partner $partner)
     {

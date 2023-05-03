@@ -10,16 +10,20 @@ use App\Http\Resources\OrderResource;
 use App\Models\Order;
 use App\Models\OrderStatus;
 use App\Models\Partner;
-use App\Models\Product;
 use App\Models\ProductPrice;
 use App\Models\Rating;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+/**
+ * @group Заказчик
+ *
+ * @subgroup Заказы
+ */
 class OrderController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Список заказов с фильтром.
      */
     public function index(Request $request)
     {
@@ -30,7 +34,7 @@ class OrderController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Создание заказа.
      */
     public function store(CustomerOrderStoreRequest $request)
     {
@@ -66,7 +70,7 @@ class OrderController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Информация о заказе.
      */
     public function show(Order $order)
     {
@@ -77,7 +81,7 @@ class OrderController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Обновление информации о заказе.
      */
     public function update(Request $request, Order $order)
     {
@@ -109,13 +113,8 @@ class OrderController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Отмена заказа.
      */
-    public function destroy(Order $order)
-    {
-        //
-    }
-
     public function cancel(Order $order)
     {
         $order->setStatus(OrderStatus::CANCELED);
@@ -125,6 +124,9 @@ class OrderController extends Controller
         ], Response::HTTP_CREATED);
     }
 
+    /**
+     * Оценка доставки.
+     */
     public function rate(Request $request, Order $order)
     {
         Rating::create([

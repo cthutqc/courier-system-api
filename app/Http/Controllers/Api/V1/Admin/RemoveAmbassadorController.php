@@ -7,12 +7,14 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 /**
- * @group Admin
+ * @group Админ
+ *
+ * @subgroup Амбассадор
  */
 class RemoveAmbassadorController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * Удаление роди амбассадор.
      */
     public function __invoke(Request $request, User $user)
     {

@@ -8,12 +8,14 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 /**
- * @group Admin
+ * @group Админ
+ *
+ * @subgroup Товары
  */
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Список заказов.
      */
     public function index()
     {
@@ -21,16 +23,17 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Создание товара.
      */
     public function store(Request $request)
     {
         $request->validate([
             'name' => ['required'],
             'price' => ['required'],
+            'category_id' => ['required'],
         ]);
 
-        Product::create($request->only('name', 'text', 'price', 'active'));
+        Product::create($request->only('name', 'text', 'price', 'active', 'category_id'));
 
         return response()->json([
             'success' => 'Product created.',
@@ -38,7 +41,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Информация о товаре.
      */
     public function show(Product $product)
     {
@@ -46,16 +49,17 @@ class ProductController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Обновление данных товара.
      */
     public function update(Request $request, Product $product)
     {
         $request->validate([
             'name' => ['required'],
             'price' => ['required'],
+            'category_id' => ['required'],
         ]);
 
-        $product->update($request->only('name', 'text', 'price', 'active'));
+        $product->update($request->only('name', 'text', 'price', 'active', 'category_id'));
 
         return response()->json([
             'success' => 'Product updated.',
@@ -63,7 +67,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Уделание товара.
      */
     public function destroy(Product $product)
     {

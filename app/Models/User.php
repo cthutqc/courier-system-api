@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Bavix\Wallet\Interfaces\Wallet;
+use Bavix\Wallet\Traits\HasWallet;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -14,9 +16,9 @@ use Parental\HasChildren;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class User extends Authenticatable implements HasMedia
+class User extends Authenticatable implements HasMedia, Wallet
 {
-    use HasApiTokens, HasFactory, Notifiable, HasChildren, InteractsWithMedia;
+    use HasApiTokens, HasFactory, Notifiable, HasChildren, InteractsWithMedia, HasWallet;
 
     /**
      * The attributes that are mass assignable.
@@ -78,11 +80,6 @@ class User extends Authenticatable implements HasMedia
     public function isCustomer(): bool
     {
         return $this->type === 'customer';
-    }
-
-    public function transactions():HasMany
-    {
-        return $this->hasMany(Transaction::class);
     }
 
     public function address():string

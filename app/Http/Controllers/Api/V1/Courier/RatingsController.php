@@ -7,10 +7,14 @@ use App\Http\Resources\CourierRatingResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+/**
+ * @group Курьер
+ *
+ */
 class RatingsController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * Список курьеров с рейтингом.
      */
     public function __invoke(Request $request)
     {

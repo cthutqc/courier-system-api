@@ -7,9 +7,16 @@ use App\Http\Requests\ConversationRequest;
 use App\Models\Conversation;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
+/**
+ * @group Чат
+ *
+ * @subgroup Заказ
+ */
 class ChatController extends Controller
 {
+    /**
+     * Список чатов.
+     */
     public function index()
     {
         $conversations = Conversation::where('user_id', auth()->user()->id)
@@ -20,6 +27,9 @@ class ChatController extends Controller
         return response()->json(['conversations' => $conversations]);
     }
 
+    /**
+     * Чат.
+     */
     public function show(Conversation $conversation)
     {
         if ($conversation->user_id != auth()->user()->id && $conversation->recipient_id != auth()->user()->id) {
@@ -31,6 +41,9 @@ class ChatController extends Controller
         return response()->json(['messages' => $messages]);
     }
 
+    /**
+     * Создание чата.
+     */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -45,6 +58,9 @@ class ChatController extends Controller
         return response()->json(['conversation' => $conversation], Response::HTTP_CREATED);
     }
 
+    /**
+     * Отправка сообщения.
+     */
     public function send(Conversation $conversation, ConversationRequest $request)
     {
         if ($conversation->user_id != auth()->user()->id && $conversation->recipient_id != auth()->user()->id) {

@@ -9,7 +9,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 class QrGenerate extends Controller
 {
     /**
-     * Handle the incoming request.
+     * Генерация qr кода.
      */
     public function __invoke(Request $request)
     {

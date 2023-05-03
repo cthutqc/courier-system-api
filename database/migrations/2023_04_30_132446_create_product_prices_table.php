@@ -20,6 +20,32 @@ return new class extends Migration
 
             $table->timestamps();
         });
+
+        $products = [
+            'Налоговый отчет',
+            'Договор',
+            'Личные документы',
+        ];
+
+        foreach ($products as $product) {
+
+            $newProduct = \App\Models\Product::create([
+                'name' => $product,
+                'text' => fake()->text(),
+                'category_id' => 1,
+            ]);
+
+            \App\Models\Rate::all()->each(function ($rate) use ($newProduct){
+
+                \App\Models\ProductPrice::create([
+                    'product_id' => $newProduct->id,
+                    'rate_id' => $rate->id,
+                    'amount' => rand(120, 1500),
+                ]);
+
+            });
+
+        }
     }
 
     /**

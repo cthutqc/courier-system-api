@@ -9,19 +9,15 @@ use App\Models\Courier;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
+/**
+ * @group Курьер
+ *
+ * @subgroup Настройки
+ */
 class CourierController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Создание личных данных курьера.
      */
     public function store(Request $request)
     {
@@ -41,7 +37,7 @@ class CourierController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Информация о курьере.
      */
     public function show(Courier $courier)
     {
@@ -55,7 +51,7 @@ class CourierController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Обновление информации о курьере.
      */
     public function update(CourierUpdateRequest $request, Courier $courier)
     {

@@ -9,12 +9,12 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 /**
- * @group Auth
+ * @group Аутентификация
  */
 class PasswordResetController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * Сброс пароля.
      */
     public function __invoke(Request $request)
     {

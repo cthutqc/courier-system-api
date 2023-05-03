@@ -13,11 +13,15 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 /**
- * @group Courier
+ * @group Курьер
+ *
+ * @subgroup Работа с заказами.
  */
 class OrdersController extends Controller
 {
-
+    /**
+     * Список и фильтрация заказов.
+     */
     public function index(Request $request)
     {
         if($request->accepted)
@@ -37,7 +41,10 @@ class OrdersController extends Controller
         ]);
     }
 
-    public function show(Order $order, Request $request)
+    /**
+     * Информация о заказе.
+     */
+    public function show(Order $order)
     {
         if(isset($order->courier_id) && $order->courier_id != auth()->user()->id)
             return response()->json([
@@ -47,6 +54,9 @@ class OrdersController extends Controller
         return CourierOrderControllerShowResource::make($order);
     }
 
+    /**
+     * Заказ принят к исполнению.
+     */
     public function start(Order $order)
     {
         if($order->status != OrderStatus::ACCEPTED)
@@ -61,6 +71,9 @@ class OrdersController extends Controller
         ], Response::HTTP_CREATED);
     }
 
+    /**
+     * Заказ выполнен.
+     */
     public function stop(Order $order)
     {
         if($order->status != OrderStatus::ON_DELIVERY)

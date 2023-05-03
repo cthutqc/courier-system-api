@@ -18,7 +18,6 @@ return new class extends Migration
             $table->text('text')->nullable();
             $table->foreignId('courier_id')->nullable()->references('id')->on('users')->constrained();
             $table->foreignId('customer_id')->nullable()->references('id')->on('users')->constrained();
-            $table->foreignIdFor(\App\Models\Product::class)->nullable()->constrained();
             $table->string('status')->default('created');
             $table->string('desired_pick_up_date')->nullable();
             $table->string('desired_delivery_date')->nullable();

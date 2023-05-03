@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Password;
 /**
- * @group Auth
+ * @group Аутентификация
  */
 class PasswordForgotController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * Напоминание пароля.
      */
     public function __invoke(Request $request)
     {

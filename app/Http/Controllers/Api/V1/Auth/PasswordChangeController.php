@@ -9,10 +9,13 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
 
+/**
+ * @group Аутентификация
+ */
 class PasswordChangeController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * Смена пароля.
      */
     public function __invoke(Request $request)
     {

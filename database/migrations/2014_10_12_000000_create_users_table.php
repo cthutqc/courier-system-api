@@ -23,7 +23,6 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('active')->default(false);
-            $table->integer('balance')->default(0);
             $table->boolean('is_ambassador')->default(false);
             $table->text('ambassador')->nullable();
             $table->rememberToken();

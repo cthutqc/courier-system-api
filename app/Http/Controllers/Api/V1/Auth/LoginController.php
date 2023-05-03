@@ -9,12 +9,12 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 /**
- * @group Auth
+ * @group Аутентификация
  */
 class LoginController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * Логин.
      */
     public function __invoke(Request $request)
     {

@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order_product', function (Blueprint $table) {
-            $table->id();
-
-            $table->foreignIdFor(\App\Models\Order::class)->constrained();
-            $table->foreignIdFor(\App\Models\Product::class)->constrained();
+        Schema::table('orders', function (Blueprint $table) {
+            $table->foreignIdFor(\App\Models\Product::class)->after('customer_id')->nullable()->constrained();
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('order_product');
+        Schema::table('orders', function (Blueprint $table) {
+            //
+        });
     }
 };

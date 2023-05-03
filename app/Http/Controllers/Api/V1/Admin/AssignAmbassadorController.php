@@ -7,12 +7,14 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 /**
- * @group Customer
+ * @group Админ
+ *
+ * @subgroup Амбассадор
  */
 class AssignAmbassadorController extends Controller
 {
     /**
-     * Handle the incoming request.
+     * Добавление роли амбассадора.
      */
     public function __invoke(Request $request, User $user)
     {
