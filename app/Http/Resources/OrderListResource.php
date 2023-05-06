@@ -16,14 +16,18 @@ class OrderListResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+
+        $rate = Rate::find($this->rate_id);
+
         return [
             'id' => $this->id,
             'name' => $this->product->name,
             'price' => $this->price,
             'status' => $this->status,
-            'desired_delivery_date' => $this->desired_delivery_date,
-            'remaining_time' => now()->diffInMinutes($this->desired_delivery_date, false),
-            'address' => $this->when(auth()->user()->isCustomer(), $this->receiver->address()),
+            'rate' => $rate->name,
+            'desired_delivery_date' => $this->desiredDeliveryTime(),
+            'remaining_time' => $this->remainingTime(),
+            'address' => $this->receiver->address(),
         ];
     }
 }

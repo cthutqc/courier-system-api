@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Traits\FormattedInformation;
 use Bavix\Wallet\Interfaces\Wallet;
 use Bavix\Wallet\Traits\HasWallet;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,7 +19,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 
 class User extends Authenticatable implements HasMedia, Wallet
 {
-    use HasApiTokens, HasFactory, Notifiable, HasChildren, InteractsWithMedia, HasWallet;
+    use HasApiTokens, HasFactory, Notifiable, HasChildren, InteractsWithMedia, HasWallet, FormattedInformation;
 
     /**
      * The attributes that are mass assignable.

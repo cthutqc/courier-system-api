@@ -33,17 +33,17 @@ Route::middleware('auth:sanctum')->group(function () {
 
         Route::prefix('customer')->middleware(\App\Http\Middleware\IsCustomer::class)->group(function (){
 
-            Route::post('settings', [\App\Http\Controllers\Api\V1\Customer\CustomerController::class, 'store']);
+            Route::get('/', \App\Http\Controllers\Api\V1\Customer\DashboardController::class);
 
-            Route::post('settings/{customer}', [\App\Http\Controllers\Api\V1\Customer\CustomerController::class, 'update']);
-
-            Route::get('settings/{customer}', [\App\Http\Controllers\Api\V1\Customer\CustomerController::class, 'show']);
+            Route::apiResource('settings', \App\Http\Controllers\Api\V1\Customer\CustomerController::class);
 
             Route::apiResource('products', \App\Http\Controllers\Api\V1\Customer\ProductController::class);
 
             Route::apiResource('partners', \App\Http\Controllers\Api\V1\Customer\PartnerController::class);
 
             Route::apiResource('orders', \App\Http\Controllers\Api\V1\Customer\OrderController::class);
+
+            Route::put('orders/{order}/tips', [\App\Http\Controllers\Api\V1\Customer\OrderController::class, 'tips']);
 
             Route::post('recharge-balance', \App\Http\Controllers\Api\V1\Customer\RechargeBalanceController::class);
 
@@ -56,11 +56,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
             Route::get('/', \App\Http\Controllers\Api\V1\Courier\DashboardController::class);
 
-            Route::post('settings', [\App\Http\Controllers\Api\V1\Courier\CourierController::class, 'store']);
-
-            Route::post('settings/{courier}', [\App\Http\Controllers\Api\V1\Courier\CourierController::class, 'update']);
-
-            Route::get('settings/{courier}', [\App\Http\Controllers\Api\V1\Courier\CourierController::class, 'show']);
+            Route::apiResource('settings', \App\Http\Controllers\Api\V1\Courier\CourierController::class);
 
             Route::get('ratings', \App\Http\Controllers\Api\V1\Courier\RatingsController::class);
 

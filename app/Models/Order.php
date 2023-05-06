@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Traits\HasStatus;
 use App\Traits\Stopable;
 use App\Traits\Startabled;
+use Carbon\Carbon;
+use Carbon\CarbonInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -63,6 +65,18 @@ class Order extends Model
     public function order_status():BelongsTo
     {
         return $this->belongsTo(OrderStatus::class);
+    }
+
+    public function desiredDeliveryTime()
+    {
+        return Carbon::parse($this->attributes['created_at'])
+            ->addHour(Rate::find($this->attributes['rate_id'])->delivery_time)
+            ->toDateTimeLocalString();
+    }
+
+    public function remainingTime()
+    {
+        return Carbon::now()->diffForHumans($this->desiredDeliveryTime(), CarbonInterface::DIFF_ABSOLUTE);
     }
 
     public function scopeFilter(Builder $builder, $request = null):void

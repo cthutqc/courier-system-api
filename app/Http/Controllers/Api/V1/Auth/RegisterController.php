@@ -30,8 +30,7 @@ class RegisterController extends Controller
             'password' => $request->password,
         ]);
 
-        //if(app()->isProduction())
-            event(new UserRegistered($user));
+        event(new UserRegistered($user));
 
         $device = substr($request->userAgent() ?? '', 0, 255);
 

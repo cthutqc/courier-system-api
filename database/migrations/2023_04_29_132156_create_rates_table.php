@@ -32,7 +32,7 @@ return new class extends Migration
              //   'code' => \App\Models\Rate::URGENT
             ],
             [
-                'name' => 'Суточный',
+                'name' => 'Сверхсрочный',
                 'delivery_time' => 1,
               //  'code' => \App\Models\Rate::EXTRA_URGENT
             ],

@@ -12,6 +12,7 @@ use App\Models\OrderStatus;
 use App\Models\Partner;
 use App\Models\ProductPrice;
 use App\Models\Rating;
+use App\Services\PaymentService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -60,8 +61,7 @@ class OrderController extends Controller
 
         $order->save();
 
-        if(app()->isProduction())
-            event(new NewOrderCreated($order));
+        event(new NewOrderCreated($order));
 
         return response()->json([
             'order' => OrderResource::make($order),
@@ -138,6 +138,21 @@ class OrderController extends Controller
 
         return response()->json([
             'success' => 'You rate order.',
+        ], Response::HTTP_CREATED);
+    }
+
+    public function tips(Request $request, Order $order)
+    {
+        $request->validate([
+            'amount' => ['required'],
+        ]);
+
+        $paymentService = new PaymentService();
+
+        $paymentService->tips($order, $request->amount);
+
+        return response()->json([
+            'success' => 'Tips send.',
         ], Response::HTTP_CREATED);
     }
 }

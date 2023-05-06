@@ -108,7 +108,7 @@ class FullOrderProcessTest extends TestCase
         ]);
 
 
-        $this->actingAs($courier)->getJson('api/v1/courier/orders?accepted=true');
+        $this->actingAs($courier)->getJson('api/v1/courier/orders?all=true');
 
         $this->actingAs($courier)->putJson('api/v1/courier/orders/' . $order->id . '/start');
 

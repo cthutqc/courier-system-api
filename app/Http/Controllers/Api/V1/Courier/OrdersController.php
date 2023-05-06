@@ -24,7 +24,7 @@ class OrdersController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->accepted)
+        if($request->all)
         {
             $orders = Order::query()
                 ->doesntHave('courier');
@@ -37,7 +37,6 @@ class OrdersController extends Controller
 
         return response()->json([
             OrderListResource::collection($orders->get()),
-            Product::all(),
         ]);
     }
 

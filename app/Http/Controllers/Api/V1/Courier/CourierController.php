@@ -39,29 +39,29 @@ class CourierController extends Controller
     /**
      * Информация о курьере.
      */
-    public function show(Courier $courier)
+    public function show()
     {
-        $courier->load('media');
+        auth()->user()->load('media');
 
-        $courier->load('personal_information');
+        auth()->user()->load('personal_information');
 
-        $courier->load('contact_information');
+        auth()->user()->load('contact_information');
 
-        return CourierResource::make($courier);
+        return CourierResource::make(auth()->user());
     }
 
     /**
      * Обновление информации о курьере.
      */
-    public function update(CourierUpdateRequest $request, Courier $courier)
+    public function update(CourierUpdateRequest $request)
     {
-        $courier->update($request->only('name', 'last_name', 'middle_name'));
+        auth()->user()->update($request->only('name', 'last_name', 'middle_name'));
 
-        $courier->personal_information()->update($request->only('passport_series', 'passport_number', 'passport_issued_by', 'passport_issued_date'));
+        auth()->user()->personal_information()->update($request->only('passport_series', 'passport_number', 'passport_issued_by', 'passport_issued_date'));
 
-        $courier->contact_information()->update($request->only('region', 'city', 'street', 'house', 'flat'));
+        auth()->user()->contact_information()->update($request->only('region', 'city', 'street', 'house', 'flat'));
 
-        $courier->save();
+        auth()->user()->save();
 
         //$request->user()->addMedia($request->passport_photo_id)->toMediaCollection('passport_id');
 
