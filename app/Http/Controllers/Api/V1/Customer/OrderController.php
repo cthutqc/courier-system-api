@@ -141,6 +141,9 @@ class OrderController extends Controller
         ], Response::HTTP_CREATED);
     }
 
+    /**
+     * Чаевые.
+     */
     public function tips(Request $request, Order $order)
     {
         $request->validate([

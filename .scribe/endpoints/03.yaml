@@ -63,125 +63,8 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - POST
-    uri: 'api/v1/courier/settings/{courier_id}'
-    metadata:
-      groupName: Курьер
-      groupDescription: ''
-      subgroup: Настройки
-      subgroupDescription: ''
-      title: 'Обновление информации о курьере.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      courier_id:
-        name: courier_id
-        description: 'The ID of the courier.'
-        required: true
-        example: 16
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      courier_id: 16
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: ''
-        required: true
-        example: corporis
-        type: string
-        custom: []
-      last_name:
-        name: last_name
-        description: ''
-        required: true
-        example: odit
-        type: string
-        custom: []
-      middle_name:
-        name: middle_name
-        description: ''
-        required: true
-        example: exercitationem
-        type: string
-        custom: []
-      email:
-        name: email
-        description: 'Must be a valid email address.'
-        required: true
-        example: donnelly.raoul@example.net
-        type: string
-        custom: []
-      phone:
-        name: phone
-        description: ''
-        required: true
-        example: excepturi
-        type: string
-        custom: []
-      active:
-        name: active
-        description: ''
-        required: false
-        example: null
-        type: string
-        custom: []
-      passport_series:
-        name: passport_series
-        description: ''
-        required: true
-        example: quae
-        type: string
-        custom: []
-      passport_number:
-        name: passport_number
-        description: ''
-        required: true
-        example: autem
-        type: string
-        custom: []
-      passport_issued_date:
-        name: passport_issued_date
-        description: ''
-        required: true
-        example: voluptatem
-        type: string
-        custom: []
-      passport_issued_by:
-        name: passport_issued_by
-        description: ''
-        required: true
-        example: et
-        type: string
-        custom: []
-    cleanBodyParameters:
-      name: corporis
-      last_name: odit
-      middle_name: exercitationem
-      email: donnelly.raoul@example.net
-      phone: excepturi
-      passport_series: quae
-      passport_number: autem
-      passport_issued_date: voluptatem
-      passport_issued_by: et
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
       - GET
-    uri: 'api/v1/courier/settings/{courier_id}'
+    uri: 'api/v1/courier/settings/{id}'
     metadata:
       groupName: Курьер
       groupDescription: ''
@@ -195,19 +78,137 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      courier_id:
-        name: courier_id
-        description: 'The ID of the courier.'
+      id:
+        name: id
+        description: 'The ID of the setting.'
         required: true
-        example: 15
-        type: integer
+        example: assumenda
+        type: string
         custom: []
     cleanUrlParameters:
-      courier_id: 15
+      id: assumenda
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/courier/settings/{id}'
+    metadata:
+      groupName: Курьер
+      groupDescription: ''
+      subgroup: Настройки
+      subgroupDescription: ''
+      title: 'Обновление информации о курьере.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the setting.'
+        required: true
+        example: ea
+        type: string
+        custom: []
+    cleanUrlParameters:
+      id: ea
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: delectus
+        type: string
+        custom: []
+      last_name:
+        name: last_name
+        description: ''
+        required: true
+        example: aut
+        type: string
+        custom: []
+      middle_name:
+        name: middle_name
+        description: ''
+        required: true
+        example: eos
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: ila92@example.net
+        type: string
+        custom: []
+      phone:
+        name: phone
+        description: ''
+        required: true
+        example: laboriosam
+        type: string
+        custom: []
+      active:
+        name: active
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      passport_series:
+        name: passport_series
+        description: ''
+        required: true
+        example: modi
+        type: string
+        custom: []
+      passport_number:
+        name: passport_number
+        description: ''
+        required: true
+        example: ut
+        type: string
+        custom: []
+      passport_issued_date:
+        name: passport_issued_date
+        description: ''
+        required: true
+        example: sit
+        type: string
+        custom: []
+      passport_issued_by:
+        name: passport_issued_by
+        description: ''
+        required: true
+        example: voluptatem
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name: delectus
+      last_name: aut
+      middle_name: eos
+      email: ila92@example.net
+      phone: laboriosam
+      passport_series: modi
+      passport_number: ut
+      passport_issued_date: sit
+      passport_issued_by: voluptatem
     fileParameters: []
     responses: []
     responseFields: []
@@ -297,11 +298,11 @@ endpoints:
         name: order_id
         description: 'The ID of the order.'
         required: true
-        example: 18
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      order_id: 18
+      order_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -335,11 +336,11 @@ endpoints:
         name: order_id
         description: 'The ID of the order.'
         required: true
-        example: 14
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      order_id: 14
+      order_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -373,11 +374,11 @@ endpoints:
         name: order_id
         description: 'The ID of the order.'
         required: true
-        example: 3
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      order_id: 3
+      order_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

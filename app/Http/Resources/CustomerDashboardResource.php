@@ -16,6 +16,7 @@ class CustomerDashboardResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
+            'id' => $this->id,
             'name' => $this->displayedName(),
             'balance' => $this->balance,
             'current_orders_count' => $this->orders()->where('status', OrderStatus::ON_DELIVERY)->count(),

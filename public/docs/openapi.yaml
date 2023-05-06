@@ -60,19 +60,19 @@ paths:
                 address_from:
                   type: string
                   description: ''
-                  example: quasi
+                  example: corrupti
                 address_to:
                   type: string
                   description: ''
-                  example: perferendis
+                  example: repudiandae
                 desired_pick_up_date:
                   type: string
                   description: ''
-                  example: ut
+                  example: facilis
                 desired_delivery_date:
                   type: string
                   description: ''
-                  example: quisquam
+                  example: ea
                 text:
                   type: string
                   description: ''
@@ -98,7 +98,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the order.'
-        example: 11
+        example: 1
         required: true
         schema:
           type: integer
@@ -117,7 +117,7 @@ paths:
         in: path
         name: order_id
         description: 'The ID of the order.'
-        example: 7
+        example: 1
         required: true
         schema:
           type: integer
@@ -149,15 +149,15 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: commodi
+                  example: deleniti
                 price:
                   type: string
                   description: ''
-                  example: excepturi
+                  example: aut
                 category_id:
                   type: string
                   description: ''
-                  example: nostrum
+                  example: deserunt
               required:
                 - name
                 - price
@@ -191,15 +191,15 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: nihil
+                  example: occaecati
                 price:
                   type: string
                   description: ''
-                  example: ut
+                  example: et
                 category_id:
                   type: string
                   description: ''
-                  example: accusantium
+                  example: fugiat
               required:
                 - name
                 - price
@@ -244,8 +244,8 @@ paths:
       security: []
   '/api/v1/admin/categories/{id}':
     get:
-      summary: 'Display the specified resource.'
-      operationId: displayTheSpecifiedResource
+      summary: 'Инфомация о категории.'
+      operationId: ''
       description: ''
       parameters: []
       responses: {  }
@@ -275,7 +275,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the category.'
-        example: 12
+        example: 1
         required: true
         schema:
           type: integer
@@ -317,23 +317,23 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: dolor
+                  example: at
                 last_name:
                   type: string
                   description: ''
-                  example: qui
+                  example: quidem
                 middle_name:
                   type: string
                   description: ''
-                  example: rem
+                  example: saepe
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: dangelo96@example.org
+                  example: dashawn00@example.org
                 phone:
                   type: string
                   description: ''
-                  example: quasi
+                  example: nam
                 active:
                   type: string
                   description: ''
@@ -341,19 +341,19 @@ paths:
                 passport_series:
                   type: string
                   description: ''
-                  example: autem
+                  example: nulla
                 passport_number:
                   type: string
                   description: ''
-                  example: velit
+                  example: facilis
                 passport_issued_date:
                   type: string
                   description: ''
-                  example: repudiandae
+                  example: ratione
                 passport_issued_by:
                   type: string
                   description: ''
-                  example: exercitationem
+                  example: nulla
               required:
                 - name
                 - last_name
@@ -379,7 +379,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the courier.'
-        example: 5
+        example: 2
         required: true
         schema:
           type: integer
@@ -421,23 +421,23 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: ut
+                  example: et
                 last_name:
                   type: string
                   description: ''
-                  example: expedita
+                  example: voluptatem
                 middle_name:
                   type: string
                   description: ''
-                  example: consequatur
+                  example: necessitatibus
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: wintheiser.lauryn@example.org
+                  example: kelsie.leffler@example.org
                 phone:
                   type: string
                   description: ''
-                  example: delectus
+                  example: cupiditate
                 active:
                   type: string
                   description: ''
@@ -463,7 +463,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the customer.'
-        example: 2
+        example: 12
         required: true
         schema:
           type: integer
@@ -486,7 +486,7 @@ paths:
                 text:
                   type: string
                   description: ''
-                  example: labore
+                  example: accusantium
               required:
                 - text
       security: []
@@ -495,7 +495,7 @@ paths:
         in: path
         name: user_id
         description: 'The ID of the user.'
-        example: 2
+        example: 12
         required: true
         schema:
           type: integer
@@ -518,7 +518,7 @@ paths:
                 text:
                   type: string
                   description: ''
-                  example: reiciendis
+                  example: iusto
               required:
                 - text
       security: []
@@ -527,7 +527,7 @@ paths:
         in: path
         name: user_id
         description: 'The ID of the user.'
-        example: 2
+        example: 12
         required: true
         schema:
           type: integer
@@ -550,7 +550,7 @@ paths:
                 code:
                   type: string
                   description: ''
-                  example: non
+                  example: consequatur
               required:
                 - code
       security: []
@@ -573,11 +573,11 @@ paths:
                 old_password:
                   type: string
                   description: ''
-                  example: quasi
+                  example: aut
                 password:
                   type: string
                   description: ''
-                  example: vitae
+                  example: vel
               required:
                 - old_password
                 - password
@@ -601,7 +601,7 @@ paths:
                 role:
                   type: string
                   description: ''
-                  example: ipsum
+                  example: provident
               required:
                 - role
       security: []
@@ -634,15 +634,15 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: cturcotte@example.com
+                  example: balistreri.douglas@example.net
                 phone:
                   type: string
                   description: 'Must be at least 11 characters. Must not be greater than 11 characters.'
-                  example: su
+                  example: fehydy
                 password:
                   type: string
                   description: ''
-                  example: quis
+                  example: quod
               required:
                 - email
                 - phone
@@ -667,11 +667,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: webster.monahan@example.net
+                  example: xtrantow@example.org
                 password:
                   type: string
                   description: ''
-                  example: et
+                  example: harum
               required:
                 - email
                 - password
@@ -695,7 +695,7 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: roberto82@example.org
+                  example: vfunk@example.org
               required:
                 - email
       security: []
@@ -718,19 +718,29 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: arianna55@example.net
+                  example: raleigh.marquardt@example.org
                 token:
                   type: string
                   description: ''
-                  example: dolorem
+                  example: consequatur
                 password:
                   type: string
                   description: ''
-                  example: consequatur
+                  example: et
               required:
                 - email
                 - token
                 - password
+      security: []
+  /api/v1/customer:
+    get:
+      summary: 'Стартовый экран заказчика'
+      operationId: ''
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Заказчик
       security: []
   /api/v1/customer/settings:
     post:
@@ -751,35 +761,35 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: porro
+                  example: maxime
                 last_name:
                   type: string
                   description: ''
-                  example: et
+                  example: reprehenderit
                 middle_name:
                   type: string
                   description: ''
-                  example: dolorum
+                  example: velit
                 region:
                   type: string
                   description: ''
-                  example: amet
+                  example: dolore
                 city:
                   type: string
                   description: ''
-                  example: eum
+                  example: ipsam
                 street:
                   type: string
                   description: ''
-                  example: molestias
+                  example: ullam
                 house:
                   type: string
                   description: ''
-                  example: impedit
+                  example: autem
                 flat:
                   type: string
                   description: ''
-                  example: odit
+                  example: repellendus
               required:
                 - name
                 - last_name
@@ -790,8 +800,17 @@ paths:
                 - house
                 - flat
       security: []
-  '/api/v1/customer/settings/{customer_id}':
-    post:
+  '/api/v1/customer/settings/{id}':
+    get:
+      summary: 'Информация о заказчике.'
+      operationId: ''
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Заказчик
+      security: []
+    put:
       summary: 'Обновление информации о заказчике.'
       operationId: ''
       description: ''
@@ -809,19 +828,19 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: omnis
+                  example: qui
                 last_name:
                   type: string
                   description: ''
-                  example: non
+                  example: molestias
                 middle_name:
                   type: string
                   description: ''
-                  example: rerum
+                  example: enim
                 region:
                   type: string
                   description: ''
-                  example: repellendus
+                  example: ab
                 city:
                   type: string
                   description: ''
@@ -829,15 +848,15 @@ paths:
                 street:
                   type: string
                   description: ''
-                  example: voluptatibus
+                  example: eius
                 house:
                   type: string
                   description: ''
-                  example: ad
+                  example: dicta
                 flat:
                   type: string
                   description: ''
-                  example: voluptatem
+                  example: consequatur
               required:
                 - name
                 - last_name
@@ -848,24 +867,15 @@ paths:
                 - house
                 - flat
       security: []
-    get:
-      summary: 'Информация о заказчике.'
-      operationId: ''
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Заказчик
-      security: []
     parameters:
       -
         in: path
-        name: customer_id
-        description: 'The ID of the customer.'
-        example: 2
+        name: id
+        description: 'The ID of the setting.'
+        example: et
         required: true
         schema:
-          type: integer
+          type: string
   /api/v1/customer/products:
     get:
       summary: 'Список товаров с фильтром по категориям.'
@@ -923,15 +933,15 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: eos
+                  example: non
                 last_name:
                   type: string
                   description: ''
-                  example: odio
+                  example: libero
                 middle_name:
                   type: string
                   description: ''
-                  example: minima
+                  example: eos
                 email:
                   type: string
                   description: ''
@@ -939,27 +949,27 @@ paths:
                 phone:
                   type: string
                   description: ''
-                  example: et
+                  example: reiciendis
                 region:
                   type: string
                   description: ''
-                  example: mollitia
+                  example: recusandae
                 city:
                   type: string
                   description: ''
-                  example: exercitationem
+                  example: dolores
                 street:
                   type: string
                   description: ''
-                  example: eligendi
+                  example: et
                 house:
                   type: string
                   description: ''
-                  example: quas
+                  example: et
                 flat:
                   type: string
                   description: ''
-                  example: ut
+                  example: inventore
                 entrance:
                   type: string
                   description: ''
@@ -1007,15 +1017,15 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: vero
+                  example: est
                 last_name:
                   type: string
                   description: ''
-                  example: in
+                  example: quia
                 middle_name:
                   type: string
                   description: ''
-                  example: harum
+                  example: sed
                 email:
                   type: string
                   description: ''
@@ -1023,27 +1033,27 @@ paths:
                 phone:
                   type: string
                   description: ''
-                  example: voluptate
+                  example: odio
                 region:
                   type: string
                   description: ''
-                  example: veniam
+                  example: quis
                 city:
                   type: string
                   description: ''
-                  example: accusantium
+                  example: natus
                 street:
                   type: string
                   description: ''
-                  example: ex
+                  example: quos
                 house:
                   type: string
                   description: ''
-                  example: veniam
+                  example: dignissimos
                 flat:
                   type: string
                   description: ''
-                  example: sed
+                  example: impedit
                 entrance:
                   type: string
                   description: ''
@@ -1064,7 +1074,7 @@ paths:
                 - flat
       security: []
     delete:
-      summary: 'Уделание контрагента.'
+      summary: 'Удаление контрагента.'
       operationId: ''
       description: ''
       parameters: []
@@ -1077,7 +1087,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the partner.'
-        example: 17
+        example: 1
         required: true
         schema:
           type: integer
@@ -1109,19 +1119,19 @@ paths:
                 product_id:
                   type: string
                   description: ''
-                  example: vel
+                  example: numquam
                 rate_id:
                   type: string
                   description: ''
-                  example: maxime
+                  example: quibusdam
                 desired_pick_up_date:
                   type: string
                   description: ''
-                  example: impedit
+                  example: perferendis
                 desired_delivery_date:
                   type: string
                   description: ''
-                  example: animi
+                  example: quod
                 text:
                   type: string
                   description: ''
@@ -1129,11 +1139,11 @@ paths:
                 sender_id:
                   type: string
                   description: ''
-                  example: illo
+                  example: unde
                 sender_type:
                   type: string
                   description: ''
-                  example: iste
+                  example: dignissimos
                 receiver_id:
                   type: string
                   description: ''
@@ -1141,7 +1151,7 @@ paths:
                 receiver_type:
                   type: string
                   description: ''
-                  example: facilis
+                  example: earum
                 door_to_door:
                   type: string
                   description: ''
@@ -1184,27 +1194,27 @@ paths:
                 desired_pick_up_date:
                   type: string
                   description: ''
-                  example: a
+                  example: fugiat
                 desired_delivery_date:
                   type: string
                   description: ''
-                  example: illum
+                  example: rem
                 sender_id:
                   type: string
                   description: ''
-                  example: eum
+                  example: aliquam
                 sender_type:
                   type: string
                   description: ''
-                  example: ipsam
+                  example: eos
                 receiver_id:
                   type: string
                   description: ''
-                  example: et
+                  example: nihil
                 receiver_type:
                   type: string
                   description: ''
-                  example: cumque
+                  example: sint
                 text:
                   type: string
                   description: ''
@@ -1222,7 +1232,39 @@ paths:
         in: path
         name: id
         description: 'The ID of the order.'
-        example: 6
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/customer/orders/{order_id}/tips':
+    put:
+      summary: ''
+      operationId: putApiV1CustomerOrdersOrder_idTips
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Заказчик
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: string
+                  description: ''
+                  example: voluptas
+              required:
+                - amount
+      security: []
+    parameters:
+      -
+        in: path
+        name: order_id
+        description: 'The ID of the order.'
+        example: 1
         required: true
         schema:
           type: integer
@@ -1245,7 +1287,7 @@ paths:
                 amount:
                   type: string
                   description: ''
-                  example: accusantium
+                  example: cumque
               required:
                 - amount
       security: []
@@ -1264,7 +1306,7 @@ paths:
         in: path
         name: order_id
         description: 'The ID of the order.'
-        example: 3
+        example: 1
         required: true
         schema:
           type: integer
@@ -1283,7 +1325,7 @@ paths:
         in: path
         name: order_id
         description: 'The ID of the order.'
-        example: 5
+        example: 1
         required: true
         schema:
           type: integer
@@ -1307,8 +1349,17 @@ paths:
       tags:
         - Курьер
       security: []
-  '/api/v1/courier/settings/{courier_id}':
-    post:
+  '/api/v1/courier/settings/{id}':
+    get:
+      summary: 'Информация о курьере.'
+      operationId: ''
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Курьер
+      security: []
+    put:
       summary: 'Обновление информации о курьере.'
       operationId: ''
       description: ''
@@ -1326,23 +1377,23 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: corporis
+                  example: delectus
                 last_name:
                   type: string
                   description: ''
-                  example: odit
+                  example: aut
                 middle_name:
                   type: string
                   description: ''
-                  example: exercitationem
+                  example: eos
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: donnelly.raoul@example.net
+                  example: ila92@example.net
                 phone:
                   type: string
                   description: ''
-                  example: excepturi
+                  example: laboriosam
                 active:
                   type: string
                   description: ''
@@ -1350,19 +1401,19 @@ paths:
                 passport_series:
                   type: string
                   description: ''
-                  example: quae
+                  example: modi
                 passport_number:
                   type: string
                   description: ''
-                  example: autem
+                  example: ut
                 passport_issued_date:
                   type: string
                   description: ''
-                  example: voluptatem
+                  example: sit
                 passport_issued_by:
                   type: string
                   description: ''
-                  example: et
+                  example: voluptatem
               required:
                 - name
                 - last_name
@@ -1374,24 +1425,15 @@ paths:
                 - passport_issued_date
                 - passport_issued_by
       security: []
-    get:
-      summary: 'Информация о курьере.'
-      operationId: ''
-      description: ''
-      parameters: []
-      responses: {  }
-      tags:
-        - Курьер
-      security: []
     parameters:
       -
         in: path
-        name: courier_id
-        description: 'The ID of the courier.'
-        example: 16
+        name: id
+        description: 'The ID of the setting.'
+        example: assumenda
         required: true
         schema:
-          type: integer
+          type: string
   /api/v1/courier/ratings:
     get:
       summary: 'Список курьеров с рейтингом.'
@@ -1427,7 +1469,7 @@ paths:
         in: path
         name: order_id
         description: 'The ID of the order.'
-        example: 18
+        example: 1
         required: true
         schema:
           type: integer
@@ -1446,7 +1488,7 @@ paths:
         in: path
         name: order_id
         description: 'The ID of the order.'
-        example: 14
+        example: 1
         required: true
         schema:
           type: integer
@@ -1465,7 +1507,7 @@ paths:
         in: path
         name: order_id
         description: 'The ID of the order.'
-        example: 3
+        example: 1
         required: true
         schema:
           type: integer
@@ -1497,7 +1539,7 @@ paths:
                 recipient_id:
                   type: string
                   description: ''
-                  example: dolor
+                  example: eos
               required:
                 - recipient_id
       security: []
@@ -1516,7 +1558,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the conversation.'
-        example: 1
+        example: 19
         required: true
         schema:
           type: integer
@@ -1549,7 +1591,7 @@ paths:
                 message:
                   type: string
                   description: ''
-                  example: voluptas
+                  example: officia
               required:
                 - message
       security: []

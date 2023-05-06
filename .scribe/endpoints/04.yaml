@@ -52,11 +52,11 @@ endpoints:
         name: id
         description: 'The ID of the order.'
         required: true
-        example: 11
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 11
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -91,11 +91,11 @@ endpoints:
         name: id
         description: 'The ID of the order.'
         required: true
-        example: 18
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 18
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -110,28 +110,28 @@ endpoints:
         name: address_from
         description: ''
         required: true
-        example: quasi
+        example: corrupti
         type: string
         custom: []
       address_to:
         name: address_to
         description: ''
         required: true
-        example: perferendis
+        example: repudiandae
         type: string
         custom: []
       desired_pick_up_date:
         name: desired_pick_up_date
         description: ''
         required: true
-        example: ut
+        example: facilis
         type: string
         custom: []
       desired_delivery_date:
         name: desired_delivery_date
         description: ''
         required: true
-        example: quisquam
+        example: ea
         type: string
         custom: []
       text:
@@ -143,10 +143,10 @@ endpoints:
         custom: []
     cleanBodyParameters:
       products: []
-      address_from: quasi
-      address_to: perferendis
-      desired_pick_up_date: ut
-      desired_delivery_date: quisquam
+      address_from: corrupti
+      address_to: repudiandae
+      desired_pick_up_date: facilis
+      desired_delivery_date: ea
     fileParameters: []
     responses: []
     responseFields: []
@@ -176,11 +176,11 @@ endpoints:
         name: id
         description: 'The ID of the order.'
         required: true
-        example: 20
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 20
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -214,11 +214,11 @@ endpoints:
         name: order_id
         description: 'The ID of the order.'
         required: true
-        example: 7
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      order_id: 7
+      order_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -286,27 +286,27 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: commodi
+        example: deleniti
         type: string
         custom: []
       price:
         name: price
         description: ''
         required: true
-        example: excepturi
+        example: aut
         type: string
         custom: []
       category_id:
         name: category_id
         description: ''
         required: true
-        example: nostrum
+        example: deserunt
         type: string
         custom: []
     cleanBodyParameters:
-      name: commodi
-      price: excepturi
-      category_id: nostrum
+      name: deleniti
+      price: aut
+      category_id: deserunt
     fileParameters: []
     responses: []
     responseFields: []
@@ -387,27 +387,27 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: nihil
+        example: occaecati
         type: string
         custom: []
       price:
         name: price
         description: ''
         required: true
-        example: ut
+        example: et
         type: string
         custom: []
       category_id:
         name: category_id
         description: ''
         required: true
-        example: accusantium
+        example: fugiat
         type: string
         custom: []
     cleanBodyParameters:
-      name: nihil
-      price: ut
-      category_id: accusantium
+      name: occaecati
+      price: et
+      category_id: fugiat
     fileParameters: []
     responses: []
     responseFields: []
@@ -523,7 +523,7 @@ endpoints:
       groupDescription: ''
       subgroup: 'Категории товаров'
       subgroupDescription: ''
-      title: 'Display the specified resource.'
+      title: 'Инфомация о категории.'
       description: ''
       authenticated: false
       custom: []
@@ -535,11 +535,11 @@ endpoints:
         name: id
         description: 'The ID of the category.'
         required: true
-        example: 12
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 12
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -574,11 +574,11 @@ endpoints:
         name: id
         description: 'The ID of the category.'
         required: true
-        example: 19
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 19
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -612,11 +612,11 @@ endpoints:
         name: id
         description: 'The ID of the category.'
         required: true
-        example: 11
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 11
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -680,11 +680,11 @@ endpoints:
         name: id
         description: 'The ID of the courier.'
         required: true
-        example: 5
+        example: 2
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 5
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -719,11 +719,11 @@ endpoints:
         name: id
         description: 'The ID of the courier.'
         required: true
-        example: 18
+        example: 2
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 18
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -731,35 +731,35 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: dolor
+        example: at
         type: string
         custom: []
       last_name:
         name: last_name
         description: ''
         required: true
-        example: qui
+        example: quidem
         type: string
         custom: []
       middle_name:
         name: middle_name
         description: ''
         required: true
-        example: rem
+        example: saepe
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: dangelo96@example.org
+        example: dashawn00@example.org
         type: string
         custom: []
       phone:
         name: phone
         description: ''
         required: true
-        example: quasi
+        example: nam
         type: string
         custom: []
       active:
@@ -773,40 +773,40 @@ endpoints:
         name: passport_series
         description: ''
         required: true
-        example: autem
+        example: nulla
         type: string
         custom: []
       passport_number:
         name: passport_number
         description: ''
         required: true
-        example: velit
+        example: facilis
         type: string
         custom: []
       passport_issued_date:
         name: passport_issued_date
         description: ''
         required: true
-        example: repudiandae
+        example: ratione
         type: string
         custom: []
       passport_issued_by:
         name: passport_issued_by
         description: ''
         required: true
-        example: exercitationem
+        example: nulla
         type: string
         custom: []
     cleanBodyParameters:
-      name: dolor
-      last_name: qui
-      middle_name: rem
-      email: dangelo96@example.org
-      phone: quasi
-      passport_series: autem
-      passport_number: velit
-      passport_issued_date: repudiandae
-      passport_issued_by: exercitationem
+      name: at
+      last_name: quidem
+      middle_name: saepe
+      email: dashawn00@example.org
+      phone: nam
+      passport_series: nulla
+      passport_number: facilis
+      passport_issued_date: ratione
+      passport_issued_by: nulla
     fileParameters: []
     responses: []
     responseFields: []
@@ -836,11 +836,11 @@ endpoints:
         name: id
         description: 'The ID of the courier.'
         required: true
-        example: 12
+        example: 2
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 12
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -904,11 +904,11 @@ endpoints:
         name: id
         description: 'The ID of the customer.'
         required: true
-        example: 2
+        example: 12
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 2
+      id: 12
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -943,11 +943,11 @@ endpoints:
         name: id
         description: 'The ID of the customer.'
         required: true
-        example: 2
+        example: 12
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 2
+      id: 12
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -955,35 +955,35 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: ut
+        example: et
         type: string
         custom: []
       last_name:
         name: last_name
         description: ''
         required: true
-        example: expedita
+        example: voluptatem
         type: string
         custom: []
       middle_name:
         name: middle_name
         description: ''
         required: true
-        example: consequatur
+        example: necessitatibus
         type: string
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: wintheiser.lauryn@example.org
+        example: kelsie.leffler@example.org
         type: string
         custom: []
       phone:
         name: phone
         description: ''
         required: true
-        example: delectus
+        example: cupiditate
         type: string
         custom: []
       active:
@@ -994,11 +994,11 @@ endpoints:
         type: string
         custom: []
     cleanBodyParameters:
-      name: ut
-      last_name: expedita
-      middle_name: consequatur
-      email: wintheiser.lauryn@example.org
-      phone: delectus
+      name: et
+      last_name: voluptatem
+      middle_name: necessitatibus
+      email: kelsie.leffler@example.org
+      phone: cupiditate
     fileParameters: []
     responses: []
     responseFields: []
@@ -1028,11 +1028,11 @@ endpoints:
         name: id
         description: 'The ID of the customer.'
         required: true
-        example: 2
+        example: 12
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 2
+      id: 12
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1066,11 +1066,11 @@ endpoints:
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: 2
+        example: 12
         type: integer
         custom: []
     cleanUrlParameters:
-      user_id: 2
+      user_id: 12
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -1078,11 +1078,11 @@ endpoints:
         name: text
         description: ''
         required: true
-        example: labore
+        example: accusantium
         type: string
         custom: []
     cleanBodyParameters:
-      text: labore
+      text: accusantium
     fileParameters: []
     responses: []
     responseFields: []
@@ -1112,11 +1112,11 @@ endpoints:
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: 2
+        example: 12
         type: integer
         custom: []
     cleanUrlParameters:
-      user_id: 2
+      user_id: 12
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -1124,11 +1124,11 @@ endpoints:
         name: text
         description: ''
         required: true
-        example: reiciendis
+        example: iusto
         type: string
         custom: []
     cleanBodyParameters:
-      text: reiciendis
+      text: iusto
     fileParameters: []
     responses: []
     responseFields: []

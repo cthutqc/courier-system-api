@@ -58,11 +58,11 @@ endpoints:
         name: recipient_id
         description: ''
         required: true
-        example: dolor
+        example: eos
         type: string
         custom: []
     cleanBodyParameters:
-      recipient_id: dolor
+      recipient_id: eos
     fileParameters: []
     responses: []
     responseFields: []
@@ -92,11 +92,11 @@ endpoints:
         name: id
         description: 'The ID of the conversation.'
         required: true
-        example: 1
+        example: 19
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 19
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -172,11 +172,11 @@ endpoints:
         name: message
         description: ''
         required: true
-        example: voluptas
+        example: officia
         type: string
         custom: []
     cleanBodyParameters:
-      message: voluptas
+      message: officia
     fileParameters: []
     responses: []
     responseFields: []

@@ -27,9 +27,9 @@ class CourierController extends Controller
 
         $request->user()->contact_information()->create($request->only('region', 'city', 'street', 'house', 'flat'));
 
-        //$request->user()->addMedia($request->passport_photo_id)->toMediaCollection('passport_id');
+        $request->user()->addMediaFromRequest('passport_photo_id')->toMediaCollection('passport_id');
 
-        // $request->user()->addMedia($request->passport_photo_address)->toMediaCollection('passport_address');
+        $request->user()->addMediaFromRequest('passport_photo_address')->toMediaCollection('passport_address');
 
         return response()->json([
             'success' => 'Courier profile created.',
@@ -39,33 +39,33 @@ class CourierController extends Controller
     /**
      * Информация о курьере.
      */
-    public function show()
+    public function show(Courier $courier)
     {
-        auth()->user()->load('media');
+        $courier->load('media');
 
-        auth()->user()->load('personal_information');
+        $courier->load('personal_information');
 
-        auth()->user()->load('contact_information');
+        $courier->load('contact_information');
 
-        return CourierResource::make(auth()->user());
+        return CourierResource::make($courier);
     }
 
     /**
      * Обновление информации о курьере.
      */
-    public function update(CourierUpdateRequest $request)
+    public function update(CourierUpdateRequest $request, Courier $courier)
     {
-        auth()->user()->update($request->only('name', 'last_name', 'middle_name'));
+        $courier->update($request->only('name', 'last_name', 'middle_name'));
 
-        auth()->user()->personal_information()->update($request->only('passport_series', 'passport_number', 'passport_issued_by', 'passport_issued_date'));
+        $courier->personal_information()->update($request->only('passport_series', 'passport_number', 'passport_issued_by', 'passport_issued_date'));
 
-        auth()->user()->contact_information()->update($request->only('region', 'city', 'street', 'house', 'flat'));
+        $courier->contact_information()->update($request->only('region', 'city', 'street', 'house', 'flat'));
 
-        auth()->user()->save();
+        $courier->addMediaFromRequest('passport_photo_id')->toMediaCollection('passport_id');
 
-        //$request->user()->addMedia($request->passport_photo_id)->toMediaCollection('passport_id');
+        $courier->addMediaFromRequest('passport_photo_address')->toMediaCollection('passport_address');
 
-        // $request->user()->addMedia($request->passport_photo_address)->toMediaCollection('passport_address');
+        $courier->save();
 
         return response()->json([
             'success' => 'Courier profile updated.',

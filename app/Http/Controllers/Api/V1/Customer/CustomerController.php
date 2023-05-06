@@ -38,25 +38,25 @@ class CustomerController extends Controller
     /**
      * Информация о заказчике.
      */
-    public function show()
+    public function show(Customer $customer)
     {
-        auth()->user()->load('media');
+        $customer->load('media');
 
-        auth()->user()->load('contact_information');
+        $customer->load('contact_information');
 
-        return CustomerResource::make(auth()->user());
+        return CustomerResource::make($customer);
     }
 
     /**
      * Обновление информации о заказчике.
      */
-    public function update(CustomerSettingStoreRequest $request)
+    public function update(CustomerSettingStoreRequest $request, Customer $customer)
     {
-        auth()->user()->update($request->only('name', 'last_name', 'middle_name'));
+        $customer->update($request->only('name', 'last_name', 'middle_name'));
 
-        auth()->user()->contact_information()->update($request->only('region', 'city', 'street', 'house', 'flat'));
+        $customer->contact_information()->update($request->only('region', 'city', 'street', 'house', 'flat'));
 
-        auth()->user()->save();
+        $customer->save();
 
         return response()->json([
             'success' => 'Customer profile updated.',

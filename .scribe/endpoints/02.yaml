@@ -3,6 +3,36 @@ description: ''
 endpoints:
   -
     httpMethods:
+      - GET
+    uri: api/v1/customer
+    metadata:
+      groupName: Заказчик
+      groupDescription: ''
+      subgroup: Дашборд
+      subgroupDescription: ''
+      title: 'Стартовый экран заказчика'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
       - POST
     uri: api/v1/customer/settings
     metadata:
@@ -26,169 +56,67 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: porro
+        example: maxime
         type: string
         custom: []
       last_name:
         name: last_name
         description: ''
         required: true
-        example: et
+        example: reprehenderit
         type: string
         custom: []
       middle_name:
         name: middle_name
         description: ''
         required: true
-        example: dolorum
+        example: velit
         type: string
         custom: []
       region:
         name: region
         description: ''
         required: true
-        example: amet
+        example: dolore
         type: string
         custom: []
       city:
         name: city
         description: ''
         required: true
-        example: eum
+        example: ipsam
         type: string
         custom: []
       street:
         name: street
         description: ''
         required: true
-        example: molestias
+        example: ullam
         type: string
         custom: []
       house:
         name: house
         description: ''
         required: true
-        example: impedit
+        example: autem
         type: string
         custom: []
       flat:
         name: flat
-        description: ''
-        required: true
-        example: odit
-        type: string
-        custom: []
-    cleanBodyParameters:
-      name: porro
-      last_name: et
-      middle_name: dolorum
-      region: amet
-      city: eum
-      street: molestias
-      house: impedit
-      flat: odit
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/v1/customer/settings/{customer_id}'
-    metadata:
-      groupName: Заказчик
-      groupDescription: ''
-      subgroup: Настройки
-      subgroupDescription: ''
-      title: 'Обновление информации о заказчике.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      customer_id:
-        name: customer_id
-        description: 'The ID of the customer.'
-        required: true
-        example: 2
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      customer_id: 2
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: ''
-        required: true
-        example: omnis
-        type: string
-        custom: []
-      last_name:
-        name: last_name
-        description: ''
-        required: true
-        example: non
-        type: string
-        custom: []
-      middle_name:
-        name: middle_name
-        description: ''
-        required: true
-        example: rerum
-        type: string
-        custom: []
-      region:
-        name: region
         description: ''
         required: true
         example: repellendus
         type: string
         custom: []
-      city:
-        name: city
-        description: ''
-        required: true
-        example: illum
-        type: string
-        custom: []
-      street:
-        name: street
-        description: ''
-        required: true
-        example: voluptatibus
-        type: string
-        custom: []
-      house:
-        name: house
-        description: ''
-        required: true
-        example: ad
-        type: string
-        custom: []
-      flat:
-        name: flat
-        description: ''
-        required: true
-        example: voluptatem
-        type: string
-        custom: []
     cleanBodyParameters:
-      name: omnis
-      last_name: non
-      middle_name: rerum
-      region: repellendus
-      city: illum
-      street: voluptatibus
-      house: ad
-      flat: voluptatem
+      name: maxime
+      last_name: reprehenderit
+      middle_name: velit
+      region: dolore
+      city: ipsam
+      street: ullam
+      house: autem
+      flat: repellendus
     fileParameters: []
     responses: []
     responseFields: []
@@ -200,7 +128,7 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v1/customer/settings/{customer_id}'
+    uri: 'api/v1/customer/settings/{id}'
     metadata:
       groupName: Заказчик
       groupDescription: ''
@@ -214,19 +142,122 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      customer_id:
-        name: customer_id
-        description: 'The ID of the customer.'
+      id:
+        name: id
+        description: 'The ID of the setting.'
         required: true
-        example: 2
-        type: integer
+        example: et
+        type: string
         custom: []
     cleanUrlParameters:
-      customer_id: 2
+      id: et
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/customer/settings/{id}'
+    metadata:
+      groupName: Заказчик
+      groupDescription: ''
+      subgroup: Настройки
+      subgroupDescription: ''
+      title: 'Обновление информации о заказчике.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the setting.'
+        required: true
+        example: autem
+        type: string
+        custom: []
+    cleanUrlParameters:
+      id: autem
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: qui
+        type: string
+        custom: []
+      last_name:
+        name: last_name
+        description: ''
+        required: true
+        example: molestias
+        type: string
+        custom: []
+      middle_name:
+        name: middle_name
+        description: ''
+        required: true
+        example: enim
+        type: string
+        custom: []
+      region:
+        name: region
+        description: ''
+        required: true
+        example: ab
+        type: string
+        custom: []
+      city:
+        name: city
+        description: ''
+        required: true
+        example: illum
+        type: string
+        custom: []
+      street:
+        name: street
+        description: ''
+        required: true
+        example: eius
+        type: string
+        custom: []
+      house:
+        name: house
+        description: ''
+        required: true
+        example: dicta
+        type: string
+        custom: []
+      flat:
+        name: flat
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name: qui
+      last_name: molestias
+      middle_name: enim
+      region: ab
+      city: illum
+      street: eius
+      house: dicta
+      flat: consequatur
     fileParameters: []
     responses: []
     responseFields: []
@@ -358,21 +389,21 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: eos
+        example: non
         type: string
         custom: []
       last_name:
         name: last_name
         description: ''
         required: true
-        example: odio
+        example: libero
         type: string
         custom: []
       middle_name:
         name: middle_name
         description: ''
         required: true
-        example: minima
+        example: eos
         type: string
         custom: []
       email:
@@ -386,42 +417,42 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: et
+        example: reiciendis
         type: string
         custom: []
       region:
         name: region
         description: ''
         required: true
-        example: mollitia
+        example: recusandae
         type: string
         custom: []
       city:
         name: city
         description: ''
         required: true
-        example: exercitationem
+        example: dolores
         type: string
         custom: []
       street:
         name: street
         description: ''
         required: true
-        example: eligendi
+        example: et
         type: string
         custom: []
       house:
         name: house
         description: ''
         required: true
-        example: quas
+        example: et
         type: string
         custom: []
       flat:
         name: flat
         description: ''
         required: true
-        example: ut
+        example: inventore
         type: string
         custom: []
       entrance:
@@ -439,15 +470,15 @@ endpoints:
         type: string
         custom: []
     cleanBodyParameters:
-      name: eos
-      last_name: odio
-      middle_name: minima
-      phone: et
-      region: mollitia
-      city: exercitationem
-      street: eligendi
-      house: quas
-      flat: ut
+      name: non
+      last_name: libero
+      middle_name: eos
+      phone: reiciendis
+      region: recusandae
+      city: dolores
+      street: et
+      house: et
+      flat: inventore
     fileParameters: []
     responses: []
     responseFields: []
@@ -477,11 +508,11 @@ endpoints:
         name: id
         description: 'The ID of the partner.'
         required: true
-        example: 17
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 17
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -516,11 +547,11 @@ endpoints:
         name: id
         description: 'The ID of the partner.'
         required: true
-        example: 16
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 16
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -528,21 +559,21 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: vero
+        example: est
         type: string
         custom: []
       last_name:
         name: last_name
         description: ''
         required: true
-        example: in
+        example: quia
         type: string
         custom: []
       middle_name:
         name: middle_name
         description: ''
         required: true
-        example: harum
+        example: sed
         type: string
         custom: []
       email:
@@ -556,42 +587,42 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: voluptate
+        example: odio
         type: string
         custom: []
       region:
         name: region
         description: ''
         required: true
-        example: veniam
+        example: quis
         type: string
         custom: []
       city:
         name: city
         description: ''
         required: true
-        example: accusantium
+        example: natus
         type: string
         custom: []
       street:
         name: street
         description: ''
         required: true
-        example: ex
+        example: quos
         type: string
         custom: []
       house:
         name: house
         description: ''
         required: true
-        example: veniam
+        example: dignissimos
         type: string
         custom: []
       flat:
         name: flat
         description: ''
         required: true
-        example: sed
+        example: impedit
         type: string
         custom: []
       entrance:
@@ -609,15 +640,15 @@ endpoints:
         type: string
         custom: []
     cleanBodyParameters:
-      name: vero
-      last_name: in
-      middle_name: harum
-      phone: voluptate
-      region: veniam
-      city: accusantium
-      street: ex
-      house: veniam
-      flat: sed
+      name: est
+      last_name: quia
+      middle_name: sed
+      phone: odio
+      region: quis
+      city: natus
+      street: quos
+      house: dignissimos
+      flat: impedit
     fileParameters: []
     responses: []
     responseFields: []
@@ -635,7 +666,7 @@ endpoints:
       groupDescription: ''
       subgroup: Контрагенты
       subgroupDescription: ''
-      title: 'Уделание контрагента.'
+      title: 'Удаление контрагента.'
       description: ''
       authenticated: false
       custom: []
@@ -647,11 +678,11 @@ endpoints:
         name: id
         description: 'The ID of the partner.'
         required: true
-        example: 7
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 7
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -719,28 +750,28 @@ endpoints:
         name: product_id
         description: ''
         required: true
-        example: vel
+        example: numquam
         type: string
         custom: []
       rate_id:
         name: rate_id
         description: ''
         required: true
-        example: maxime
+        example: quibusdam
         type: string
         custom: []
       desired_pick_up_date:
         name: desired_pick_up_date
         description: ''
         required: true
-        example: impedit
+        example: perferendis
         type: string
         custom: []
       desired_delivery_date:
         name: desired_delivery_date
         description: ''
         required: true
-        example: animi
+        example: quod
         type: string
         custom: []
       text:
@@ -754,14 +785,14 @@ endpoints:
         name: sender_id
         description: ''
         required: true
-        example: illo
+        example: unde
         type: string
         custom: []
       sender_type:
         name: sender_type
         description: ''
         required: true
-        example: iste
+        example: dignissimos
         type: string
         custom: []
       receiver_id:
@@ -775,7 +806,7 @@ endpoints:
         name: receiver_type
         description: ''
         required: true
-        example: facilis
+        example: earum
         type: string
         custom: []
       door_to_door:
@@ -786,14 +817,14 @@ endpoints:
         type: string
         custom: []
     cleanBodyParameters:
-      product_id: vel
-      rate_id: maxime
-      desired_pick_up_date: impedit
-      desired_delivery_date: animi
-      sender_id: illo
-      sender_type: iste
+      product_id: numquam
+      rate_id: quibusdam
+      desired_pick_up_date: perferendis
+      desired_delivery_date: quod
+      sender_id: unde
+      sender_type: dignissimos
       receiver_id: qui
-      receiver_type: facilis
+      receiver_type: earum
     fileParameters: []
     responses: []
     responseFields: []
@@ -823,11 +854,11 @@ endpoints:
         name: id
         description: 'The ID of the order.'
         required: true
-        example: 6
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 6
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -862,11 +893,11 @@ endpoints:
         name: id
         description: 'The ID of the order.'
         required: true
-        example: 3
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 3
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -874,42 +905,42 @@ endpoints:
         name: desired_pick_up_date
         description: ''
         required: true
-        example: a
+        example: fugiat
         type: string
         custom: []
       desired_delivery_date:
         name: desired_delivery_date
         description: ''
         required: true
-        example: illum
+        example: rem
         type: string
         custom: []
       sender_id:
         name: sender_id
         description: ''
         required: true
-        example: eum
+        example: aliquam
         type: string
         custom: []
       sender_type:
         name: sender_type
         description: ''
         required: true
-        example: ipsam
+        example: eos
         type: string
         custom: []
       receiver_id:
         name: receiver_id
         description: ''
         required: true
-        example: et
+        example: nihil
         type: string
         custom: []
       receiver_type:
         name: receiver_type
         description: ''
         required: true
-        example: cumque
+        example: sint
         type: string
         custom: []
       text:
@@ -920,12 +951,58 @@ endpoints:
         type: string
         custom: []
     cleanBodyParameters:
-      desired_pick_up_date: a
-      desired_delivery_date: illum
-      sender_id: eum
-      sender_type: ipsam
-      receiver_id: et
-      receiver_type: cumque
+      desired_pick_up_date: fugiat
+      desired_delivery_date: rem
+      sender_id: aliquam
+      sender_type: eos
+      receiver_id: nihil
+      receiver_type: sint
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/v1/customer/orders/{order_id}/tips'
+    metadata:
+      groupName: Заказчик
+      groupDescription: ''
+      subgroup: Заказы
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      order_id:
+        name: order_id
+        description: 'The ID of the order.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      order_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      amount:
+        name: amount
+        description: ''
+        required: true
+        example: voluptas
+        type: string
+        custom: []
+    cleanBodyParameters:
+      amount: voluptas
     fileParameters: []
     responses: []
     responseFields: []
@@ -959,11 +1036,11 @@ endpoints:
         name: amount
         description: ''
         required: true
-        example: accusantium
+        example: cumque
         type: string
         custom: []
     cleanBodyParameters:
-      amount: accusantium
+      amount: cumque
     fileParameters: []
     responses: []
     responseFields: []
@@ -993,11 +1070,11 @@ endpoints:
         name: order_id
         description: 'The ID of the order.'
         required: true
-        example: 3
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      order_id: 3
+      order_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1031,11 +1108,11 @@ endpoints:
         name: order_id
         description: 'The ID of the order.'
         required: true
-        example: 5
+        example: 1
         type: integer
         custom: []
     cleanUrlParameters:
-      order_id: 5
+      order_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
