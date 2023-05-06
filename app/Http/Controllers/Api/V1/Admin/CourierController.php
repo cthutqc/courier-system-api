@@ -6,9 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CourierUpdateRequest;
 use App\Http\Resources\CourierResource;
 use App\Models\Courier;
-use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+
 /**
  * @group Админ
  *
@@ -16,7 +15,6 @@ use Illuminate\Http\Response;
  */
 class CourierController extends Controller
 {
-
     /**
      * Список курьеров.
      */

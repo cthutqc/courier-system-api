@@ -6,7 +6,7 @@ use App\Models\OrderStatus;
 
 trait Startabled
 {
-    public function start():void
+    public function start(): void
     {
         $this->courier()->associate(auth()->user());
 

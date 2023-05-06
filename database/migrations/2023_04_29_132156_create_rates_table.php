@@ -24,22 +24,21 @@ return new class extends Migration
             [
                 'name' => 'Суточный',
                 'delivery_time' => 24,
-               // 'code' => \App\Models\Rate::DAILY
+                // 'code' => \App\Models\Rate::DAILY
             ],
             [
                 'name' => 'Срочный',
                 'delivery_time' => 6,
-             //   'code' => \App\Models\Rate::URGENT
+                //   'code' => \App\Models\Rate::URGENT
             ],
             [
                 'name' => 'Сверхсрочный',
                 'delivery_time' => 1,
-              //  'code' => \App\Models\Rate::EXTRA_URGENT
+                //  'code' => \App\Models\Rate::EXTRA_URGENT
             ],
         ];
 
-        foreach($rates as $rate)
-        {
+        foreach ($rates as $rate) {
             \App\Models\Rate::create($rate);
         }
     }

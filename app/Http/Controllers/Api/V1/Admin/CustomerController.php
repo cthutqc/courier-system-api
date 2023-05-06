@@ -6,9 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CustomerUpdateRequest;
 use App\Http\Resources\CustomerResource;
 use App\Models\Customer;
-use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+
 /**
  * @group Админ
  *

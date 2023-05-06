@@ -4,11 +4,10 @@ namespace App\Http\Controllers\Api\V1\Customer;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CustomerSettingStoreRequest;
-use App\Http\Resources\CourierResource;
 use App\Http\Resources\CustomerResource;
 use App\Models\Customer;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+
 /**
  * @group Заказчик
  *

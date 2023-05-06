@@ -6,9 +6,6 @@ use App\Models\User;
 use App\Notifications\CourierTakeOrderAdminNotification;
 use App\Notifications\CourierTakeOrderCustomerNotification;
 use App\Notifications\CourierTakeOrderNotification;
-use App\Notifications\NewOrderCreatedAdminNotification;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 
 class SendCourierTakeOrderNotification
 {
@@ -18,7 +15,7 @@ class SendCourierTakeOrderNotification
 
         $event->order->courier->notify(new CourierTakeOrderNotification($event->order));
 
-        User::role('admin')->get()->each(function ($user) use ($event){
+        User::role('admin')->get()->each(function ($user) use ($event) {
             $user->notify(new CourierTakeOrderAdminNotification($event->order));
         });
     }

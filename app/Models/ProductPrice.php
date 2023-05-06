@@ -12,12 +12,12 @@ class ProductPrice extends Model
 
     protected $guarded = ['id'];
 
-    public function product():BelongsTo
+    public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
     }
 
-    public function rate():BelongsTo
+    public function rate(): BelongsTo
     {
         return $this->belongsTo(Rate::class);
     }

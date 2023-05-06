@@ -3,16 +3,14 @@
 namespace App\Models;
 
 use App\Traits\HasStatus;
-use App\Traits\Stopable;
 use App\Traits\Startabled;
+use App\Traits\Stopable;
 use Carbon\Carbon;
 use Carbon\CarbonInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -42,27 +40,27 @@ class Order extends Model
         return $this->morphTo();
     }
 
-    public function customer():BelongsTo
+    public function customer(): BelongsTo
     {
         return $this->belongsTo(User::class, 'customer_id', 'id');
     }
 
-    public function courier():BelongsTo
+    public function courier(): BelongsTo
     {
         return $this->belongsTo(User::class, 'courier_id', 'id');
     }
 
-    public function product():BelongsTo
+    public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
     }
 
-    public function orderName():string
+    public function orderName(): string
     {
         return $this->product->name ?? 'Заказ';
     }
 
-    public function order_status():BelongsTo
+    public function order_status(): BelongsTo
     {
         return $this->belongsTo(OrderStatus::class);
     }
@@ -79,30 +77,30 @@ class Order extends Model
         return Carbon::now()->diffForHumans($this->desiredDeliveryTime(), CarbonInterface::DIFF_ABSOLUTE);
     }
 
-    public function scopeFilter(Builder $builder, $request = null):void
+    public function scopeFilter(Builder $builder, $request = null): void
     {
 
-        $builder->when(isset($request['name']), function ($q) use ($request){
-                $q->orderBy(Product::select('name')->whereColumn('orders.product_id', 'products.id'), $request['name']);
-            })
-            ->when(isset($request['price']), function ($q) use ($request){
+        $builder->when(isset($request['name']), function ($q) use ($request) {
+            $q->orderBy(Product::select('name')->whereColumn('orders.product_id', 'products.id'), $request['name']);
+        })
+            ->when(isset($request['price']), function ($q) use ($request) {
                 $q->orderBy(Product::select('price')->whereColumn('orders.product_id', 'products.id'), $request['price']);
             })
-            ->when(isset($request['active']), function ($q){
+            ->when(isset($request['active']), function ($q) {
                 $q->where('status', OrderStatus::ON_DELIVERY);
             })
-            ->when(isset($request['finished']), function ($q){
+            ->when(isset($request['finished']), function ($q) {
                 $q->where('status', OrderStatus::COMPLETED);
             })
-            ->when(isset($request['search']), function ($q) use ($request){
-                $q->whereHas('product', function ($q) use ($request){
-                    $q->where('name', 'like', '%' . $request['search'] . '%');
+            ->when(isset($request['search']), function ($q) use ($request) {
+                $q->whereHas('product', function ($q) use ($request) {
+                    $q->where('name', 'like', '%'.$request['search'].'%');
                 });
             })
-            ->when(isset($request['product']), function ($q) use ($request){
-               $q->whereHas('product', function ($q) use ($request){
-                   $q->where('product_id', $request['product']);
-               });
+            ->when(isset($request['product']), function ($q) use ($request) {
+                $q->whereHas('product', function ($q) use ($request) {
+                    $q->where('product_id', $request['product']);
+                });
             });
     }
 }

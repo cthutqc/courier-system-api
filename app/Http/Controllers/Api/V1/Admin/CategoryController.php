@@ -28,7 +28,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'
+            'name',
         ]);
 
         Category::create($request->only('name'));
@@ -48,7 +48,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $request->validate([
-            'name'
+            'name',
         ]);
 
         Category::create($request->only('name'));

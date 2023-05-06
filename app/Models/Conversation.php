@@ -13,17 +13,17 @@ class Conversation extends Model
 
     protected $guarded = ['id'];
 
-    public function messages():HasMany
+    public function messages(): HasMany
     {
         return $this->hasMany(Message::class);
     }
 
-    public function user():BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function recipient():BelongsTo
+    public function recipient(): BelongsTo
     {
         return $this->belongsTo(User::class, 'recipient_id');
     }

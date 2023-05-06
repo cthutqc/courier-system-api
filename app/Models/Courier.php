@@ -12,19 +12,19 @@ class Courier extends User
 {
     use HasFactory, HasParent;
 
-    public function orders():HasMany
+    public function orders(): HasMany
     {
         return $this->hasMany(Order::class, 'courier_id');
     }
 
-    public function totalIncome():int
+    public function totalIncome(): int
     {
         return $this->walletTransactions()
             ->where('type', 'deposit')
             ->sum('amount');
     }
 
-    public function todayIncome():int
+    public function todayIncome(): int
     {
         return $this->walletTransactions()
             ->where('type', 'deposit')
@@ -32,7 +32,7 @@ class Courier extends User
             ->sum('amount');
     }
 
-    public function todayTips():int
+    public function todayTips(): int
     {
         return $this->transactions()
             ->where('type', 'deposit')
@@ -40,7 +40,7 @@ class Courier extends User
             ->sum('amount');
     }
 
-    public function ratings():HasMany
+    public function ratings(): HasMany
     {
         return $this->hasMany(Rating::class);
     }
@@ -50,7 +50,7 @@ class Courier extends User
         return $this->ratings()->avg('score');
     }
 
-    public function courier_location():HasOne
+    public function courier_location(): HasOne
     {
         return $this->hasOne(CourierLocation::class);
     }

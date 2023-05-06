@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             CourierSeeder::class,
             CustomerSeeder::class,
             TestCourierSeeder::class,
-            TestCustomerSeeder::class
+            TestCustomerSeeder::class,
         ]);
     }
 }

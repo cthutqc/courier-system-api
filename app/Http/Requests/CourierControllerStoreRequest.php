@@ -25,7 +25,7 @@ class CourierControllerStoreRequest extends FormRequest
             'name' => ['required', 'string'],
             'last_name' => ['required', 'string'],
             'middle_name' => ['required', 'string'],
-            'passport_series' => ['required',],
+            'passport_series' => ['required'],
             'passport_number' => ['required'],
             'passport_issued_by' => ['required', 'string'],
             'passport_issued_date' => ['required', 'string'],
@@ -35,7 +35,7 @@ class CourierControllerStoreRequest extends FormRequest
             'house' => ['required'],
             'flat' => ['required'],
             //'passport_photo_id' => ['required', 'image'],
-           // 'passport_photo_address' => ['required', 'image']
+            // 'passport_photo_address' => ['required', 'image']
         ];
     }
 }

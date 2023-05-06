@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('auth/password-change', \App\Http\Controllers\Api\V1\Auth\PasswordChangeController::class);
 
-    Route::middleware(\App\Http\Middleware\ActiveUser::class)->group(function (){
+    Route::middleware(\App\Http\Middleware\ActiveUser::class)->group(function () {
 
         Route::post('auth/role', \App\Http\Controllers\Api\V1\Auth\RoleController::class);
 
@@ -31,7 +31,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
         Route::post('/conversations/{conversation}/send', [\App\Http\Controllers\Api\V1\ChatController::class, 'send']);
 
-        Route::prefix('customer')->middleware(\App\Http\Middleware\IsCustomer::class)->group(function (){
+        Route::prefix('customer')->middleware(\App\Http\Middleware\IsCustomer::class)->group(function () {
 
             Route::get('/', \App\Http\Controllers\Api\V1\Customer\DashboardController::class);
 
@@ -52,7 +52,7 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::post('orders/{order}/cancel', [\App\Http\Controllers\Api\V1\Customer\OrderController::class, 'cancel']);
         });
 
-        Route::prefix('courier')->middleware(\App\Http\Middleware\IsCourier::class)->group(function (){
+        Route::prefix('courier')->middleware(\App\Http\Middleware\IsCourier::class)->group(function () {
 
             Route::get('/', \App\Http\Controllers\Api\V1\Courier\DashboardController::class);
 
@@ -70,7 +70,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
         });
 
-        Route::prefix('admin')->middleware(\App\Http\Middleware\IsAdmin::class)->group(function (){
+        Route::prefix('admin')->middleware(\App\Http\Middleware\IsAdmin::class)->group(function () {
 
             Route::apiResource('orders', \App\Http\Controllers\Api\V1\Admin\OrderController::class);
 

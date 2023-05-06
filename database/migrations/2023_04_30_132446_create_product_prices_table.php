@@ -35,7 +35,7 @@ return new class extends Migration
                 'category_id' => 1,
             ]);
 
-            \App\Models\Rate::all()->each(function ($rate) use ($newProduct){
+            \App\Models\Rate::all()->each(function ($rate) use ($newProduct) {
 
                 \App\Models\ProductPrice::create([
                     'product_id' => $newProduct->id,

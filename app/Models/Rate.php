@@ -12,11 +12,13 @@ class Rate extends Model
 
     protected $guarded = ['id'];
 
-    const DAILY  = 'daily';
+    const DAILY = 'daily';
+
     const URGENT = 'urgent';
+
     const EXTRA_URGENT = 'extra_urgent';
 
-    public function product_prices():HasMany
+    public function product_prices(): HasMany
     {
         return $this->hasMany(ProductPrice::class);
     }

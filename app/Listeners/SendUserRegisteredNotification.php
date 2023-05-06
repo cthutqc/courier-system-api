@@ -4,10 +4,8 @@ namespace App\Listeners;
 
 use App\Models\Admin;
 use App\Models\ConfirmCode;
-use App\Models\User;
 use App\Notifications\UserRegisteredAdminNotification;
 use App\Notifications\UserRegisteredNotification;
-use Illuminate\Support\Facades\Hash;
 
 class SendUserRegisteredNotification
 {
@@ -23,7 +21,7 @@ class SendUserRegisteredNotification
 
         $event->user->notify(new UserRegisteredNotification($confirmCode));
 
-        Admin::all()->each(function ($user) use ($event){
+        Admin::all()->each(function ($user) use ($event) {
             $user->notify(new UserRegisteredAdminNotification($event->user));
         });
     }

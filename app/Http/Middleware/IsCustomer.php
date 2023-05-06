@@ -16,8 +16,9 @@ class IsCustomer
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!Auth::user()->isCustomer())
+        if (! Auth::user()->isCustomer()) {
             abort(403);
+        }
 
         return $next($request);
     }

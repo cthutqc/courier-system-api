@@ -4,8 +4,8 @@ namespace App\Traits;
 
 trait FormattedInformation
 {
-    public function displayedName():string
+    public function displayedName(): string
     {
-        return $this->name . ' ' . substr($this->last_name, 0, 1) . '.';
+        return $this->name.' '.substr($this->last_name, 0, 1).'.';
     }
 }

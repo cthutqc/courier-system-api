@@ -12,12 +12,12 @@ class Customer extends User implements \Bavix\Wallet\Interfaces\Customer
 {
     use HasFactory, HasParent, CanPay;
 
-    public function orders():HasMany
+    public function orders(): HasMany
     {
         return $this->hasMany(Order::class, 'courier_id');
     }
 
-    public function partners():HasMany
+    public function partners(): HasMany
     {
         return $this->hasMany(Partner::class, 'user_id');
     }

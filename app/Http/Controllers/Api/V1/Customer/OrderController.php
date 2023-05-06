@@ -74,8 +74,9 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        if(auth()->user()->id !== $order->customer_id)
+        if (auth()->user()->id !== $order->customer_id) {
             abort(403);
+        }
 
         return OrderResource::make($order);
     }

@@ -24,18 +24,18 @@ class PasswordChangeController extends Controller
             'password' => ['required', 'confirmed', Password::min(8)->numbers()],
         ]);
 
-        if (!Hash::check($request->old_password, auth()->user()->password)) {
+        if (! Hash::check($request->old_password, auth()->user()->password)) {
             throw ValidationException::withMessages([
                 'error' => ['Wrong old password.'],
             ]);
         }
 
         auth()->user()->update([
-           'password' => $request->password
+            'password' => $request->password,
         ]);
 
         return response()->json([
-            'success' => 'Password changed'
+            'success' => 'Password changed',
         ], Response::HTTP_CREATED);
     }
 }

@@ -3,7 +3,6 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
@@ -34,8 +33,8 @@ class BalanceRechargedNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->subject('Пополнение баданса.')
-                    ->line('Вы пополнили свой баланс на сумму ' . $this->amount . '.');
+            ->subject('Пополнение баданса.')
+            ->line('Вы пополнили свой баланс на сумму '.$this->amount.'.');
     }
 
     /**

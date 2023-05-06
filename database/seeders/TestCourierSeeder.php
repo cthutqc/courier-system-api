@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\ContactInformation;
 use App\Models\Courier;
 use App\Models\PersonalInformation;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -27,7 +26,7 @@ class TestCourierSeeder extends Seeder
             'remember_token' => Str::random(10),
             'type' => 'courier',
             'active' => true,
-         ]);
+        ]);
 
         $courier->contact_information()->save(ContactInformation::factory()->create());
 

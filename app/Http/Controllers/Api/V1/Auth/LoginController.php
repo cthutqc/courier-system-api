@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+
 /**
  * @group Аутентификация
  */
@@ -25,11 +26,11 @@ class LoginController extends Controller
 
         $user = User::where('email', $request->email)->first();
 
-        if (!$user || !Hash::check($request->password, $user->password)) {
+        if (! $user || ! Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
                 'error' => ['Wrong credentials.'],
             ]);
-        } elseif(!$user->active) {
+        } elseif (! $user->active) {
             throw ValidationException::withMessages([
                 'error' => ['Inactive account.'],
             ]);

@@ -16,8 +16,9 @@ class IsCourier
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!Auth::user()->isCourier())
+        if (! Auth::user()->isCourier()) {
             abort(403);
+        }
 
         return $next($request);
     }

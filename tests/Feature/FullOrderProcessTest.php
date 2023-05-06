@@ -11,7 +11,6 @@ use App\Models\Partner;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class FullOrderProcessTest extends TestCase
@@ -73,22 +72,21 @@ class FullOrderProcessTest extends TestCase
 
         $order = Order::find($response['order']['id']);
 
-        echo 'Отправитель: ' . $order->sender->name . ' ' . $order->sender->last_name . ' адрес ' . $order->sender->address() . PHP_EOL;
+        echo 'Отправитель: '.$order->sender->name.' '.$order->sender->last_name.' адрес '.$order->sender->address().PHP_EOL;
 
-        echo 'Получатель: ' . $order->receiver->name . ' ' . $order->receiver->last_name . ' адрес ' .  $order->receiver->address() . PHP_EOL;
+        echo 'Получатель: '.$order->receiver->name.' '.$order->receiver->last_name.' адрес '.$order->receiver->address().PHP_EOL;
 
-        echo 'Заказ #'. $order->id .' отправлен на проверку админом в : ' . $order->created_at . PHP_EOL;
+        echo 'Заказ #'.$order->id.' отправлен на проверку админом в : '.$order->created_at.PHP_EOL;
 
         $admin = User::find(1);
 
-
-        $this->actingAs($admin)->putJson('api/v1/admin/orders/' . $order->id . '/accepted');
+        $this->actingAs($admin)->putJson('api/v1/admin/orders/'.$order->id.'/accepted');
 
         $order = Order::find(1);
 
         $order->setStatus(OrderStatus::ACCEPTED);
 
-        echo 'Заказ #'. $order->id .' одобрен админом в ' . $order->updated_at . PHP_EOL;
+        echo 'Заказ #'.$order->id.' одобрен админом в '.$order->updated_at.PHP_EOL;
 
         $courier = Courier::factory()->create();
 
@@ -107,30 +105,29 @@ class FullOrderProcessTest extends TestCase
             'passport_issued_date' => fake()->date('d.m.Y'),
         ]);
 
-
         $this->actingAs($courier)->getJson('api/v1/courier/orders?all=true');
 
-        $this->actingAs($courier)->putJson('api/v1/courier/orders/' . $order->id . '/start');
+        $this->actingAs($courier)->putJson('api/v1/courier/orders/'.$order->id.'/start');
 
         $order = Order::find(1);
 
-        echo 'Баланс заказчика до доставки ' . $customer->balance . PHP_EOL;
+        echo 'Баланс заказчика до доставки '.$customer->balance.PHP_EOL;
 
-        echo 'Баланс курьера до доставки ' . $courier->balance . PHP_EOL;
+        echo 'Баланс курьера до доставки '.$courier->balance.PHP_EOL;
 
-        echo 'Стоимость доставки ' . $order->price . PHP_EOL;
+        echo 'Стоимость доставки '.$order->price.PHP_EOL;
 
-        echo 'Заказ #'. $order->id .' начали доставлять в ' . $order->start_at . PHP_EOL;
+        echo 'Заказ #'.$order->id.' начали доставлять в '.$order->start_at.PHP_EOL;
 
-        $this->actingAs($courier)->putJson('api/v1/courier/orders/' . $order->id . '/stop');
+        $this->actingAs($courier)->putJson('api/v1/courier/orders/'.$order->id.'/stop');
 
         $order = Order::find(1);
 
-        echo 'Заказ #'. $order->id .' закончили доставлять в ' . $order->stop_at . PHP_EOL;
+        echo 'Заказ #'.$order->id.' закончили доставлять в '.$order->stop_at.PHP_EOL;
 
-        echo 'Баланс заказчика после доставки ' . $customer->balance . PHP_EOL;
+        echo 'Баланс заказчика после доставки '.$customer->balance.PHP_EOL;
 
-        echo 'Баланс курьера после доставки ' . $courier->balance . PHP_EOL;
+        echo 'Баланс курьера после доставки '.$courier->balance.PHP_EOL;
 
         dd();
     }

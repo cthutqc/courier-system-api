@@ -28,11 +28,11 @@ class OrderResource extends JsonResource
             'courier' => $this->courier ? CourierResource::make($this->courier->load('courier_location')) : null,
             'customer' => CustomerResource::make($this->customer),
             'desired_pick_up_date' => $this->desired_pick_up_date ? $this->desired_pick_up_date->toDateTimeString() : null,
-            'desired_delivery_date' => $this->desired_delivery_date? $this->desired_delivery_date->toDateTimeString() : null,
+            'desired_delivery_date' => $this->desired_delivery_date ? $this->desired_delivery_date->toDateTimeString() : null,
             'approximate_time' => $this->approximate_time,
             'remaining_time' => $this->approximate_time ? now()->diffInMinutes($this->approximate_time, false) : null,
             'start_at' => $this->start_at ? $this->start_at->toDateTimeString() : null,
-            'stop_at' => $this->stop_at ? $this->stop_at->toDateTimeString()  : null,
+            'stop_at' => $this->stop_at ? $this->stop_at->toDateTimeString() : null,
             'created_at' => $this->created_at->toDateTimeString(),
         ];
     }

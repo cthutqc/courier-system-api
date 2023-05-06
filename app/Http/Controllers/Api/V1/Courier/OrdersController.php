@@ -5,13 +5,11 @@ namespace App\Http\Controllers\Api\V1\Courier;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CourierOrderControllerShowResource;
 use App\Http\Resources\OrderListResource;
-use App\Http\Resources\OrderResource;
 use App\Models\Order;
 use App\Models\OrderStatus;
-use App\Models\Product;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+
 /**
  * @group Курьер
  *
@@ -24,8 +22,7 @@ class OrdersController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->all)
-        {
+        if ($request->all) {
             $orders = Order::query()
                 ->doesntHave('courier');
         } else {
@@ -45,10 +42,11 @@ class OrdersController extends Controller
      */
     public function show(Order $order)
     {
-        if(isset($order->courier_id) && $order->courier_id != auth()->user()->id)
+        if (isset($order->courier_id) && $order->courier_id != auth()->user()->id) {
             return response()->json([
                 'error' => 'You cannot see this order.',
             ], Response::HTTP_FORBIDDEN);
+        }
 
         return CourierOrderControllerShowResource::make($order);
     }
@@ -58,10 +56,11 @@ class OrdersController extends Controller
      */
     public function start(Order $order)
     {
-        if($order->status != OrderStatus::ACCEPTED)
+        if ($order->status != OrderStatus::ACCEPTED) {
             return response()->json([
                 'error' => 'You cannot start this order.',
             ], Response::HTTP_FORBIDDEN);
+        }
 
         $order->start();
 
@@ -75,10 +74,11 @@ class OrdersController extends Controller
      */
     public function stop(Order $order)
     {
-        if($order->status != OrderStatus::ON_DELIVERY)
+        if ($order->status != OrderStatus::ON_DELIVERY) {
             return response()->json([
                 'error' => 'You cannot finish this order.',
             ], Response::HTTP_FORBIDDEN);
+        }
 
         $order->stop();
 

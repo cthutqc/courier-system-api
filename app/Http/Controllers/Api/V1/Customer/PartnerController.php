@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\V1\Customer;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PartnerRequest;
 use App\Models\Partner;
-use Illuminate\Http\Request;
+
 /**
  * @group Заказчик
  *
@@ -33,7 +33,7 @@ class PartnerController extends Controller
         $partner->save();
 
         return response()->json([
-            'success' => 'Partner created.'
+            'success' => 'Partner created.',
         ]);
     }
 
@@ -53,7 +53,7 @@ class PartnerController extends Controller
         $partner->update($request->validated());
 
         return response()->json([
-            'success' => 'Partner updated.'
+            'success' => 'Partner updated.',
         ]);
     }
 
@@ -65,7 +65,7 @@ class PartnerController extends Controller
         $partner->delete();
 
         return response()->json([
-            'success' => 'Partner deleted.'
+            'success' => 'Partner deleted.',
         ]);
     }
 }

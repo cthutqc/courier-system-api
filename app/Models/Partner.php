@@ -14,7 +14,7 @@ class Partner extends Model
 
     protected $guarded = ['id'];
 
-    public function customer():BelongsTo
+    public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class, 'user_id');
     }
@@ -29,8 +29,8 @@ class Partner extends Model
         return $this->morphOne(Order::class, 'receiver');
     }
 
-    public function address():string
+    public function address(): string
     {
-        return $this->attributes['street'] . ', ' . $this->attributes['house'];
+        return $this->attributes['street'].', '.$this->attributes['house'];
     }
 }

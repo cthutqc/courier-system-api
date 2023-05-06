@@ -9,8 +9,11 @@ class PaymentStatus extends Model
 {
     use HasFactory;
 
-    const PENDING  = 'pending';
-    const PAID  = 'paid';
+    const PENDING = 'pending';
+
+    const PAID = 'paid';
+
     const CANCELLED = 'cancelled';
+
     const TIPS = 'tips';
 }

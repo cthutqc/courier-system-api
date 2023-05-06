@@ -12,13 +12,13 @@ class ContactInformation extends Model
 
     protected $guarded = ['id'];
 
-    public function user():BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function address():string
+    public function address(): string
     {
-        return $this->attributes['street'] . ', ' . $this->attributes['house'];
+        return $this->attributes['street'].', '.$this->attributes['house'];
     }
 }

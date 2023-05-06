@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
+
 /**
  * @group Аутентификация
  */
@@ -28,7 +28,7 @@ class PasswordResetController extends Controller
             $request->only(['token', 'email', 'password']),
             function (User $user, string $password) {
                 $user->forceFill([
-                    'password' => $password
+                    'password' => $password,
                 ])->setRememberToken(\Str::random(60));
 
                 $user->save();

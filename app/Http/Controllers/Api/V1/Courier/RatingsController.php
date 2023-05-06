@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 
 /**
  * @group Курьер
- *
  */
 class RatingsController extends Controller
 {

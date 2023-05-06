@@ -12,7 +12,7 @@ class Rating extends Model
 
     protected $guarded = ['id'];
 
-    public function users():BelongsTo
+    public function users(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

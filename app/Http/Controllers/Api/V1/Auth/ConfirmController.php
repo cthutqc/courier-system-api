@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers\Api\V1\Auth;
 
-use App\Events\AccountConfirmed;
 use App\Http\Controllers\Controller;
 use App\Models\ConfirmCode;
 use App\Notifications\AccountConfirmedNotification;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+
 /**
  * @group Аутентификация
  */
@@ -31,7 +30,7 @@ class ConfirmController extends Controller
             ->whereNull('last_used_at')
             ->first();
 
-        if(Hash::check($request->code, $code->code)) {
+        if (Hash::check($request->code, $code->code)) {
 
             $request->user()->update([
                 'active' => true,
@@ -41,8 +40,9 @@ class ConfirmController extends Controller
                 'last_used_at' => now(),
             ]);
 
-            if(app()->isProduction())
+            if (app()->isProduction()) {
                 $request->user()->notify(new AccountConfirmedNotification());
+            }
 
             return response()->json([
                 'success' => 'Account confirmed',

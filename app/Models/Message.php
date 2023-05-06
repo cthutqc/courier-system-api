@@ -12,12 +12,12 @@ class Message extends Model
 
     protected $guarded = ['id'];
 
-    public function conversation():BelongsTo
+    public function conversation(): BelongsTo
     {
         return $this->belongsTo(Conversation::class);
     }
 
-    public function user():BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

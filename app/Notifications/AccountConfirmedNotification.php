@@ -3,7 +3,6 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
@@ -35,8 +34,8 @@ class AccountConfirmedNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->subject('Ваш аккаунт успешно подтвежден.')
-                    ->line('Поздравляем. Вы успешно подтвердили аккаунт.');
+            ->subject('Ваш аккаунт успешно подтвежден.')
+            ->line('Поздравляем. Вы успешно подтвердили аккаунт.');
     }
 
     /**

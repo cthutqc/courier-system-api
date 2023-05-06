@@ -12,7 +12,7 @@ class CourierLocation extends Model
 
     protected $guarded = ['id'];
 
-    public function courier():BelongsTo
+    public function courier(): BelongsTo
     {
         return $this->belongsTo(User::class)->role('courier');
     }

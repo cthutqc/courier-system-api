@@ -2,14 +2,12 @@
 
 namespace App\Traits;
 
-use App\Models\Balance;
 use App\Models\OrderStatus;
-use App\Models\Transaction;
 use App\Services\PaymentService;
 
 trait Stopable
 {
-    public function stop():void
+    public function stop(): void
     {
         $this->update([
             'stop_at' => now(),

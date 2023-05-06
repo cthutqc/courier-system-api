@@ -16,19 +16,18 @@ class Product extends Model
 
     protected $dates = ['deleted_at'];
 
-    public function orders():HasMany
+    public function orders(): HasMany
     {
         return $this->hasMany(Order::class);
     }
 
-    public function product_prices():HasMany
+    public function product_prices(): HasMany
     {
         return $this->hasMany(ProductPrice::class);
     }
 
-    public function category():BelongsTo
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
-
 }

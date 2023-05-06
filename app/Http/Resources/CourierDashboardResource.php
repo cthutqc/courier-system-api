@@ -4,7 +4,6 @@ namespace App\Http\Resources;
 
 use App\Models\Courier;
 use App\Models\OrderStatus;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 

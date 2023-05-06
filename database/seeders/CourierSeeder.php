@@ -6,9 +6,7 @@ use App\Models\ContactInformation;
 use App\Models\Courier;
 use App\Models\PersonalInformation;
 use App\Models\Rating;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Nette\Utils\Random;
 
 class CourierSeeder extends Seeder
 {
@@ -17,7 +15,7 @@ class CourierSeeder extends Seeder
      */
     public function run(): void
     {
-        Courier::factory(10)->create()->each(function ($courier){
+        Courier::factory(10)->create()->each(function ($courier) {
 
             $courier->contact_information()->save(ContactInformation::factory()->create());
 

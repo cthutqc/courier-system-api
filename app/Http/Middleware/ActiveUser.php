@@ -16,7 +16,7 @@ class ActiveUser
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!Auth::user()->active) {
+        if (! Auth::user()->active) {
             return response()->json([
                 'errors' => ['general' => 'Inactive account.'],
             ], \Illuminate\Http\Response::HTTP_FORBIDDEN);

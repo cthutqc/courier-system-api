@@ -4,7 +4,6 @@ namespace App\Notifications;
 
 use App\Models\Order;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
@@ -35,8 +34,8 @@ class NewOrderCreatedNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->subject('Вы создали новый заказ #' . $this->order->id . '.')
-                    ->line('Как только заказ одобрят вы получите уведомление.');
+            ->subject('Вы создали новый заказ #'.$this->order->id.'.')
+            ->line('Как только заказ одобрят вы получите уведомление.');
     }
 
     /**

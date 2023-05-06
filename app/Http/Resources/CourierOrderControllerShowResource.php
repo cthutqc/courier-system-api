@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources;
 
-use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -28,7 +27,7 @@ class CourierOrderControllerShowResource extends JsonResource
             'approximate_time' => $this->approximate_time,
             'remaining_time' => $this->remainingTime(),
             'start_at' => $this->start_at ? $this->start_at->toDateTimeString() : null,
-            'stop_at' => $this->stop_at ? $this->stop_at->toDateTimeString()  : null,
+            'stop_at' => $this->stop_at ? $this->stop_at->toDateTimeString() : null,
             'created_at' => $this->created_at->toDateTimeString(),
         ];
     }

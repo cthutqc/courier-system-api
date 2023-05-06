@@ -11,8 +11,6 @@ use App\Models\PersonalInformation;
 use App\Models\Product;
 use App\Models\ProductPrice;
 use App\Models\Rate;
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CustomerSeeder extends Seeder
@@ -22,7 +20,7 @@ class CustomerSeeder extends Seeder
      */
     public function run(): void
     {
-        Customer::factory(10)->create()->each(function ($customer){
+        Customer::factory(10)->create()->each(function ($customer) {
 
             $customer->contact_information()->save(ContactInformation::factory()->create());
 

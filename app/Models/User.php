@@ -7,7 +7,6 @@ use App\Traits\FormattedInformation;
 use Bavix\Wallet\Interfaces\Wallet;
 use Bavix\Wallet\Traits\HasWallet;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -58,12 +57,12 @@ class User extends Authenticatable implements HasMedia, Wallet
         $this->attributes['password'] = Hash::make($value);
     }
 
-    public function personal_information():HasOne
+    public function personal_information(): HasOne
     {
         return $this->hasOne(PersonalInformation::class);
     }
 
-    public function contact_information():HasOne
+    public function contact_information(): HasOne
     {
         return $this->hasOne(ContactInformation::class);
     }
@@ -83,7 +82,7 @@ class User extends Authenticatable implements HasMedia, Wallet
         return $this->type === 'customer';
     }
 
-    public function address():string
+    public function address(): string
     {
         return $this->contact_information->address();
     }
