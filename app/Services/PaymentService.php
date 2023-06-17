@@ -19,12 +19,13 @@ class PaymentService
 
     }
 
+    public function withdraw():void
+    {
+
+    }
+
     public function tips(Order $order, $tips): void
     {
-        if ($order->customer->balance < $tips) {
-            throw new \Exception('Insufficient balance.');
-        }
-
         $order->customer->transfer($order->courier, $tips, new Extra(
             deposit: ['tips'],
             withdraw: new Option(meta: ['tips'], confirmed: false)
@@ -33,10 +34,6 @@ class PaymentService
 
     public function process(Order $order): void
     {
-        if ($order->customer->balance < $order->price) {
-            throw new \Exception('Insufficient balance.');
-        }
-
         $order->customer->transfer($order->courier, $order->price, new Extra(
             deposit: ['message' => 'deposit for order #'.$order->id],
             withdraw: new Option(meta: ['message' => 'withdraw for order #'.$order->id], confirmed: false)

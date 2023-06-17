@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Bavix\Wallet\Traits\CanPay;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
@@ -11,6 +12,15 @@ use Parental\HasParent;
 class Customer extends User implements \Bavix\Wallet\Interfaces\Customer
 {
     use HasFactory, HasParent, CanPay;
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        self::addGlobalScope(function (Builder $builder){
+            $builder->where('customer_id', auth()->id);
+        });
+    }
 
     public function orders(): HasMany
     {

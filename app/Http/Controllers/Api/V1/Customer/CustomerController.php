@@ -24,10 +24,6 @@ class CustomerController extends Controller
 
         $request->user()->contact_information()->create($request->only('region', 'city', 'street', 'house', 'flat'));
 
-        //$request->user()->addMedia($request->passport_photo_id)->toMediaCollection('passport_id');
-
-        // $request->user()->addMedia($request->passport_photo_address)->toMediaCollection('passport_address');
-
         return response()->json([
             'customer' => Customer::with('contact_information')->where('id', $request->user()->id)->first(),
             'success' => 'Customer profile created.',

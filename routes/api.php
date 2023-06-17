@@ -105,4 +105,4 @@ Route::post('auth/forgot', \App\Http\Controllers\Api\V1\Auth\PasswordForgotContr
 
 Route::post('auth/reset', \App\Http\Controllers\Api\V1\Auth\PasswordResetController::class);
 
-Route::get('qrcode', \App\Http\Controllers\QrGenerate::class);
+Route::get('qrcode', \App\Http\Controllers\Api\V1\QrGenerate::class);

@@ -29,7 +29,6 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         return OrderListResource::collection(Order::query()
-            ->where('customer_id', auth()->user()->id)
             ->filter($request)
             ->get());
     }
@@ -74,10 +73,6 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        if (auth()->user()->id !== $order->customer_id) {
-            abort(403);
-        }
-
         return OrderResource::make($order);
     }
 

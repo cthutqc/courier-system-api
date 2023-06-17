@@ -16,8 +16,8 @@ return new class extends Migration
 
             $table->integer('price')->default(0);
             $table->text('text')->nullable();
-            $table->foreignId('courier_id')->nullable()->references('id')->on('users')->constrained();
-            $table->foreignId('customer_id')->nullable()->references('id')->on('users')->constrained();
+            $table->foreignId('courier_id')->nullable();
+            $table->foreignId('customer_id')->nullable();
             $table->string('status')->default('created');
             $table->string('desired_pick_up_date')->nullable();
             $table->string('desired_delivery_date')->nullable();
